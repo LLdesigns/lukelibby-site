@@ -1,0 +1,387 @@
+/* ─── Scroll progress (brass trail) ─── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: var(--scroll-progress, 0%);
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-clay) 0%,
+    var(--color-brass) 45%,
+    var(--color-olive) 100%
+  );
+  box-shadow: 0 0 12px rgba(196, 154, 82, 0.45);
+  pointer-events: none;
+  transform-origin: left center;
+  transition: width 0.08s linear;
+}
+
+/* ─── Base reveal ─── */
+.scroll-reveal {
+  will-change: transform, opacity, filter;
+}
+
+.scroll-reveal--visible {
+  will-change: auto;
+}
+
+/* Rise */
+.scroll-reveal--rise {
+  opacity: 0;
+  transform: translateY(48px);
+}
+
+.scroll-reveal--visible.scroll-reveal--rise {
+  animation: reveal-rise 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Blur rise — hero headline */
+.scroll-reveal--blur-rise {
+  opacity: 0;
+  transform: translateY(36px) scale(0.97);
+  filter: blur(10px);
+}
+
+.scroll-reveal--visible.scroll-reveal--blur-rise {
+  animation: reveal-blur-rise 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Paper drop — field-note cards */
+.scroll-reveal--paper-drop {
+  opacity: 0;
+  transform: translateY(100px) rotate(-10deg) scale(0.88);
+  filter: blur(8px);
+  transform-origin: 50% 120%;
+}
+
+.scroll-reveal--visible.scroll-reveal--paper-drop {
+  animation: reveal-paper-drop 1.2s cubic-bezier(0.34, 1.35, 0.64, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Drift */
+.scroll-reveal--drift-left {
+  opacity: 0;
+  transform: translateX(-56px) translateY(20px);
+}
+
+.scroll-reveal--visible.scroll-reveal--drift-left {
+  animation: reveal-drift-left 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.scroll-reveal--drift-right {
+  opacity: 0;
+  transform: translateX(56px) translateY(20px) rotate(3deg);
+}
+
+.scroll-reveal--visible.scroll-reveal--drift-right {
+  animation: reveal-drift-right 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Unfurl — sections unfold */
+.scroll-reveal--unfurl {
+  opacity: 0;
+  transform: scaleY(0.6);
+  transform-origin: top center;
+  filter: blur(4px);
+}
+
+.scroll-reveal--visible.scroll-reveal--unfurl {
+  animation: reveal-unfurl 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Stamp — tags, buttons */
+.scroll-reveal--stamp {
+  opacity: 0;
+  transform: scale(0.6) rotate(-6deg);
+}
+
+.scroll-reveal--visible.scroll-reveal--stamp {
+  animation: reveal-stamp 0.7s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Hero brass sweep underline */
+.scroll-reveal--hero-sweep .hero-sweep-target {
+  position: relative;
+  display: inline-block;
+}
+
+.scroll-reveal--hero-sweep .hero-sweep-target::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15em;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(
+    90deg,
+    var(--color-olive),
+    var(--color-brass),
+    var(--color-clay)
+  );
+  border-radius: 1px;
+}
+
+.scroll-reveal--visible.scroll-reveal--hero-sweep .hero-sweep-target::after {
+  animation: reveal-brass-sweep 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--reveal-delay, 0ms) + 200ms);
+}
+
+/* Cascade — children stagger when parent reveals */
+.scroll-reveal--cascade .cascade-item {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.scroll-reveal--visible.scroll-reveal--cascade .cascade-item {
+  animation: reveal-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.scroll-reveal--visible.scroll-reveal--cascade .cascade-item:nth-child(1) {
+  animation-delay: calc(var(--reveal-delay, 0ms) + 0ms);
+}
+.scroll-reveal--visible.scroll-reveal--cascade .cascade-item:nth-child(2) {
+  animation-delay: calc(var(--reveal-delay, 0ms) + 80ms);
+}
+.scroll-reveal--visible.scroll-reveal--cascade .cascade-item:nth-child(3) {
+  animation-delay: calc(var(--reveal-delay, 0ms) + 160ms);
+}
+.scroll-reveal--visible.scroll-reveal--cascade .cascade-item:nth-child(4) {
+  animation-delay: calc(var(--reveal-delay, 0ms) + 240ms);
+}
+.scroll-reveal--visible.scroll-reveal--cascade .cascade-item:nth-child(5) {
+  animation-delay: calc(var(--reveal-delay, 0ms) + 320ms);
+}
+.scroll-reveal--visible.scroll-reveal--cascade .cascade-item:nth-child(6) {
+  animation-delay: calc(var(--reveal-delay, 0ms) + 400ms);
+}
+.scroll-reveal--visible.scroll-reveal--cascade .cascade-item:nth-child(7) {
+  animation-delay: calc(var(--reveal-delay, 0ms) + 480ms);
+}
+.scroll-reveal--visible.scroll-reveal--cascade .cascade-item:nth-child(8) {
+  animation-delay: calc(var(--reveal-delay, 0ms) + 560ms);
+}
+
+/* Section heading brass line */
+.scroll-reveal--section-line .section-heading__title {
+  position: relative;
+}
+
+.scroll-reveal--section-line .section-heading__title::after {
+  content: "";
+  display: block;
+  margin-top: var(--space-sm);
+  height: 2px;
+  width: 0;
+  background: linear-gradient(
+    90deg,
+    var(--color-brass),
+    var(--color-olive)
+  );
+  transition: none;
+}
+
+.scroll-reveal--visible.scroll-reveal--section-line .section-heading__title::after {
+  animation: reveal-brass-sweep 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Sticky note image peel when focus panel lands */
+.scroll-reveal--visible .focus-panel__note {
+  animation: reveal-sticky-peel 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--reveal-delay, 0ms) + 450ms);
+}
+
+.scroll-reveal:not(.scroll-reveal--visible) .focus-panel__note {
+  opacity: 0;
+  transform: rotate(-12deg) scale(0.85);
+}
+
+@media (max-width: 899px) {
+  .scroll-reveal:not(.scroll-reveal--visible) .focus-panel__note {
+    transform: translateX(50%) rotate(-12deg) scale(0.85);
+  }
+
+  .scroll-reveal--visible .focus-panel__note {
+    animation-name: reveal-sticky-peel-mobile;
+  }
+}
+
+/* Keyframes */
+@keyframes reveal-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-blur-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes reveal-paper-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) rotate(-10deg) scale(0.88);
+    filter: blur(8px);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  75% {
+    transform: translateY(-14px) rotate(calc(var(--reveal-rotate, 0deg) + 3deg))
+      scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--reveal-rotate, 0deg)) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes reveal-drift-left {
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes reveal-drift-right {
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes reveal-unfurl {
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes reveal-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-8deg);
+  }
+  70% {
+    transform: scale(1.08) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes reveal-brass-sweep {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes reveal-sticky-peel {
+  0% {
+    opacity: 0;
+    transform: rotate(-14deg) scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-2deg) scale(1) translateY(0);
+  }
+}
+
+@keyframes reveal-sticky-peel-mobile {
+  0% {
+    opacity: 0;
+    transform: translateX(50%) rotate(-14deg) scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(50%) rotate(-2deg) scale(1) translateY(0);
+  }
+}
+
+/* Layout helpers for animated wrappers */
+.hero-actions .scroll-reveal--stamp {
+  display: inline-flex;
+}
+
+.skill-tags.scroll-reveal--cascade {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-tags .cascade-item {
+  display: inline-block;
+}
+
+.grid-work > .scroll-reveal {
+  height: 100%;
+}
+
+.grid-work > .scroll-reveal > .case-card {
+  height: 100%;
+}
+
+.grid-values > .scroll-reveal {
+  height: 100%;
+}
+
+.cs-impact .cascade-item {
+  position: relative;
+  padding-left: var(--space-lg);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    display: none;
+  }
+
+  .scroll-reveal,
+  .scroll-reveal--visible {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+
+  .scroll-reveal--cascade .cascade-item {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .scroll-reveal--hero-sweep .hero-sweep-target::after,
+  .scroll-reveal--section-line .section-heading__title::after {
+    width: 100% !important;
+    animation: none !important;
+  }
+
+  .focus-panel__note {
+    opacity: 1 !important;
+    transform: rotate(-2deg) !important;
+    animation: none !important;
+  }
+
+  @media (max-width: 899px) {
+    .focus-panel__note {
+      transform: translateX(50%) rotate(-2deg) !important;
+    }
+  }
+}
