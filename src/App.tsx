@@ -39,7 +39,7 @@ function LegacyBrandSystemRedirect() {
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <GridBackdrop />
         <EffectsLayer />
         <PaperLiftReveal />

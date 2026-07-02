@@ -3,6 +3,7 @@ import type {
   ButtonHTMLAttributes,
   ReactNode,
 } from 'react'
+import { withBasePath } from '../utils/basePath'
 
 type Variant = 'primary' | 'secondary' | 'paper' | 'brass'
 
@@ -30,7 +31,7 @@ export function Button({
   if ('href' in props && props.href) {
     const { href, ...rest } = props as ButtonAsLink
     return (
-      <a className={classes} href={href} {...rest}>
+      <a className={classes} href={withBasePath(href)} {...rest}>
         {children}
       </a>
     )

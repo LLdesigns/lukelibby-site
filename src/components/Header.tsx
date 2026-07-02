@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { navLinks } from '../data/skills'
+import { withBasePath } from '../utils/basePath'
 import { ThemeBlock } from './ThemeBlock'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -19,7 +20,7 @@ export function Header() {
               if (link.href.startsWith('#')) {
                 return (
                   <li key={link.label}>
-                    <a href={`/${link.href}`}>{link.label}</a>
+                    <a href={withBasePath(link.href)}>{link.label}</a>
                   </li>
                 )
               }
@@ -40,7 +41,7 @@ export function Header() {
           <div className="header__actions">
             <ThemeToggle />
             <a
-              href="/resume.pdf"
+              href={withBasePath('/resume.pdf')}
               download="Luke-Libby-Resume.pdf"
               className="btn btn--brass"
             >
