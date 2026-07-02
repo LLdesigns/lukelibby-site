@@ -57,6 +57,40 @@
   letter-spacing: var(--tracking-label);
 }
 
+.header__link {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.2rem;
+  color: var(--color-text-muted-on-dark);
+  transition: color 0.15s ease;
+}
+
+.header__link:hover {
+  color: var(--color-text-on-dark);
+}
+
+.header__link.is-active {
+  color: var(--color-text-on-dark);
+}
+
+.header__link.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-brass) 18%,
+    var(--color-brass) 82%,
+    transparent 100%
+  );
+  opacity: 0.9;
+}
+
 .header__actions {
   display: flex;
   align-items: center;

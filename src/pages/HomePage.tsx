@@ -12,6 +12,9 @@ import {
   workPositioningLine,
 } from '../data/work'
 import { builderNoteTags, builderNotesParagraphs, valueBlocks } from '../data/skills'
+import { withBasePath } from '../utils/basePath'
+
+const profilePhotoSrc = withBasePath('/images/luke-libby.png')
 
 export function HomePage() {
   return (
@@ -103,18 +106,32 @@ export function HomePage() {
             <SectionHeading title="About Me" headingId="about-heading" />
           </ScrollReveal>
           <ScrollReveal variant="rise" delay={120}>
-            <div className="builder-notes-copy">
-              {builderNotesParagraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+            <div className="about-section">
+              <figure className="about-section__portrait">
+                <img
+                  src={profilePhotoSrc}
+                  alt="Luke Libby wearing an orange cap and plaid shirt"
+                  width={176}
+                  height={220}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div className="about-section__body">
+                <div className="builder-notes-copy">
+                  {builderNotesParagraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                <div className="skill-tags">
+                  {builderNoteTags.map((skill) => (
+                    <Tag key={skill} variant="dark">
+                      {skill}
+                    </Tag>
+                  ))}
+                </div>
+              </div>
             </div>
-          </ScrollReveal>
-          <ScrollReveal variant="cascade" className="skill-tags" delay={80}>
-            {builderNoteTags.map((skill) => (
-              <span key={skill} className="cascade-item">
-                <Tag variant="dark">{skill}</Tag>
-              </span>
-            ))}
           </ScrollReveal>
         </ThemeBlock>
       </section>

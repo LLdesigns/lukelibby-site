@@ -264,6 +264,46 @@ p {
   margin-top: var(--space-md);
 }
 
+.about-section {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.about-section__portrait {
+  margin: 0;
+  width: min(100%, 11rem);
+  justify-self: center;
+}
+
+.about-section__portrait img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-paper);
+}
+
+.about-section__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 720px) {
+  .about-section {
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    gap: clamp(1.75rem, 4vw, 2.75rem);
+  }
+
+  .about-section__portrait {
+    justify-self: start;
+  }
+}
+
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
