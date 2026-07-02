@@ -1,0 +1,43 @@
+.bs-page--terrapin {
+  --terrapin-orange: #ff8a1f;
+  --terrapin-slate: #2f3a3b;
+  --terrapin-paper: #fafaf8;
+}
+
+.terrapin-overview-logo {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.bs-canvas--terrapin-board .bs-canvas__stage {
+  min-height: clamp(18rem, 52vw, 36rem);
+  border-color: var(--color-border);
+  background: var(--terrapin-paper);
+  background-image: none;
+}
+
+.bs-canvas--terrapin-board .bs-canvas__image {
+  object-fit: contain;
+  object-position: top center;
+  background: var(--terrapin-paper);
+}
+
+.terrapin-card-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 8.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: inherit;
+  background: #fff;
+}
+
+.terrapin-card-thumb__logo {
+  display: block;
+  width: 100%;
+  max-height: 5.5rem;
+  object-fit: contain;
+}

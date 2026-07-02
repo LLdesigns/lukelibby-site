@@ -7,6 +7,7 @@ import { ExperienceAccordion } from '../components/resume/ExperienceAccordion'
 import { ProjectsExplorer } from '../components/resume/ProjectsExplorer'
 import { EducationTimeline } from '../components/resume/EducationTimeline'
 import { ScrollReveal } from '../components/ScrollReveal'
+import { ThemeBlock } from '../components/ThemeBlock'
 import {
   additionalStrengths,
   resumeSections,
@@ -27,6 +28,7 @@ export function ResumePage() {
     <main className="resume-page">
       <div className="container resume-page__layout">
         <aside className="resume-page__sidebar">
+          <ThemeBlock>
           <ScrollReveal variant="drift-left" immediate>
             <Link className="resume-back" to="/">
               ← Back to Home
@@ -38,6 +40,7 @@ export function ResumePage() {
               onNavigate={scrollToSection}
             />
           </ScrollReveal>
+          </ThemeBlock>
         </aside>
 
         <div className="resume-page__main">

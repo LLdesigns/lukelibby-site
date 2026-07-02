@@ -1,14 +1,14 @@
-import type { CaseStudyArtifact } from '../../data/caseStudies'
+import type { StoryArtifact } from '../../data/productStories'
 import { ScrollReveal } from '../ScrollReveal'
 import { CaseStudyVisual } from './CaseStudyVisual'
 import { ProblemFlowDiagram } from './ProblemFlowDiagram'
 import { SanitizedExampleBlock } from './SanitizedExampleBlock'
 
 type ArtifactGridProps = {
-  artifacts: CaseStudyArtifact[]
+  artifacts: StoryArtifact[]
 }
 
-function ArtifactVisual({ artifact }: { artifact: CaseStudyArtifact }) {
+function ArtifactVisual({ artifact }: { artifact: StoryArtifact }) {
   if (artifact.variant === 'problem-flow') {
     return (
       <ProblemFlowDiagram
@@ -52,7 +52,7 @@ export function ArtifactGrid({ artifacts }: ArtifactGridProps) {
         Visual Artifacts
       </h2>
       <p className="cs-artifacts__note">
-        Sanitized diagrams and wireframes — not the original proprietary prototype.
+        Sanitized diagrams and wireframes, not the original proprietary product.
       </p>
       <div className="cs-artifacts__grid">
         {artifacts.map((artifact, index) => {

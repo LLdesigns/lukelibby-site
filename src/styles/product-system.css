@@ -7,6 +7,38 @@
   max-width: 42rem;
 }
 
+.ps-page .cs-field-notes .cs-field-notes__list {
+  gap: var(--space-lg);
+}
+
+.ps-page .cs-field-notes__step > .cs-field-notes__num {
+  grid-row: 1 / -1;
+}
+
+.ps-page .cs-field-notes__step > .cs-field-notes__step-title,
+.ps-page .cs-field-notes__step > .cs-field-notes__step-body {
+  grid-column: 2;
+}
+
+.ps-app-structure .cs-section-label {
+  margin-bottom: var(--space-md);
+  border-bottom-color: var(--color-border);
+}
+
+.ps-app-structure__figure {
+  margin: 0;
+  padding: 0;
+}
+
+.ps-app-structure__figure .cs-visual-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-elevated);
+}
+
 .ps-system-note {
   margin: var(--space-lg) 0;
   max-width: 42rem;

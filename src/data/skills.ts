@@ -16,6 +16,11 @@ export const builderNoteTags = [
   'Supabase',
 ] as const
 
+export const builderNotesParagraphs = [
+  'I’m a creative technologist with a background in design, technical content, photography, video, adventure enthusiast, and hands-on product building. My work sits at the intersection of interface design, systems thinking, and prototyping, with a focus on making complex ideas easier to understand.',
+  'Outside of work, I’m usually exploring somewhere outdoors - backpacking, overlanding, biking, camping, or looking for the next place that requires a map.',
+] as const
+
 export const valueBlocks = [
   {
     title: 'Design + Systems',

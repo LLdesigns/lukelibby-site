@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom'
+import type { CSSProperties } from 'react'
 import type { WorkItem } from '../../data/work'
 import { Tag } from '../Tag'
 import { WorkCardVisual } from './WorkCardVisual'
 
 type LibraryWorkCardProps = {
   item: WorkItem
+  revealDelay?: number
 }
 
-export function LibraryWorkCard({ item }: LibraryWorkCardProps) {
+export function LibraryWorkCard({ item, revealDelay = 0 }: LibraryWorkCardProps) {
+  const liftStyle = {
+    '--lift-delay': `${revealDelay}ms`,
+  } as CSSProperties
+
   const content = (
     <>
       <WorkCardVisual
@@ -34,6 +40,8 @@ export function LibraryWorkCard({ item }: LibraryWorkCardProps) {
       <Link
         to={item.href}
         className="work-card work-card--library"
+        data-paper-lift
+        style={liftStyle}
         aria-label={`${item.ctaLabel}: ${item.title}`}
       >
         {content}

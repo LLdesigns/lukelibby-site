@@ -1,17 +1,14 @@
 import { Link } from 'react-router-dom'
+import { ThemeBlock } from '../components/ThemeBlock'
 import { FeaturedProjectCard } from '../components/work/FeaturedProjectCard'
-import { LibraryWorkCard } from '../components/work/LibraryWorkCard'
 import { ProjectSystemCard } from '../components/work/ProjectSystemCard'
-import { SelectedWorkCard } from '../components/work/SelectedWorkCard'
 import { WorkSection } from '../components/work/WorkSection'
 import { ScrollReveal } from '../components/ScrollReveal'
 import { Button } from '../components/Button'
 import {
-  caseStudies,
+  productStories,
   productSystems,
   sectionIntros,
-  selectedWork,
-  workLibrary,
   workPageIntro,
   workPositioningLine,
 } from '../data/work'
@@ -19,8 +16,11 @@ import {
 export function WorkPage() {
   return (
     <main className="work-page">
-      <section className="section section--hero work-page__hero" aria-labelledby="work-page-heading">
-        <div className="container">
+      <section
+        className="section section--hero work-page__hero"
+        aria-labelledby="work-page-heading"
+      >
+        <ThemeBlock className="container">
           <ScrollReveal variant="drift-left" immediate>
             <Link className="work-page__back" to="/">
               ← Home
@@ -37,87 +37,51 @@ export function WorkPage() {
           <ScrollReveal variant="blur-rise" immediate delay={240}>
             <p className="work-page__intro">{workPageIntro}</p>
           </ScrollReveal>
-        </div>
+        </ThemeBlock>
       </section>
 
       <WorkSection
-        id="case-studies"
-        title="Case Studies"
-        intro={sectionIntros.caseStudies}
+        id="product-stories"
+        title="Product Stories"
+        intro={sectionIntros.productStories}
         variant="paper"
       >
-        <div className="work-grid work-grid--case-studies">
-          {caseStudies.map((item, index) => (
-            <ScrollReveal
+        <div className="work-grid work-grid--stories">
+          {productStories.map((item, index) => (
+            <FeaturedProjectCard
               key={item.id}
-              variant="paper-drop"
-              delay={index * 100}
-              rotate={index % 2 === 0 ? -1.5 : 1.5}
-            >
-              <FeaturedProjectCard item={item} />
-            </ScrollReveal>
+              item={item}
+              revealDelay={index * 100}
+            />
           ))}
         </div>
       </WorkSection>
 
       <WorkSection
-        id="product-systems"
-        title="Product Systems"
+        id="brand-systems"
+        title="Brand & Interface Systems"
         intro={sectionIntros.productSystems}
         variant="dark"
       >
         <div className="work-grid work-grid--systems">
           {productSystems.map((item, index) => (
-            <ScrollReveal key={item.id} variant="rise" delay={index * 80}>
-              <ProjectSystemCard item={item} />
-            </ScrollReveal>
-          ))}
-        </div>
-      </WorkSection>
-
-      <WorkSection
-        id="selected-work"
-        title="Selected Work"
-        intro={sectionIntros.selectedWork}
-        variant="paper"
-      >
-        <div className="work-grid work-grid--selected">
-          {selectedWork.map((item, index) => (
-            <ScrollReveal
+            <ProjectSystemCard
               key={item.id}
-              variant="paper-drop"
-              delay={index * 90}
-              rotate={(index % 2 === 0 ? -1 : 1) * 1.25}
-            >
-              <SelectedWorkCard item={item} />
-            </ScrollReveal>
-          ))}
-        </div>
-      </WorkSection>
-
-      <WorkSection
-        id="work-library"
-        title="Work Library"
-        intro={sectionIntros.workLibrary}
-        variant="dark"
-      >
-        <div className="work-grid work-grid--library">
-          {workLibrary.map((item, index) => (
-            <ScrollReveal key={item.id} variant="rise" delay={index * 50}>
-              <LibraryWorkCard item={item} />
-            </ScrollReveal>
+              item={item}
+              revealDelay={index * 80}
+            />
           ))}
         </div>
       </WorkSection>
 
       <section className="section work-page__footer-cta">
-        <div className="container">
+        <ThemeBlock className="container">
           <ScrollReveal variant="rise">
             <Button variant="secondary" href="/resume">
               View Resume
             </Button>
           </ScrollReveal>
-        </div>
+        </ThemeBlock>
       </section>
     </main>
   )

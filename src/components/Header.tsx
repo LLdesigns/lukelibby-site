@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { navLinks } from '../data/skills'
+import { ThemeBlock } from './ThemeBlock'
 import { ThemeToggle } from './ThemeToggle'
 
 export function Header() {
   return (
     <header className="header">
-      <div className="container header__inner">
+      <ThemeBlock className="container header__inner">
         <Link to="/" className="header__brand">
           <span className="header__name">LUKE LIBBY</span>
           <span className="header__subtitle">
@@ -47,7 +48,7 @@ export function Header() {
             </a>
           </div>
         </nav>
-      </div>
+      </ThemeBlock>
     </header>
   )
 }

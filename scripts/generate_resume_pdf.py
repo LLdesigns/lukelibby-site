@@ -130,7 +130,7 @@ def build():
     )
 
     pdf.section("Selected Projects")
-    pdf.bullet("Nutriant - AI kitchen/compliance platform (Founder)")
+    pdf.bullet("WyldTracks - AI wildlife field journal (Founder)")
     pdf.bullet("GearTraxx - outdoor gear tracking and maintenance (Founder)")
 
     pdf.section("Education")

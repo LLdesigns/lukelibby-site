@@ -13,9 +13,9 @@ export const resumeMeta = {
 
 export const resumeSummary = `Creative technologist and product builder with ten-plus years at Pluralsight and freelance work across AI systems, video production, hands-on labs, and practical software.
 
-I build internal tools and AI workflows for video teams — automating busywork, enforcing quality standards, and making production faster without cutting corners. Before that I designed AI-assisted lab pipelines, wrote 60+ hands-on technical labs, and ran cross-functional production from concept to publish.
+I build internal tools and AI workflows for video teams, automating busywork, enforcing quality standards, and making production faster without cutting corners. Before that I designed AI-assisted lab pipelines, wrote 60+ hands-on technical labs, and ran cross-functional production from concept to publish.
 
-I care about strong UX, outdoor culture, and education — and I like building tools that help people tackle hard problems with more confidence.`
+I care about strong UX, outdoor culture, and education, and I like building tools that help people tackle hard problems with more confidence.`
 
 export type ResumeSectionId =
   | 'summary'
@@ -108,7 +108,7 @@ export const experience = [
     company: 'Pluralsight',
     period: 'Jan 2026 – Present · Remote',
     intro:
-      'Building internal systems and AI tooling for video teams — automating workflows, enforcing quality standards, and speeding up production.',
+      'Building internal systems and AI tooling for video teams, automating workflows, enforcing quality standards, and speeding up production.',
     contributions: [
       'Design and develop internal video production tools for cross-functional teams.',
       'Build AI-assisted workflows and MCPs for review, QC, and delivery.',
@@ -240,29 +240,31 @@ export const experience = [
 
 export const independentProjects = [
   {
-    id: 'nutriant',
-    title: 'Nutriant',
-    subtitle: 'AI Kitchen Management Platform',
-    role: 'Founder / Product Designer / System Architect',
-    href: '/case-studies/nutriant',
+    id: 'wyldtracks',
+    title: 'WyldTracks',
+    subtitle: 'AI Wildlife Field Journal',
+    role: 'Founder / Product Designer / Full-Stack Builder',
+    href: '/stories/wyldtracks',
+    liveUrl: 'https://www.wyldtracks.com',
     description:
-      'Designed and architected an AI-powered meal planning and compliance platform focused on regulated kitchens such as daycare centers and senior living organizations.',
+      'Built a private-alpha AI wildlife field journal where users photograph animals and signs, review evidence-backed identifications checked against GBIF, and save observations to a personal journal.',
     highlights: [
-      'AI-powered meal planning assistant',
-      'Compliance ingestion and rule systems',
-      'Nutrition analysis engines',
-      'Recipe and ingredient management',
-      'Workspace-driven AI interface',
-      'Multi-tenant SaaS architecture',
-      'Human-in-the-loop compliance review systems',
+      'Structured AI analysis contract with candidates and field marks',
+      'GBIF taxonomy and occurrence validation in Edge Functions',
+      'Wildlife Dossier detail UX for reviewable observations',
+      'Private journal with search, filters, and signed image URLs',
+      'Alpha feedback board and feature voting',
+      'AI cost tracking for admin visibility',
+      'Live deployment at wyldtracks.com',
     ],
     technologies: [
       'React',
-      'FastAPI',
-      'PostgreSQL',
-      'Supabase Auth',
-      'AI orchestration',
-      'Design systems',
+      'TypeScript',
+      'Supabase',
+      'Edge Functions',
+      'OpenAI Vision',
+      'GBIF API',
+      'Leaflet',
     ],
   },
   {
@@ -271,7 +273,7 @@ export const independentProjects = [
     subtitle: 'Outdoor Gear Tracking Platform',
     role: 'Founder / Product Designer',
     description:
-      'Designed a consumer-focused platform for tracking outdoor gear, maintenance schedules, warranties, and usage analytics—aligned with an outdoor enthusiast mindset.',
+      'Designed a consumer-focused platform for tracking outdoor gear, maintenance schedules, warranties, and usage analytics, aligned with an outdoor enthusiast mindset.',
     highlights: [
       'Gear organization systems',
       'Maintenance tracking',
@@ -305,7 +307,7 @@ export const education = [
   {
     id: 'ocu',
     school: 'Oklahoma Christian University',
-    degree: 'Bachelor of Arts — Animation & Game Design',
+    degree: 'Bachelor of Arts, Animation & Game Design',
     period: '2014 – 2016',
     gpa: '3.6',
     honors: "Dean's Award, Department of Art & Design",
@@ -314,7 +316,7 @@ export const education = [
     id: 'noc',
     school: 'Northern Oklahoma College',
     degree:
-      'Associate of Applied Science — Animation, Interactive Technology, Video Graphics & Special Effects',
+      'Associate of Applied Science, Animation, Interactive Technology, Video Graphics & Special Effects',
     period: '2012 – 2014',
     gpa: '3.8',
     honors: "Dean's Award",
@@ -322,7 +324,7 @@ export const education = [
   {
     id: 'tctc',
     school: 'Tri County Technology Center',
-    degree: 'Certification — Architectural Drafting & CAD/CADD',
+    degree: 'Certification, Architectural Drafting & CAD/CADD',
     period: '',
     gpa: '3.9',
     honors: '',
@@ -330,7 +332,7 @@ export const education = [
 ] as const
 
 export const additionalStrengths = [
-  'Entrepreneur mindset — builds products that help people tackle hard problems',
+  'Entrepreneur mindset, builds products that help people tackle hard problems',
   'Outdoor enthusiast; designs tools that build confidence on new ground',
   'Bridges technical, creative, and production teams across remote collaboration',
   'Experienced public presenter, workshop facilitator, and author coach',

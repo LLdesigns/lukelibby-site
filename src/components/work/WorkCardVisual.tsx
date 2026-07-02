@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { ImagePlaceholder } from '../ImagePlaceholder'
 
 type WorkCardVisualProps = {
@@ -6,6 +7,7 @@ type WorkCardVisualProps = {
   imageAlt?: string
   className?: string
   compact?: boolean
+  children?: ReactNode
 }
 
 export function WorkCardVisual({
@@ -14,10 +16,15 @@ export function WorkCardVisual({
   imageAlt,
   className = '',
   compact = false,
+  children,
 }: WorkCardVisualProps) {
   const classes = ['work-card__visual', compact && 'work-card__visual--compact', className]
     .filter(Boolean)
     .join(' ')
+
+  if (children) {
+    return <div className={classes}>{children}</div>
+  }
 
   if (imageSrc) {
     return (

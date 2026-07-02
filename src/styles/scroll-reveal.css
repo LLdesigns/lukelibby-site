@@ -38,7 +38,7 @@
   animation-delay: var(--reveal-delay, 0ms);
 }
 
-/* Blur rise — hero headline */
+/* Blur rise, hero headline */
 .scroll-reveal--blur-rise {
   opacity: 0;
   transform: translateY(36px) scale(0.97);
@@ -50,7 +50,7 @@
   animation-delay: var(--reveal-delay, 0ms);
 }
 
-/* Paper drop — field-note cards */
+/* Paper drop, field-note cards */
 .scroll-reveal--paper-drop {
   opacity: 0;
   transform: translateY(100px) rotate(-10deg) scale(0.88);
@@ -84,7 +84,7 @@
   animation-delay: var(--reveal-delay, 0ms);
 }
 
-/* Unfurl — sections unfold */
+/* Unfurl, sections unfold */
 .scroll-reveal--unfurl {
   opacity: 0;
   transform: scaleY(0.6);
@@ -97,7 +97,7 @@
   animation-delay: var(--reveal-delay, 0ms);
 }
 
-/* Stamp — tags, buttons */
+/* Stamp, tags, buttons */
 .scroll-reveal--stamp {
   opacity: 0;
   transform: scale(0.6) rotate(-6deg);
@@ -135,7 +135,7 @@
   animation-delay: calc(var(--reveal-delay, 0ms) + 200ms);
 }
 
-/* Cascade — children stagger when parent reveals */
+/* Cascade, children stagger when parent reveals */
 .scroll-reveal--cascade .cascade-item {
   opacity: 0;
   transform: translateY(24px);
@@ -196,7 +196,7 @@
 
 /* Sticky note image peel when focus panel lands */
 .scroll-reveal--visible .focus-panel__note {
-  animation: reveal-sticky-peel 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: reveal-sticky-peel 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: calc(var(--reveal-delay, 0ms) + 450ms);
 }
 

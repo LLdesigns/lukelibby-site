@@ -1,3 +1,4 @@
+import { ThemeBlock } from '../components/ThemeBlock'
 import { FeaturedProjectCard } from '../components/work/FeaturedProjectCard'
 import { FocusPanel } from '../components/FocusPanel'
 import { ScrollReveal } from '../components/ScrollReveal'
@@ -6,11 +7,11 @@ import { Tag } from '../components/Tag'
 import { ValueCard } from '../components/ValueCard'
 import { Button } from '../components/Button'
 import {
-  homepageFeaturedCaseStudies,
+  homepageFeaturedStories,
   workPageIntro,
   workPositioningLine,
 } from '../data/work'
-import { builderNoteTags, valueBlocks } from '../data/skills'
+import { builderNoteTags, builderNotesParagraphs, valueBlocks } from '../data/skills'
 
 export function HomePage() {
   return (
@@ -19,7 +20,7 @@ export function HomePage() {
         className="section section--hero"
         aria-labelledby="hero-heading"
       >
-        <div className="container grid-hero">
+        <ThemeBlock className="container grid-hero">
           <div className="hero-copy">
             <ScrollReveal variant="drift-left" immediate delay={0}>
               <p className="hero-label">Field Notes / Digital Builder</p>
@@ -28,7 +29,8 @@ export function HomePage() {
             <ScrollReveal variant="hero-sweep" immediate delay={100}>
               <h1 id="hero-heading" className="hero-headline">
                 <span className="hero-sweep-target">
-                  I build useful tools for messy work.
+                  I build useful (beautiful){' '}
+                  <span className="hero-headline__accent">tools</span> for messy work.
                 </span>
               </h1>
             </ScrollReveal>
@@ -59,7 +61,7 @@ export function HomePage() {
           >
             <FocusPanel />
           </ScrollReveal>
-        </div>
+        </ThemeBlock>
       </section>
 
       <section
@@ -67,7 +69,7 @@ export function HomePage() {
         className="section section--paper"
         aria-labelledby="work-heading"
       >
-        <div className="container">
+        <ThemeBlock className="container">
           <ScrollReveal
             variant="unfurl"
             className="scroll-reveal--section-line"
@@ -79,15 +81,12 @@ export function HomePage() {
             <p className="work-preview__intro">{workPageIntro}</p>
           </ScrollReveal>
           <div className="work-grid work-grid--preview">
-            {homepageFeaturedCaseStudies.map((item, index) => (
-              <ScrollReveal
+            {homepageFeaturedStories.map((item, index) => (
+              <FeaturedProjectCard
                 key={item.id}
-                variant="paper-drop"
-                delay={index * 120}
-                rotate={index % 2 === 0 ? -1.5 : 1.5}
-              >
-                <FeaturedProjectCard item={item} />
-              </ScrollReveal>
+                item={item}
+                revealDelay={index * 120}
+              />
             ))}
           </div>
           <ScrollReveal variant="stamp" delay={200} className="work-preview__actions">
@@ -95,20 +94,20 @@ export function HomePage() {
               View All Work
             </Button>
           </ScrollReveal>
-        </div>
+        </ThemeBlock>
       </section>
 
       <section id="about" className="section" aria-labelledby="about-heading">
-        <div className="container">
+        <ThemeBlock className="container">
           <ScrollReveal variant="unfurl" className="scroll-reveal--section-line">
-            <SectionHeading title="Builder Notes" />
+            <SectionHeading title="About Me" headingId="about-heading" />
           </ScrollReveal>
           <ScrollReveal variant="rise" delay={120}>
-            <p className="builder-notes-copy">
-              Design thinker. Workflow fixer. AI experimenter. Comfortable in
-              Figma, React, FlutterFlow, Supabase, technical content, video
-              tooling, and weird ambiguous problems.
-            </p>
+            <div className="builder-notes-copy">
+              {builderNotesParagraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
           </ScrollReveal>
           <ScrollReveal variant="cascade" className="skill-tags" delay={80}>
             {builderNoteTags.map((skill) => (
@@ -117,11 +116,11 @@ export function HomePage() {
               </span>
             ))}
           </ScrollReveal>
-        </div>
+        </ThemeBlock>
       </section>
 
       <section className="section section--paper" aria-label="Approach">
-        <div className="container">
+        <ThemeBlock className="container">
           <div className="grid-values">
             {valueBlocks.map((block, index) => (
               <ScrollReveal
@@ -137,7 +136,7 @@ export function HomePage() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
+        </ThemeBlock>
       </section>
     </main>
   )

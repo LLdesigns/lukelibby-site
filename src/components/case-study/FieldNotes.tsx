@@ -1,15 +1,15 @@
-import type { FieldNoteStep } from '../../data/caseStudies'
+import type { ProcessStep } from '../../data/productStories'
 import { ScrollReveal } from '../ScrollReveal'
 
 type FieldNotesProps = {
-  steps: FieldNoteStep[]
+  steps: ProcessStep[]
 }
 
 export function FieldNotes({ steps }: FieldNotesProps) {
   return (
     <section className="cs-field-notes" aria-labelledby="field-notes-heading">
       <h2 id="field-notes-heading" className="cs-section-title">
-        Field Notes / Process
+        How I Worked Through It
       </h2>
       <ol className="cs-field-notes__list">
         {steps.map((step, index) => (

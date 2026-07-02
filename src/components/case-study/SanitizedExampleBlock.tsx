@@ -1,4 +1,4 @@
-import type { SanitizedSlideExample } from '../../data/caseStudies'
+import type { SanitizedSlideExample } from '../../data/productStories'
 
 type SanitizedExampleBlockProps = {
   example: SanitizedSlideExample

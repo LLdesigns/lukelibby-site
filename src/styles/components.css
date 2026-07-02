@@ -6,6 +6,10 @@
   background-color: var(--header-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease;
 }
 
 .header__inner {
@@ -138,12 +142,13 @@
 }
 
 .btn--secondary {
-  background-color: transparent;
+  background-color: var(--color-bg-elevated);
   color: var(--color-text-on-dark);
   border-color: var(--color-border);
 }
 
 .btn--secondary:hover {
+  background-color: var(--color-bg-elevated);
   border-color: var(--color-brass);
   color: var(--color-brass);
 }
@@ -192,8 +197,9 @@
   color: var(--color-text-on-dark);
 }
 
+/* Paper-band sections use elevated surface, not literal paper — inherit on-dark text */
 .section-heading--paper .section-heading__title {
-  color: var(--color-text-on-paper);
+  color: var(--color-text-on-dark);
 }
 
 /* Tag */
@@ -232,7 +238,7 @@
   letter-spacing: 0.06em;
 }
 
-/* Case study card — entire card is clickable */
+/* Case study card, entire card is clickable */
 .case-card {
   display: flex;
   flex-direction: column;
@@ -251,10 +257,15 @@
     border-color 0.15s ease;
 }
 
-.case-card:hover {
+.case-card:not([data-paper-lift]):hover {
   color: var(--color-text-on-paper);
   transform: translateY(-2px);
   box-shadow: var(--shadow-paper), 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: var(--color-clay);
+}
+
+.case-card[data-paper-lift]:hover {
+  color: var(--color-text-on-paper);
   border-color: var(--color-clay);
 }
 
@@ -424,7 +435,7 @@
 }
 
 .focus-panel__item::before {
-  content: "—";
+  content: "-";
   position: absolute;
   left: 0;
   color: var(--color-olive);

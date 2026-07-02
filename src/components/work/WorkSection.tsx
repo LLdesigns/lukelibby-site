@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { SectionHeading } from '../SectionHeading'
+import { ThemeBlock } from '../ThemeBlock'
 
 type WorkSectionProps = {
   id: string
@@ -21,7 +22,7 @@ export function WorkSection({
 
   return (
     <section id={id} className={sectionClass} aria-labelledby={`${id}-heading`}>
-      <div className="container">
+      <ThemeBlock className="container">
         <SectionHeading
           title={title}
           headingId={`${id}-heading`}
@@ -31,7 +32,7 @@ export function WorkSection({
           {intro}
         </p>
         {children}
-      </div>
+      </ThemeBlock>
     </section>
   )
 }

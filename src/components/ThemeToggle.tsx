@@ -35,7 +35,7 @@ function MoonIcon() {
 }
 
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, toggleTheme, isTransitioning } = useTheme()
   const isDark = theme === 'dark'
 
   return (
@@ -43,7 +43,9 @@ export function ThemeToggle() {
       type="button"
       className="theme-toggle"
       onClick={toggleTheme}
+      disabled={isTransitioning}
       aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+      aria-busy={isTransitioning}
       title={isDark ? 'Light mode' : 'Dark mode'}
     >
       <span className="theme-toggle__icon-wrap">

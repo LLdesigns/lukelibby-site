@@ -1,7 +1,7 @@
-import type { CaseStudyMetaChip } from '../../data/caseStudies'
+import type { MetaChip } from '../../data/productStories'
 
 type CaseStudyMetaProps = {
-  chips: CaseStudyMetaChip[]
+  chips: MetaChip[]
 }
 
 export function CaseStudyMeta({ chips }: CaseStudyMetaProps) {

@@ -36,11 +36,23 @@ export function ProjectsExplorer() {
             <p className="projects-explorer__subtitle">{active.subtitle}</p>
             <p className="projects-explorer__role">{active.role}</p>
           </div>
-          {'href' in active && active.href && (
-            <Link to={active.href} className="projects-explorer__case-link">
-              View Case Study →
-            </Link>
-          )}
+          <div className="projects-explorer__links">
+            {'href' in active && active.href && (
+              <Link to={active.href} className="projects-explorer__case-link">
+                Read Story →
+              </Link>
+            )}
+            {'liveUrl' in active && active.liveUrl && (
+              <a
+                href={active.liveUrl}
+                className="projects-explorer__case-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit live site ↗
+              </a>
+            )}
+          </div>
         </header>
         <p className="projects-explorer__desc">{active.description}</p>
         <h4 className="projects-explorer__subhead">Highlights</h4>

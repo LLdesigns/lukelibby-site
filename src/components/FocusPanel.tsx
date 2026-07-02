@@ -14,7 +14,7 @@ export function FocusPanel() {
         </ul>
       </div>
       <img
-        className="focus-panel__note hero-sticky-note sticky-note--animate"
+        className="focus-panel__note hero-sticky-note"
         src="/images/sticky-note.png"
         alt="Builder at heart. Problem solver by choice."
         width={819}

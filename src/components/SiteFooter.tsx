@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import { navLinks } from '../data/skills'
+import { ThemeBlock } from './ThemeBlock'
 
 export function SiteFooter() {
   return (
     <footer id="contact" className="site-footer">
-      <div className="container footer-inner">
+      <ThemeBlock className="container footer-inner">
         <div>
           <p className="footer-name">Luke Libby</p>
           <p className="footer-role">
@@ -34,7 +35,7 @@ export function SiteFooter() {
             )
           })}
         </nav>
-      </div>
+      </ThemeBlock>
     </footer>
   )
 }

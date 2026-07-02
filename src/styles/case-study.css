@@ -77,6 +77,10 @@
   line-height: var(--leading-normal);
 }
 
+.cs-hero__actions {
+  margin-top: var(--space-xl);
+}
+
 /* Metadata chips */
 .cs-meta {
   display: flex;

@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from 'react'
+import { isThemeTransitioning, runThemeTransition } from '../effects/themeTransition'
 
 export type Theme = 'light' | 'dark'
 
@@ -16,6 +17,7 @@ type ThemeContextValue = {
   theme: Theme
   setTheme: (theme: Theme) => void
   toggleTheme: () => void
+  isTransitioning: boolean
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null)
@@ -39,6 +41,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
     return getStoredTheme()
   })
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
   useEffect(() => {
     applyTheme(theme)
@@ -49,12 +52,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const toggleTheme = useCallback(() => {
-    setThemeState((current) => (current === 'dark' ? 'light' : 'dark'))
-  }, [])
+    if (isThemeTransitioning()) return
+
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    setIsTransitioning(true)
+
+    void runThemeTransition(theme, nextTheme, () => {
+      applyTheme(nextTheme)
+      setThemeState(nextTheme)
+    }).finally(() => {
+      setIsTransitioning(false)
+    })
+  }, [theme])
 
   const value = useMemo(
-    () => ({ theme, setTheme, toggleTheme }),
-    [theme, setTheme, toggleTheme],
+    () => ({ theme, setTheme, toggleTheme, isTransitioning }),
+    [theme, setTheme, toggleTheme, isTransitioning],
   )
 
   return (
@@ -69,3 +82,4 @@ export function useTheme() {
   }
   return context
 }
+

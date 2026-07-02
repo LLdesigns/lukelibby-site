@@ -5,7 +5,7 @@ type CaseStudyVisualProps = {
   alt?: string
   placeholderLabel: string
   className?: string
-  /** Above-the-fold hero images — eager load, no lazy blur */
+  /** Above-the-fold hero images, eager load, no lazy blur */
   priority?: boolean
   width?: number
   height?: number

@@ -44,7 +44,7 @@
   --scrollbar-size: 10px;
 }
 
-/* Dark — default field-notes */
+/* Dark, default field-notes */
 :root,
 [data-theme='dark'] {
   color-scheme: dark;
@@ -62,8 +62,8 @@
   --color-border: rgba(239, 232, 218, 0.18);
   --color-border-paper: rgba(25, 23, 19, 0.12);
 
-  --texture-line: rgba(239, 232, 218, 0.035);
-  --texture-glow: rgba(120, 134, 90, 0.04);
+  --texture-line: rgba(239, 232, 218, 0.045);
+  --texture-glow: rgba(120, 134, 90, 0.018);
 
   --header-bg: rgba(17, 17, 15, 0.92);
 
@@ -77,10 +77,13 @@
   --shadow-paper: 0 1px 0 rgba(25, 23, 19, 0.06), 0 4px 12px rgba(0, 0, 0, 0.2);
   --shadow-sticky: 2px 3px 0 rgba(25, 23, 19, 0.08);
 
+  --sticky-note-bg: #f2e4a8;
+  --sticky-note-bg-muted: #e8d890;
+
   --tag-dark-bg: rgba(120, 134, 90, 0.15);
 }
 
-/* Light — warm paper field-notes */
+/* Light, warm paper field-notes */
 [data-theme='light'] {
   color-scheme: light;
 
@@ -97,8 +100,8 @@
   --color-border: rgba(25, 23, 19, 0.12);
   --color-border-paper: rgba(25, 23, 19, 0.1);
 
-  --texture-line: rgba(25, 23, 19, 0.06);
-  --texture-glow: rgba(120, 134, 90, 0.08);
+  --texture-line: rgba(25, 23, 19, 0.065);
+  --texture-glow: rgba(120, 134, 90, 0.02);
 
   --header-bg: rgba(240, 235, 224, 0.92);
 
@@ -111,6 +114,9 @@
 
   --shadow-paper: 0 1px 0 rgba(25, 23, 19, 0.05), 0 4px 14px rgba(25, 23, 19, 0.08);
   --shadow-sticky: 2px 3px 0 rgba(25, 23, 19, 0.06);
+
+  --sticky-note-bg: #f6e9b0;
+  --sticky-note-bg-muted: #ede0a0;
 
   --tag-dark-bg: rgba(120, 134, 90, 0.2);
 }

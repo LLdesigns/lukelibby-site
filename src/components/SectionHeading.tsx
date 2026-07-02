@@ -19,7 +19,7 @@ export function SectionHeading({
   return (
     <div className={className}>
       {label && <p className="section-heading__label">{label}</p>}
-      <h2 id={headingId} className="section-heading__title">
+      <h2 id={headingId} className="section-heading__title" data-magnetic>
         {title}
       </h2>
     </div>

@@ -1,7 +1,7 @@
-import type { CaseStudySnapshot } from '../../data/caseStudies'
+import type { StorySnapshot } from '../../data/productStories'
 
 type ProjectSnapshotProps = {
-  snapshot: CaseStudySnapshot
+  snapshot: StorySnapshot
 }
 
 export function ProjectSnapshot({ snapshot }: ProjectSnapshotProps) {

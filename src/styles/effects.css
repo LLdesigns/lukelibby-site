@@ -1,0 +1,213 @@
+/* Paper lift on portfolio cards */
+
+[data-paper-lift] {
+
+  transform-style: preserve-3d;
+
+  opacity: 0;
+
+  transform: perspective(920px) translateY(28px) rotateX(7deg) rotateY(-1deg) scale(0.98);
+
+  box-shadow: var(--shadow-paper);
+
+  transition:
+
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+
+    box-shadow 0.6s ease,
+
+    border-color 0.35s ease;
+
+  transition-delay: var(--lift-delay, 0ms);
+
+}
+
+
+
+[data-paper-lift][data-lift-revealed] {
+
+  opacity: 1;
+
+  transform: perspective(920px) translateY(-2px) rotateX(0deg) rotateY(0deg) scale(1);
+
+  box-shadow: var(--shadow-paper), 0 6px 14px rgba(0, 0, 0, 0.09);
+
+}
+
+
+
+[data-paper-lift][data-lift-revealed][data-lift-active] {
+
+  transform: perspective(920px)
+
+    rotateX(calc(var(--lift-y, 0) * -5deg))
+
+    rotateY(calc(var(--lift-x, 0) * 5deg))
+
+    translateY(-3px)
+
+    translateZ(0)
+
+    scale(1);
+
+  box-shadow:
+
+    var(--shadow-paper),
+
+    calc(var(--lift-x, 0) * -10px) calc(10px + var(--lift-y, 0) * -8px) 28px
+
+      rgba(0, 0, 0, 0.16);
+
+  transition:
+
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+
+    box-shadow 0.35s ease,
+
+    border-color 0.35s ease;
+
+}
+
+
+
+a.work-card[data-paper-lift][data-lift-revealed][data-lift-active],
+
+a.work-card[data-paper-lift][data-lift-revealed]:hover {
+
+  border-color: var(--color-clay);
+
+}
+
+
+
+.case-card[data-paper-lift][data-lift-revealed][data-lift-active] {
+
+  transform: perspective(920px)
+
+    rotateX(calc(var(--lift-y, 0) * -4deg))
+
+    rotateY(calc(var(--lift-x, 0) * 4deg))
+
+    translateY(-4px)
+
+    translateZ(0)
+
+    scale(1);
+
+}
+
+
+
+/* Magnetic section headings — subtle drift, block layout preserved */
+
+[data-magnetic] {
+
+  transform: translate3d(
+
+    calc(var(--mag-x, 0) * 1px),
+
+    calc(var(--mag-y, 0) * 1px),
+
+    0
+
+  );
+
+  transition: transform 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+}
+
+
+
+/* Sequential theme transition */
+
+#root {
+
+  position: relative;
+
+  z-index: 1;
+
+  background: transparent;
+
+}
+
+
+
+html.theme-transition-active {
+
+  overflow-x: clip;
+
+}
+
+
+
+html.theme-transition-active body {
+
+  overflow-x: clip;
+
+  pointer-events: none;
+
+}
+
+
+
+html.theme-transition-active .scroll-reveal,
+
+html.theme-transition-active .scroll-reveal.is-visible {
+
+  transform: none !important;
+
+  filter: none !important;
+
+  opacity: 1 !important;
+
+}
+
+
+
+[data-theme-block] {
+  position: relative;
+  will-change: transform, opacity;
+}
+
+.theme-toggle:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+
+  [data-paper-lift] {
+
+    opacity: 1;
+
+    transform: none;
+
+    box-shadow: var(--shadow-paper);
+
+  }
+
+
+
+  [data-paper-lift][data-lift-active],
+
+  [data-magnetic][data-magnetic-active] {
+
+    transform: none;
+
+  }
+
+
+
+  html.theme-transition-active body {
+
+    pointer-events: auto;
+
+  }
+
+}
+
+

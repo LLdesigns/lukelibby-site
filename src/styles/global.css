@@ -10,6 +10,8 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light dark;
+  background-color: var(--color-bg);
+  transition: background-color 0.4s ease;
   scrollbar-gutter: stable;
   /* Firefox */
   scrollbar-width: thin;
@@ -61,27 +63,9 @@ body {
   font-size: var(--text-base);
   line-height: var(--leading-normal);
   color: var(--color-text-on-dark);
-  background-color: var(--color-bg);
+  background-color: transparent;
+  transition: color 0.35s ease;
   -webkit-font-smoothing: antialiased;
-}
-
-/* Subtle field-notes texture — kept faint for readability */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-color: var(--color-bg);
-  background-image:
-    linear-gradient(var(--texture-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--texture-line) 1px, transparent 1px),
-    radial-gradient(
-      ellipse 100% 60% at 50% 0%,
-      var(--texture-glow),
-      transparent 55%
-    );
-  background-size: 80px 80px, 80px 80px, 100% 100%;
 }
 
 #root {
@@ -175,6 +159,9 @@ p {
 .section--paper {
   background-color: var(--color-bg-elevated);
   border-block: 1px solid var(--color-border);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease;
 }
 
 /* Layout grids */
@@ -252,6 +239,10 @@ p {
   color: var(--color-text-on-dark);
 }
 
+.hero-headline__accent {
+  color: var(--color-clay);
+}
+
 .hero-sub {
   color: var(--color-text-muted-on-dark);
   font-size: var(--text-lg);
@@ -263,6 +254,14 @@ p {
   font-size: var(--text-lg);
   max-width: 42rem;
   line-height: var(--leading-normal);
+}
+
+.builder-notes-copy p {
+  margin: 0;
+}
+
+.builder-notes-copy p + p {
+  margin-top: var(--space-md);
 }
 
 .skill-tags {
