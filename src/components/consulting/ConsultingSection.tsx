@@ -9,7 +9,7 @@ import { ContactForm } from './ContactForm'
 import {
   consultingMeta,
   consultingServices,
-  consultingStack,
+  consultingStrengths,
 } from '../../data/consulting'
 
 export function ConsultingSection() {
@@ -51,14 +51,19 @@ export function ConsultingSection() {
               <article className="consulting-section__card">
                 <h3 className="consulting-section__card-title">{service.title}</h3>
                 <p className="consulting-section__card-desc">{service.description}</p>
+                <ul className="consulting-section__card-list">
+                  {service.bullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </article>
             </ScrollReveal>
           ))}
         </div>
 
         <ScrollReveal variant="rise" delay={120}>
-          <div className="consulting-section__stack">
-            {consultingStack.map((item) => (
+          <div className="consulting-section__strengths">
+            {consultingStrengths.map((item) => (
               <Tag key={item} variant="dark">
                 {item}
               </Tag>

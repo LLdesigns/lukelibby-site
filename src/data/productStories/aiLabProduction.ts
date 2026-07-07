@@ -12,7 +12,7 @@ export const aiLabProduction: ProductStoryDetail = {
   cardImageAlt:
     'Sanitized workflow diagram for AI-assisted hands-on lab production',
   eyebrow: 'PRODUCT STORY 01 / ANONYMIZED',
-  title: 'AI-Assisted Learning Workflow',
+  title: 'AI-Assisted Hands-On Production Workflow',
   subtitle:
     'Testing whether AI could support hands-on lab production without weakening instructional design, code accuracy, review loops, or live publishing standards.',
   metaChips: [

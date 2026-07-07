@@ -19,6 +19,7 @@ import './styles/terrapin-outdoors.css'
 import './styles/notes.css'
 import './styles/consulting.css'
 import './styles/forms.css'
+import './styles/portal.css'
 import './styles/discovery.css'
 import App from './App.tsx'
 

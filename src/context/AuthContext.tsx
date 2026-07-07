@@ -10,13 +10,23 @@ import {
 import type { Session, User } from '@supabase/supabase-js'
 import { isSupabaseConfigured, supabase } from '../lib/supabase'
 
+function authRedirectUrl(path: string): string {
+  const base = import.meta.env.BASE_URL
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`
+  const normalizedPath = path.replace(/^\//, '')
+  return `${window.location.origin}${normalizedBase}${normalizedPath}`
+}
+
 type AuthContextValue = {
   user: User | null
   session: Session | null
   loading: boolean
   isAdmin: boolean
+  isPasswordRecovery: boolean
   signInWithPassword: (email: string, password: string) => Promise<string | null>
   signInWithMagicLink: (email: string) => Promise<string | null>
+  requestPasswordReset: (email: string) => Promise<string | null>
+  updatePassword: (password: string) => Promise<string | null>
   signOut: () => Promise<void>
 }
 
@@ -29,11 +39,10 @@ async function fetchIsAdmin(userId: string): Promise<boolean> {
     .from('site_profiles')
     .select('role')
     .eq('id', userId)
-    .eq('role', 'admin')
     .maybeSingle()
 
   if (error) return false
-  return Boolean(data)
+  return data?.role === 'admin'
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -41,12 +50,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(isSupabaseConfigured)
   const [isAdmin, setIsAdmin] = useState(false)
+  const [isPasswordRecovery, setIsPasswordRecovery] = useState(false)
 
-  const refreshAdmin = useCallback(async (nextUser: User | null) => {
+  const syncSession = useCallback(async (nextSession: Session | null) => {
+    const nextUser = nextSession?.user ?? null
+    setSession(nextSession)
+    setUser(nextUser)
+
     if (!nextUser) {
       setIsAdmin(false)
       return
     }
+
     setIsAdmin(await fetchIsAdmin(nextUser.id))
   }, [])
 
@@ -58,28 +73,37 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     let mounted = true
 
-    supabase.auth.getSession().then(({ data }) => {
+    supabase.auth.getSession().then(async ({ data }) => {
       if (!mounted) return
-      setSession(data.session)
-      setUser(data.session?.user ?? null)
-      void refreshAdmin(data.session?.user ?? null)
+      if (window.location.hash.includes('type=recovery')) {
+        setIsPasswordRecovery(true)
+      }
+      await syncSession(data.session)
       setLoading(false)
     })
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, nextSession) => {
-      setSession(nextSession)
-      setUser(nextSession?.user ?? null)
-      void refreshAdmin(nextSession?.user ?? null)
-      setLoading(false)
+    } = supabase.auth.onAuthStateChange((event, nextSession) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        setIsPasswordRecovery(true)
+      }
+      if (event === 'SIGNED_OUT') {
+        setIsPasswordRecovery(false)
+      }
+
+      void (async () => {
+        setLoading(true)
+        await syncSession(nextSession)
+        if (mounted) setLoading(false)
+      })()
     })
 
     return () => {
       mounted = false
       subscription.unsubscribe()
     }
-  }, [refreshAdmin])
+  }, [syncSession])
 
   const signInWithPassword = useCallback(async (email: string, password: string) => {
     if (!supabase) return 'Authentication is not configured.'
@@ -93,13 +117,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const { error } = await supabase.auth.signInWithOtp({
       email,
-      options: { emailRedirectTo: `${window.location.origin}${import.meta.env.BASE_URL}auth` },
+      options: { emailRedirectTo: authRedirectUrl('auth') },
     })
+    return error?.message ?? null
+  }, [])
+
+  const requestPasswordReset = useCallback(async (email: string) => {
+    if (!supabase) return 'Authentication is not configured.'
+
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: authRedirectUrl('auth/reset-password'),
+    })
+    return error?.message ?? null
+  }, [])
+
+  const updatePassword = useCallback(async (password: string) => {
+    if (!supabase) return 'Authentication is not configured.'
+
+    const { error } = await supabase.auth.updateUser({ password })
+    if (!error) {
+      setIsPasswordRecovery(false)
+    }
     return error?.message ?? null
   }, [])
 
   const signOut = useCallback(async () => {
     if (!supabase) return
+    setIsPasswordRecovery(false)
     await supabase.auth.signOut()
   }, [])
 
@@ -109,11 +153,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       session,
       loading,
       isAdmin,
+      isPasswordRecovery,
       signInWithPassword,
       signInWithMagicLink,
+      requestPasswordReset,
+      updatePassword,
       signOut,
     }),
-    [user, session, loading, isAdmin, signInWithPassword, signInWithMagicLink, signOut],
+    [
+      user,
+      session,
+      loading,
+      isAdmin,
+      isPasswordRecovery,
+      signInWithPassword,
+      signInWithMagicLink,
+      requestPasswordReset,
+      updatePassword,
+      signOut,
+    ],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

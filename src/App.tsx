@@ -33,10 +33,9 @@ import { PlayItProStoryPage } from './pages/PlayItProStoryPage'
 import { ContactPage } from './pages/ContactPage'
 
 import { AuthPage } from './pages/AuthPage'
+import { ResetPasswordPage } from './pages/ResetPasswordPage'
 
 import { DashboardPage } from './pages/DashboardPage'
-
-import { ClientPage } from './pages/ClientPage'
 
 import { DiscoveryPage } from './pages/DiscoveryPage'
 
@@ -193,38 +192,18 @@ function SiteApp() {
         <Route path="/contact" element={<ContactPage />} />
 
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/auth/reset-password" element={<ResetPasswordPage />} />
 
         <Route
-
           path="/dashboard"
-
           element={
-
             <ProtectedRoute requireAdmin>
-
               <DashboardPage />
-
             </ProtectedRoute>
-
           }
-
         />
 
-        <Route
-
-          path="/client"
-
-          element={
-
-            <ProtectedRoute>
-
-              <ClientPage />
-
-            </ProtectedRoute>
-
-          }
-
-        />
+        <Route path="/client" element={<Navigate to="/dashboard" replace />} />
 
         <Route
           path="/consulting"

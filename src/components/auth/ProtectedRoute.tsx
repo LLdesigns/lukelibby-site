@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
+import { AccessDenied } from './AccessDenied'
 
 type ProtectedRouteProps = {
   children: React.ReactNode
@@ -25,7 +26,7 @@ export function ProtectedRoute({ children, requireAdmin = false }: ProtectedRout
   }
 
   if (requireAdmin && !isAdmin) {
-    return <Navigate to="/client" replace />
+    return <AccessDenied />
   }
 
   return children

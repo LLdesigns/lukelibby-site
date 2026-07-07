@@ -160,5 +160,5 @@ body.discovery-open {
 
 .discovery-page .form-panel__error {
   margin-top: var(--space-lg);
-  color: #f2a8a8;
+  color: var(--color-danger-on-dark);
 }

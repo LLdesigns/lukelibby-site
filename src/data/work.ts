@@ -90,7 +90,7 @@ export const productStories: WorkItem[] = [
 
     id: 'ai-assisted-learning',
 
-    title: 'AI-Assisted Learning Workflow',
+    title: 'AI-Assisted Hands-On Production Workflow',
 
     description:
 

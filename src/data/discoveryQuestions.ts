@@ -41,10 +41,10 @@ export const discoveryQuestions: DiscoveryQuestion[] = [
     prompt: 'What are you trying to build?',
     helper: 'Pick the closest match — you can add detail below.',
     choices: [
-      { id: 'ai_app', label: 'AI-powered app or feature' },
+      { id: 'ai_app', label: 'AI product or feature' },
       { id: 'automation', label: 'Workflow automation' },
-      { id: 'internal_tool', label: 'Internal tool or dashboard' },
-      { id: 'mvp', label: 'MVP or prototype' },
+      { id: 'internal_tool', label: 'Internal product or platform' },
+      { id: 'mvp', label: 'New product build' },
       { id: 'unsure', label: 'Not sure yet — need help scoping' },
     ],
     allowDetail: true,

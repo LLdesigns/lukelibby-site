@@ -67,7 +67,7 @@
 
 .form-panel__error {
   margin-top: var(--space-md);
-  color: #9b2c2c;
+  color: var(--color-danger-on-paper);
   font-size: var(--text-sm);
 }
 
@@ -217,6 +217,22 @@
 
 .auth-shell__form {
   margin-top: var(--space-md);
+}
+
+.auth-shell__forgot {
+  margin: calc(-1 * var(--space-sm)) 0 var(--space-md);
+  text-align: right;
+}
+
+.auth-shell__forgot-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: var(--text-sm);
+  color: var(--color-brass);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .auth-shell__back {

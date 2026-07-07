@@ -1,156 +1,286 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from '../components/Button'
-import { ScrollReveal } from '../components/ScrollReveal'
-import { SectionHeading } from '../components/SectionHeading'
-import { ThemeBlock } from '../components/ThemeBlock'
-import { useAuth } from '../context/AuthContext'
-import { supabase } from '../lib/supabase'
-import '../styles/forms.css'
+import {
+  createClientProject,
+  deleteClientProject,
+  fetchPortalData,
+  updateClientProject,
+  type ClientProject,
+  type PortalData,
+} from '../api/portal'
+import { ContactSubmissionCard } from '../components/portal/ContactSubmissionCard'
+import { DiscoverySubmissionCard } from '../components/portal/DiscoverySubmissionCard'
+import { PortalShell } from '../components/portal/PortalShell'
+import { ProjectCard } from '../components/portal/ProjectCard'
+import { ProjectForm } from '../components/portal/ProjectForm'
+import { StatCard } from '../components/portal/StatCard'
+import '../styles/portal.css'
 
-type ContactRow = {
-  id: string
-  created_at: string
-  email: string
-  name: string
-  subject: string | null
-  message: string
-  source: string
-}
+type DashboardTab = 'overview' | 'messages' | 'briefs' | 'projects'
 
-type DiscoveryRow = {
-  id: string
-  created_at: string
-  email: string
-  name: string | null
-  answers: Record<string, string>
+const navItems = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'messages', label: 'Messages' },
+  { id: 'briefs', label: 'Briefs' },
+  { id: 'projects', label: 'Projects' },
+] as const
+
+function clientLabel(clientId: string): string {
+  return `Client ${clientId.slice(0, 8)}…`
 }
 
 export function DashboardPage() {
-  const { user, signOut } = useAuth()
-  const [contacts, setContacts] = useState<ContactRow[]>([])
-  const [discoveries, setDiscoveries] = useState<DiscoveryRow[]>([])
+  const [activeTab, setActiveTab] = useState<DashboardTab>('overview')
+  const [data, setData] = useState<PortalData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [editingProject, setEditingProject] = useState<ClientProject | null>(null)
+  const [showCreateProject, setShowCreateProject] = useState(false)
 
-  useEffect(() => {
-    async function load() {
-      if (!supabase) {
-        setError('Supabase is not configured.')
-        setLoading(false)
-        return
-      }
-
-      const [contactResult, discoveryResult] = await Promise.all([
-        supabase
-          .from('contact_submissions')
-          .select('id, created_at, email, name, subject, message, source')
-          .order('created_at', { ascending: false })
-          .limit(30),
-        supabase
-          .from('discovery_submissions')
-          .select('id, created_at, email, name, answers')
-          .order('created_at', { ascending: false })
-          .limit(30),
-      ])
-
-      if (contactResult.error || discoveryResult.error) {
-        setError(contactResult.error?.message ?? discoveryResult.error?.message ?? 'Failed to load.')
-        setLoading(false)
-        return
-      }
-
-      setContacts(contactResult.data ?? [])
-      setDiscoveries(discoveryResult.data ?? [])
+  const load = useCallback(async () => {
+    setLoading(true)
+    setError('')
+    const result = await fetchPortalData()
+    if (!result.ok) {
+      setError(result.error)
       setLoading(false)
+      return
     }
-
-    void load()
+    setData(result.data)
+    setLoading(false)
   }, [])
 
+  useEffect(() => {
+    void load()
+  }, [load])
+
+  const recentContacts = useMemo(() => data?.contacts.slice(0, 3) ?? [], [data])
+  const recentBriefs = useMemo(() => data?.discoveries.slice(0, 3) ?? [], [data])
+
+  async function handleCreateProject(values: {
+    clientId: string
+    title: string
+    status: ClientProject['status']
+    summary: string
+    nextStep: string
+  }) {
+    const result = await createClientProject({
+      clientId: values.clientId,
+      title: values.title,
+      status: values.status,
+      summary: values.summary,
+      nextStep: values.nextStep,
+    })
+    if (!result.ok) return result.error
+    setShowCreateProject(false)
+    await load()
+    return null
+  }
+
+  async function handleUpdateProject(values: {
+    clientId: string
+    title: string
+    status: ClientProject['status']
+    summary: string
+    nextStep: string
+  }) {
+    if (!editingProject) return 'No project selected.'
+    const result = await updateClientProject(editingProject.id, {
+      title: values.title,
+      status: values.status,
+      summary: values.summary || null,
+      next_step: values.nextStep || null,
+    })
+    if (!result.ok) return result.error
+    setEditingProject(null)
+    await load()
+    return null
+  }
+
+  async function handleDeleteProject() {
+    if (!editingProject) return 'No project selected.'
+    const result = await deleteClientProject(editingProject.id)
+    if (!result.ok) return result.error
+    setEditingProject(null)
+    await load()
+    return null
+  }
+
   return (
-    <main className="section dashboard-page">
-      <ThemeBlock className="container">
-        <ScrollReveal variant="rise" immediate>
-          <div className="dashboard-page__header">
-            <div>
-              <p className="dashboard-page__eyebrow">Admin</p>
-              <h1 className="dashboard-page__title">Dashboard</h1>
-              <p className="dashboard-page__sub">Signed in as {user?.email}</p>
-            </div>
-            <div className="dashboard-page__header-actions">
-              <Button type="button" variant="secondary" onClick={() => void signOut()}>
-                Sign out
-              </Button>
-              <Link className="btn btn--paper" to="/">
-                Site
-              </Link>
-            </div>
-          </div>
-        </ScrollReveal>
+    <PortalShell
+      title="Dashboard"
+      eyebrow="Admin"
+      navItems={[...navItems]}
+      activeTab={activeTab}
+      onTabChange={(id) => setActiveTab(id as DashboardTab)}
+    >
+      {loading && <p className="portal-empty">Loading portal data…</p>}
+      {error && (
+        <p className="form-panel__error" role="alert">
+          {error}
+        </p>
+      )}
 
-        {loading && <p className="dashboard-page__status">Loading submissions…</p>}
-        {error && (
-          <p className="form-panel__error" role="alert">
-            {error}
-          </p>
-        )}
+      {!loading && !error && data && (
+        <div className="portal-inbox">
+          {activeTab === 'overview' && (
+            <div className="portal-stack">
+              <div className="portal-stats">
+                <StatCard label="Contact messages" value={data.contacts.length} />
+                <StatCard label="Project briefs" value={data.discoveries.length} />
+                <StatCard label="Client projects" value={data.projects.length} />
+                <StatCard label="Client accounts" value={data.clients.length} />
+              </div>
 
-        {!loading && !error && (
-          <>
-            <section className="dashboard-section" aria-labelledby="contacts-heading">
-              <SectionHeading title="Contact messages" headingId="contacts-heading" />
-              {contacts.length === 0 ? (
-                <p className="dashboard-page__empty">No contact messages yet.</p>
+              <section className="portal-section">
+                <div className="portal-section__head">
+                  <h2 className="portal-section__title">Recent messages</h2>
+                  <button
+                    type="button"
+                    className="portal-link-btn"
+                    onClick={() => setActiveTab('messages')}
+                  >
+                    View all
+                  </button>
+                </div>
+                {recentContacts.length === 0 ? (
+                  <p className="portal-empty">No contact messages yet.</p>
+                ) : (
+                  <ul className="portal-list">
+                    {recentContacts.map((item) => (
+                      <li key={item.id}>
+                        <ContactSubmissionCard item={item} compact />
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+
+              <section className="portal-section">
+                <div className="portal-section__head">
+                  <h2 className="portal-section__title">Recent briefs</h2>
+                  <button
+                    type="button"
+                    className="portal-link-btn"
+                    onClick={() => setActiveTab('briefs')}
+                  >
+                    View all
+                  </button>
+                </div>
+                {recentBriefs.length === 0 ? (
+                  <p className="portal-empty">No project briefs yet.</p>
+                ) : (
+                  <ul className="portal-list">
+                    {recentBriefs.map((item) => (
+                      <li key={item.id}>
+                        <DiscoverySubmissionCard item={item} />
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            </div>
+          )}
+
+          {activeTab === 'messages' && (
+            <section className="portal-section">
+              <h2 className="portal-section__title">Contact messages</h2>
+              {data.contacts.length === 0 ? (
+                <p className="portal-empty">No contact messages yet.</p>
               ) : (
-                <ul className="dashboard-list">
-                  {contacts.map((item) => (
-                    <li key={item.id} className="dashboard-card">
-                      <p className="dashboard-card__meta">
-                        {new Date(item.created_at).toLocaleString()} · {item.source}
-                      </p>
-                      <p className="dashboard-card__title">
-                        {item.name} · {item.email}
-                      </p>
-                      {item.subject && <p className="dashboard-card__subject">{item.subject}</p>}
-                      <p className="dashboard-card__body">{item.message}</p>
+                <ul className="portal-list">
+                  {data.contacts.map((item) => (
+                    <li key={item.id}>
+                      <ContactSubmissionCard item={item} />
                     </li>
                   ))}
                 </ul>
               )}
             </section>
+          )}
 
-            <section className="dashboard-section" aria-labelledby="discovery-heading">
-              <SectionHeading title="Project briefs" headingId="discovery-heading" />
-              {discoveries.length === 0 ? (
-                <p className="dashboard-page__empty">No discovery briefs yet.</p>
+          {activeTab === 'briefs' && (
+            <section className="portal-section">
+              <h2 className="portal-section__title">Project briefs</h2>
+              {data.discoveries.length === 0 ? (
+                <p className="portal-empty">No project briefs yet.</p>
               ) : (
-                <ul className="dashboard-list">
-                  {discoveries.map((item) => (
-                    <li key={item.id} className="dashboard-card">
-                      <p className="dashboard-card__meta">
-                        {new Date(item.created_at).toLocaleString()}
-                      </p>
-                      <p className="dashboard-card__title">
-                        {item.name ? `${item.name} · ` : ''}
-                        {item.email}
-                      </p>
-                      <dl className="dashboard-card__answers">
-                        {Object.entries(item.answers).map(([key, value]) => (
-                          <div key={key}>
-                            <dt>{key}</dt>
-                            <dd>{value}</dd>
-                          </div>
-                        ))}
-                      </dl>
+                <ul className="portal-list">
+                  {data.discoveries.map((item) => (
+                    <li key={item.id}>
+                      <DiscoverySubmissionCard item={item} defaultOpen />
                     </li>
                   ))}
                 </ul>
               )}
             </section>
-          </>
-        )}
-      </ThemeBlock>
-    </main>
+          )}
+
+          {activeTab === 'projects' && (
+            <section className="portal-section">
+              <div className="portal-section__head">
+                <h2 className="portal-section__title">Client projects</h2>
+                {!showCreateProject && !editingProject && (
+                  <button
+                    type="button"
+                    className="btn btn--primary"
+                    onClick={() => setShowCreateProject(true)}
+                  >
+                    New project
+                  </button>
+                )}
+              </div>
+
+              {showCreateProject && (
+                <ProjectForm
+                  clients={data.clients}
+                  onSubmit={handleCreateProject}
+                  onCancel={() => setShowCreateProject(false)}
+                />
+              )}
+
+              {editingProject && (
+                <ProjectForm
+                  clients={data.clients}
+                  initial={editingProject}
+                  onSubmit={handleUpdateProject}
+                  onCancel={() => setEditingProject(null)}
+                  onDelete={handleDeleteProject}
+                />
+              )}
+
+              {!showCreateProject && !editingProject && (
+                <>
+                  {data.projects.length === 0 ? (
+                    <p className="portal-empty">
+                      No client projects yet. Create one when you start an engagement.
+                    </p>
+                  ) : (
+                    <ul className="portal-list">
+                      {data.projects.map((project) => (
+                        <li key={project.id}>
+                          <ProjectCard
+                            project={project}
+                            clientLabel={clientLabel(project.client_id)}
+                            onEdit={setEditingProject}
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </>
+              )}
+            </section>
+          )}
+        </div>
+      )}
+
+      {!loading && !error && (
+        <p className="portal-foot">
+          Need to test the public flow?{' '}
+          <Link to="/contact">Contact page</Link> · <Link to="/discovery">Project brief</Link>
+        </p>
+      )}
+    </PortalShell>
   )
 }

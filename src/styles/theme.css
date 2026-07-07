@@ -42,6 +42,11 @@
   --color-clay: #a45f3d;
 
   --scrollbar-size: 10px;
+
+  /* Semantic surface/border aliases (resolve against the active theme) */
+  --color-surface-paper: var(--color-paper);
+  --color-surface-dark: var(--color-bg-elevated);
+  --color-border-on-dark: var(--color-border);
 }
 
 /* Dark, default field-notes */
@@ -81,6 +86,10 @@
   --sticky-note-bg-muted: #e8d890;
 
   --tag-dark-bg: rgba(120, 134, 90, 0.15);
+
+  --color-success-on-dark: #7cb87c;
+  --color-danger-on-dark: #f2a8a8;
+  --color-danger-on-paper: #9b2c2c;
 }
 
 /* Light, warm paper field-notes */
@@ -119,4 +128,8 @@
   --sticky-note-bg-muted: #ede0a0;
 
   --tag-dark-bg: rgba(120, 134, 90, 0.2);
+
+  --color-success-on-dark: #4f8a4f;
+  --color-danger-on-dark: #9b2c2c;
+  --color-danger-on-paper: #9b2c2c;
 }

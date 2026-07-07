@@ -321,6 +321,7 @@
 .consulting-section__card-title {
   font-size: var(--text-lg);
   font-weight: 700;
+  color: var(--color-text-on-paper);
   margin-bottom: var(--space-sm);
 }
 
@@ -328,8 +329,32 @@
   color: var(--color-text-muted-on-paper);
   line-height: var(--leading-normal);
   font-size: var(--text-sm);
+  margin-bottom: var(--space-md);
 }
 
+.consulting-section__card-list {
+  list-style: none;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.consulting-section__card-list li {
+  position: relative;
+  padding-left: var(--space-md);
+  font-size: var(--text-sm);
+  color: var(--color-text-on-paper);
+  line-height: var(--leading-normal);
+}
+
+.consulting-section__card-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-clay);
+  font-size: var(--text-xs);
+}
+
+.consulting-section__strengths,
 .consulting-section__stack {
   display: flex;
   flex-wrap: wrap;
