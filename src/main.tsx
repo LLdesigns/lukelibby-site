@@ -17,6 +17,9 @@ import './styles/brand-system.css'
 import './styles/replenish-health.css'
 import './styles/terrapin-outdoors.css'
 import './styles/notes.css'
+import './styles/consulting.css'
+import './styles/forms.css'
+import './styles/discovery.css'
 import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import { navLinks } from '../data/skills'
+import { visibleNavLinks } from '../data/skills'
 import { ThemeBlock } from './ThemeBlock'
 
 export function SiteFooter() {
   return (
-    <footer id="contact" className="site-footer">
+    <footer className="site-footer">
       <ThemeBlock className="container footer-inner">
         <div>
           <p className="footer-name">Luke Libby</p>
@@ -13,7 +13,7 @@ export function SiteFooter() {
           </p>
         </div>
         <nav className="footer-nav" aria-label="Footer">
-          {navLinks.map((link) => {
+          {visibleNavLinks.map((link) => {
             if (link.href.startsWith('#')) {
               return (
                 <a key={link.label} href={`/${link.href}`}>

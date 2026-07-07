@@ -1,8 +1,8 @@
-/* Print-only resume sheet — black & white field-report styling */
+/* Print-only resume — compact one-page, black & white */
 
 @page {
   size: letter;
-  margin: 0.42in 0.48in;
+  margin: 0.38in 0.45in;
 }
 
 .resume-print {
@@ -10,50 +10,32 @@
   --print-ink-muted: #4a4843;
   --print-ink-soft: #6b6760;
   --print-line: #d4d0c8;
-  --print-line-strong: #8a8680;
-  --print-paper: #f6f4ef;
-  --print-paper-border: #ddd9d0;
-  --print-grid: rgba(20, 20, 18, 0.035);
 
   min-height: 100vh;
   background: #fff;
   color: var(--print-ink);
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  font-size: 9.5pt;
-  line-height: 1.45;
+  font-size: 8pt;
+  line-height: 1.32;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
 
-.resume-print::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(var(--print-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--print-grid) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-
 .resume-print__sheet {
-  position: relative;
-  z-index: 1;
-  max-width: 7.55in;
+  max-width: 7.6in;
   margin: 0 auto;
-  padding: 0.15in 0 0.05in;
 }
 
 .resume-print__hero {
-  padding-bottom: 14pt;
-  margin-bottom: 4pt;
+  padding-bottom: 7pt;
+  margin-bottom: 2pt;
   border-bottom: 1px solid var(--print-line);
 }
 
 .resume-print__eyebrow {
-  margin: 0 0 8pt;
-  font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
-  font-size: 7.5pt;
+  margin: 0 0 4pt;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 6.5pt;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--print-ink-soft);
@@ -61,74 +43,36 @@
 
 .resume-print__name {
   margin: 0;
-  font-size: 26pt;
+  font-size: 18pt;
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.05;
 }
 
 .resume-print__roles {
-  margin: 7pt 0 0;
-  font-size: 10.5pt;
+  margin: 3pt 0 0;
+  font-size: 9pt;
   color: var(--print-ink-muted);
 }
 
-.resume-print__meta {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8pt;
-  margin: 12pt 0 0;
-}
-
-.resume-print__chip {
-  margin: 0;
-  padding: 7pt 9pt;
-  background: var(--print-paper);
-  border: 1px solid var(--print-paper-border);
-  border-left: 3px solid var(--print-line-strong);
-}
-
-.resume-print__chip dt,
-.resume-print__chip dd {
-  margin: 0;
-}
-
-.resume-print__chip-label {
-  display: block;
-  margin-bottom: 2pt;
-  font-family: ui-monospace, Menlo, Consolas, monospace;
-  font-size: 6.5pt;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.resume-print__contact {
+  margin: 4pt 0 0;
+  font-size: 7.5pt;
   color: var(--print-ink-soft);
-}
-
-.resume-print__chip dd {
-  font-size: 8.5pt;
-  color: var(--print-ink);
 }
 
 .resume-print__section {
-  margin-top: 11pt;
+  margin-top: 7pt;
   break-inside: avoid-page;
-}
-
-.resume-print__section-label {
-  margin: 0 0 2pt;
-  font-family: ui-monospace, Menlo, Consolas, monospace;
-  font-size: 7pt;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--print-ink-soft);
 }
 
 .resume-print__section-title {
   position: relative;
-  margin: 0 0 8pt;
-  padding-bottom: 5pt;
-  font-size: 13pt;
+  margin: 0 0 4pt;
+  padding-bottom: 3pt;
+  font-size: 9.5pt;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   border-bottom: 1px solid var(--print-line);
 }
 
@@ -137,262 +81,100 @@
   position: absolute;
   left: 0;
   bottom: -1px;
-  width: 42pt;
-  height: 2px;
+  width: 28pt;
+  height: 1.5px;
   background: var(--print-ink);
 }
 
-.resume-print__paper {
-  padding: 10pt 12pt;
-  background: var(--print-paper);
-  border: 1px solid var(--print-paper-border);
-  border-radius: 4px;
-  box-shadow: 0 1px 0 rgba(20, 20, 18, 0.04);
-}
-
-.resume-print__paper p {
+.resume-print__copy {
   margin: 0;
   color: var(--print-ink-muted);
 }
 
-.resume-print__paper p + p {
-  margin-top: 7pt;
+.resume-print__copy--compact {
+  font-size: 7.6pt;
 }
 
-.resume-print__skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8pt;
-}
-
-.resume-print__skill-group {
-  padding: 8pt 9pt;
-  background: #fff;
-  border: 1px solid var(--print-line);
-  border-radius: 3px;
-}
-
-.resume-print__skill-group-title {
-  margin: 0 0 6pt;
-  font-size: 7.5pt;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.resume-print__skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4pt;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.resume-print__skill-list li {
-  padding: 2pt 6pt;
-  font-size: 7.3pt;
-  border: 1px solid var(--print-line);
-  border-radius: 2px;
-  background: var(--print-paper);
-}
-
-.resume-print__roles-list {
+.resume-print__skills {
   display: flex;
   flex-direction: column;
-  gap: 10pt;
+  gap: 2pt;
 }
 
-.resume-print__role {
-  break-inside: avoid-page;
+.resume-print__skill-line {
+  margin: 0;
+  font-size: 7.4pt;
+  color: var(--print-ink-muted);
+}
+
+.resume-print__skill-line strong {
+  color: var(--print-ink);
+  font-weight: 700;
+}
+
+.resume-print__roles {
+  display: flex;
+  flex-direction: column;
+  gap: 5pt;
 }
 
 .resume-print__role-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 10pt;
+  gap: 8pt;
 }
 
 .resume-print__role-title {
   margin: 0;
-  font-size: 10pt;
+  font-size: 8.2pt;
   font-weight: 700;
 }
 
 .resume-print__role-period {
   margin: 0;
   font-family: ui-monospace, Menlo, Consolas, monospace;
-  font-size: 7.2pt;
+  font-size: 6.8pt;
   color: var(--print-ink-soft);
   white-space: nowrap;
-}
-
-.resume-print__role-company {
-  margin: 1pt 0 3pt;
-  font-size: 8.8pt;
-  color: var(--print-ink-muted);
-}
-
-.resume-print__role-intro {
-  margin: 0 0 4pt;
-  font-size: 8.5pt;
-  color: var(--print-ink-muted);
 }
 
 .resume-print__bullets {
-  margin: 0;
-  padding-left: 12pt;
-  font-size: 8.3pt;
-  color: var(--print-ink);
+  margin: 1pt 0 0;
+  padding-left: 10pt;
+  font-size: 7.5pt;
+  color: var(--print-ink-muted);
 }
 
 .resume-print__bullets li + li {
-  margin-top: 2pt;
+  margin-top: 0.5pt;
 }
 
-.resume-print__bullets--compact li + li {
-  margin-top: 1pt;
-}
-
-.resume-print__role--compact .resume-print__bullets strong {
-  font-weight: 700;
-}
-
-.resume-print__split {
+.resume-print__footer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: 12pt;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 10pt;
   align-items: start;
 }
 
-.resume-print__split .resume-print__section {
-  margin-top: 14pt;
+.resume-print__footer-grid .resume-print__section {
+  margin-top: 7pt;
 }
 
-.resume-print__project + .resume-print__project {
-  margin-top: 9pt;
-  padding-top: 9pt;
-  border-top: 1px dashed var(--print-line);
-}
-
-.resume-print__project-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8pt;
-}
-
-.resume-print__project-title {
+.resume-print__inline-list {
   margin: 0;
-  font-size: 9.5pt;
+  padding-left: 10pt;
+  font-size: 7.4pt;
+  color: var(--print-ink-muted);
+}
+
+.resume-print__inline-list li + li {
+  margin-top: 2pt;
+}
+
+.resume-print__inline-list strong {
+  color: var(--print-ink);
   font-weight: 700;
-}
-
-.resume-print__project-role {
-  margin: 0;
-  font-size: 7pt;
-  font-family: ui-monospace, Menlo, Consolas, monospace;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--print-ink-soft);
-  white-space: nowrap;
-}
-
-.resume-print__project-subtitle {
-  margin: 1pt 0 3pt;
-  font-size: 8.3pt;
-  color: var(--print-ink-muted);
-}
-
-.resume-print__project-copy {
-  margin: 0 0 4pt;
-  font-size: 8.2pt;
-  color: var(--print-ink-muted);
-}
-
-.resume-print__education {
-  display: flex;
-  flex-direction: column;
-  gap: 8pt;
-}
-
-.resume-print__education-item {
-  padding: 8pt 9pt;
-  background: var(--print-paper);
-  border: 1px solid var(--print-paper-border);
-  border-radius: 3px;
-}
-
-.resume-print__education-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8pt;
-}
-
-.resume-print__education-school {
-  margin: 0;
-  font-size: 9pt;
-  font-weight: 700;
-}
-
-.resume-print__education-period {
-  margin: 0;
-  font-family: ui-monospace, Menlo, Consolas, monospace;
-  font-size: 7pt;
-  color: var(--print-ink-soft);
-  white-space: nowrap;
-}
-
-.resume-print__education-degree {
-  margin: 2pt 0 0;
-  font-size: 8pt;
-  color: var(--print-ink-muted);
-}
-
-.resume-print__education-meta {
-  margin: 2pt 0 0;
-  font-size: 7.5pt;
-  color: var(--print-ink-soft);
-}
-
-.resume-print__strengths {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 5pt 10pt;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.resume-print__strengths li {
-  display: flex;
-  gap: 6pt;
-  align-items: flex-start;
-  font-size: 8.2pt;
-  color: var(--print-ink-muted);
-}
-
-.resume-print__strength-mark {
-  flex-shrink: 0;
-  font-size: 8pt;
-  line-height: 1.45;
-  color: var(--print-line-strong);
-}
-
-.resume-print__footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 12pt;
-  margin-top: 14pt;
-  padding-top: 8pt;
-  border-top: 1px solid var(--print-line);
-  font-family: ui-monospace, Menlo, Consolas, monospace;
-  font-size: 7pt;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--print-ink-soft);
 }
 
 @media screen {
@@ -401,7 +183,7 @@
   }
 
   .resume-print__sheet {
-    padding: 28px 32px 24px;
+    padding: 24px 28px;
     background: #fff;
     border: 1px solid var(--print-line);
     box-shadow: 0 8px 28px rgba(20, 20, 18, 0.08);
@@ -409,10 +191,7 @@
 }
 
 @media (max-width: 720px) {
-  .resume-print__meta,
-  .resume-print__skills-grid,
-  .resume-print__split,
-  .resume-print__strengths {
+  .resume-print__footer-grid {
     grid-template-columns: 1fr;
   }
 }

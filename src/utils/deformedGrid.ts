@@ -3,7 +3,7 @@ import type { EffectsState, InkRipple, TrailGhost } from '../effects/effectsStor
 const MAJOR_CELL = 52
 const GRID_STEP = MAJOR_CELL / 2
 const BUBBLE_RADIUS = 155
-const BUBBLE_STRENGTH = 17
+const BUBBLE_STRENGTH = 7
 const GRID_PADDING = 120
 const TRAIL_RADIUS = 110
 const TRAIL_STRENGTH = 10

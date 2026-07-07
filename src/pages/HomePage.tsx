@@ -11,6 +11,7 @@ import {
   workPageIntro,
   workPositioningLine,
 } from '../data/work'
+import { ConsultingSection } from '../components/consulting/ConsultingSection'
 import { builderNoteTags, builderNotesParagraphs, valueBlocks } from '../data/skills'
 import { withBasePath } from '../utils/basePath'
 
@@ -155,6 +156,8 @@ export function HomePage() {
           </div>
         </ThemeBlock>
       </section>
+
+      <ConsultingSection />
     </main>
   )
 }

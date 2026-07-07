@@ -44,9 +44,18 @@ export const valueBlocks = [
   },
 ] as const
 
-export const navLinks = [
+export type NavLink = {
+  label: string
+  href: string
+  hidden?: boolean
+}
+
+export const navLinks: NavLink[] = [
   { label: 'Work', href: '/work' },
   { label: 'About', href: '/#about' },
   { label: 'Resume', href: '/resume' },
-  { label: 'Contact', href: '/#contact' },
-] as const
+  { label: 'Contact', href: '/contact' },
+  { label: 'Consulting', href: '/#consulting' },
+]
+
+export const visibleNavLinks = navLinks.filter((link) => !link.hidden)

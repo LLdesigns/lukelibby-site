@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { navLinks } from '../data/skills'
+import { visibleNavLinks } from '../data/skills'
 import { withBasePath } from '../utils/basePath'
 import { ThemeBlock } from './ThemeBlock'
 import { ThemeToggle } from './ThemeToggle'
@@ -23,8 +23,12 @@ function isNavLinkActive(href: string, pathname: string, hash: string): boolean 
     return pathname === '/' && hash === '#about'
   }
 
-  if (href === '/#contact') {
-    return pathname === '/' && hash === '#contact'
+  if (href === '/#consulting') {
+    return pathname === '/' && hash === '#consulting'
+  }
+
+  if (href === '/contact') {
+    return pathname === '/contact'
   }
 
   return false
@@ -44,7 +48,7 @@ export function Header() {
         </Link>
         <nav className="header__nav" aria-label="Main">
           <ul className="header__links">
-            {navLinks.map((link) => {
+            {visibleNavLinks.map((link) => {
               const isActive = isNavLinkActive(link.href, pathname, hash)
               const linkClassName = isActive ? 'header__link is-active' : 'header__link'
 
@@ -61,6 +65,21 @@ export function Header() {
                   </li>
                 )
               }
+              if (link.href.startsWith('/#')) {
+                const hash = link.href.slice(1)
+                return (
+                  <li key={link.label}>
+                    <Link
+                      to={{ pathname: '/', hash }}
+                      className={linkClassName}
+                      aria-current={isActive ? 'page' : undefined}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              }
+
               if (link.href.startsWith('/')) {
                 return (
                   <li key={link.label}>

@@ -98,7 +98,7 @@ async function main() {
       format: 'Letter',
       printBackground: true,
       preferCSSPageSize: true,
-      margin: { top: '0.42in', right: '0.48in', bottom: '0.42in', left: '0.48in' },
+      margin: { top: '0.38in', right: '0.45in', bottom: '0.38in', left: '0.45in' },
     })
 
     await browser.close()

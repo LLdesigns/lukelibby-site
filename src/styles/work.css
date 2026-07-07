@@ -24,6 +24,19 @@
   line-height: var(--leading-tight);
   color: var(--color-text-on-dark);
   margin-bottom: var(--space-md);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) {
+  .work-page__title {
+    font-size: clamp(1.75rem, 8.5vw, 2.35rem);
+  }
+
+  .work-page__positioning,
+  .work-page__intro,
+  .work-section__intro {
+    font-size: var(--text-base);
+  }
 }
 
 .work-page__positioning {
@@ -64,10 +77,16 @@
 .work-grid {
   display: grid;
   gap: var(--space-xl);
+  min-width: 0;
 }
 
 .work-grid > .work-card {
   height: 100%;
+  min-width: 0;
+}
+
+.work-grid > * {
+  min-width: 0;
 }
 
 .work-grid--stories,
