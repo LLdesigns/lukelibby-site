@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { education } from '../../data/resume'
+import { isPrerender } from '../../utils/prerender'
 
 export function EducationTimeline() {
   const [activeId, setActiveId] = useState<string>(education[0]?.id ?? '')
+  const showAll = isPrerender()
 
   return (
     <ol className="edu-timeline">
       {education.map((entry, index) => {
-        const isActive = activeId === entry.id
+        const isActive = showAll || activeId === entry.id
         return (
           <li key={entry.id} className="edu-timeline__item">
             <button

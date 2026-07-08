@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { experience } from '../../data/resume'
+import { isPrerender } from '../../utils/prerender'
 
 export function ExperienceAccordion() {
   const [openId, setOpenId] = useState<string>(experience[0]?.id ?? '')
+  const showAll = isPrerender()
 
   return (
     <div className="resume-accordion">
       {experience.map((job) => {
-        const isOpen = openId === job.id
+        const isOpen = showAll || openId === job.id
         return (
           <article
             key={job.id}
