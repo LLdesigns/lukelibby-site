@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { BrandSystemCanvas } from '../components/brand-system/BrandSystemCanvas'
 import { BrandSystemHero } from '../components/brand-system/BrandSystemHero'
 import { BrandSystemPageLayout } from '../components/brand-system/BrandSystemPageLayout'
@@ -10,6 +11,7 @@ import {
   terrapinOutdoorsNavItems,
   terrapinOutdoorsPrinciples,
 } from '../data/brandSystems/terrapinOutdoors'
+import { creativeWorkJsonLd } from '../utils/structuredData'
 
 export function TerrapinOutdoorsBrandSystemPage() {
   const system = getBrandSystem('terrapin-outdoors')
@@ -17,6 +19,19 @@ export function TerrapinOutdoorsBrandSystemPage() {
 
   return (
     <main className="bs-page bs-page--terrapin">
+      <DocumentHead
+        title={system.title}
+        description={system.description}
+        pathname="/brand-systems/terrapin-outdoors"
+        imagePath="/images/terrapin-outdoors/logo.png"
+        jsonLd={creativeWorkJsonLd({
+          name: system.title,
+          description: system.description,
+          path: '/brand-systems/terrapin-outdoors',
+          imagePath: '/images/terrapin-outdoors/logo.png',
+          keywords: system.tags,
+        })}
+      />
       <div className="container bs-page__intro">
         <ScrollReveal variant="drift-left" immediate>
           <Link className="cs-back" to="/work#brand-systems">

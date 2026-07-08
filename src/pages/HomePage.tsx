@@ -1,4 +1,5 @@
 import { ThemeBlock } from '../components/ThemeBlock'
+import { DocumentHead } from '../components/DocumentHead'
 import { FeaturedProjectCard } from '../components/work/FeaturedProjectCard'
 import { FocusPanel } from '../components/FocusPanel'
 import { ScrollReveal } from '../components/ScrollReveal'
@@ -14,12 +15,20 @@ import {
 import { ConsultingSection } from '../components/consulting/ConsultingSection'
 import { builderNoteTags, builderNotesParagraphs, valueBlocks } from '../data/skills'
 import { withBasePath } from '../utils/basePath'
+import { siteMeta } from '../data/site'
+import { personJsonLd, websiteJsonLd } from '../utils/structuredData'
 
 const profilePhotoSrc = withBasePath('/images/luke-libby.png')
 
 export function HomePage() {
   return (
     <main>
+      <DocumentHead
+        title="Home"
+        description={siteMeta.description}
+        pathname="/"
+        jsonLd={[personJsonLd(), websiteJsonLd()]}
+      />
       <section
         className="section section--hero"
         aria-labelledby="hero-heading"

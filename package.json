@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/generate-seo-files.mjs && tsc -b && vite build",
+    "generate:seo": "node scripts/generate-seo-files.mjs",
     "preview": "vite preview",
     "generate:resume-pdf": "node scripts/generate_resume_pdf.mjs"
   },

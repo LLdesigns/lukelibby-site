@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { NextProductStory } from '../components/product-story/NextProductStory'
 import { ScrollReveal } from '../components/ScrollReveal'
 import { ThemeBlock } from '../components/ThemeBlock'
@@ -6,6 +7,7 @@ import { StoryOverviewBlock, StoryOverviewPanel } from '../components/story-page
 import { StoryPageLayout } from '../components/story-page/StoryPageLayout'
 import type { StoryNavItem } from '../components/story-page/storyNavUtils'
 import { playItProStory } from '../data/productStories/playItProStory'
+import { articleJsonLd } from '../utils/structuredData'
 import { BuildGroups } from '../components/play-it-pro-story/BuildGroups'
 import { DecisionCards } from '../components/play-it-pro-story/DecisionCards'
 import { EditorialHero } from '../components/play-it-pro-story/EditorialHero'
@@ -34,6 +36,19 @@ export function PlayItProStoryPage() {
 
   return (
     <main className="pip-page cs-page">
+      <DocumentHead
+        title={story.hero.title}
+        description={story.hero.subtitle}
+        pathname="/stories/play-it-pro"
+        imagePath="/images/playitpro/lesson-builder.png"
+        type="article"
+        jsonLd={articleJsonLd({
+          headline: story.hero.title,
+          description: story.hero.subtitle,
+          path: '/stories/play-it-pro',
+          imagePath: '/images/playitpro/lesson-builder.png',
+        })}
+      />
       <div className="container pip-page__inner">
         <ScrollReveal variant="drift-left" immediate>
           <Link className="cs-back" to="/work#product-stories">

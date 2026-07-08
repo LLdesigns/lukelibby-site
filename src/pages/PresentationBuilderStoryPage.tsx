@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { NextProductStory } from '../components/product-story/NextProductStory'
 import { ScrollReveal } from '../components/ScrollReveal'
 import { ThemeBlock } from '../components/ThemeBlock'
@@ -6,6 +7,7 @@ import { StoryOverviewBlock, StoryOverviewPanel } from '../components/story-page
 import { StoryPageLayout } from '../components/story-page/StoryPageLayout'
 import type { StoryNavItem } from '../components/story-page/storyNavUtils'
 import { presentationBuilderStory } from '../data/productStories/presentationBuilderStory'
+import { articleJsonLd } from '../utils/structuredData'
 import { AnonymizedStoryNote } from '../components/presentation-builder-story/AnonymizedStoryNote'
 import { ArtifactStoryGrid } from '../components/presentation-builder-story/ArtifactStoryGrid'
 import { BuildGroups } from '../components/presentation-builder-story/BuildGroups'
@@ -40,6 +42,19 @@ export function PresentationBuilderStoryPage() {
 
   return (
     <main className="psb-page cs-page">
+      <DocumentHead
+        title={story.hero.title}
+        description={story.hero.subtitle}
+        pathname="/stories/presentation-builder"
+        imagePath="/images/case-studies/presentation-builder/workflow-diagram.png"
+        type="article"
+        jsonLd={articleJsonLd({
+          headline: story.hero.title,
+          description: story.hero.subtitle,
+          path: '/stories/presentation-builder',
+          imagePath: '/images/case-studies/presentation-builder/workflow-diagram.png',
+        })}
+      />
       <div className="container psb-page__inner">
         <ScrollReveal variant="drift-left" immediate>
           <Link className="cs-back" to="/work#product-stories">

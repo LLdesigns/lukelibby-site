@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import {
   createClientProject,
   deleteClientProject,
@@ -107,7 +108,14 @@ export function DashboardPage() {
   }
 
   return (
-    <PortalShell
+    <>
+      <DocumentHead
+        title="Dashboard"
+        description="Private admin dashboard for Luke Libby portfolio."
+        pathname="/dashboard"
+        noindex
+      />
+      <PortalShell
       title="Dashboard"
       eyebrow="Admin"
       navItems={[...navItems]}
@@ -282,5 +290,6 @@ export function DashboardPage() {
         </p>
       )}
     </PortalShell>
+    </>
   )
 }

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { submitDiscovery, isValidEmail } from '../api/submissions'
 import { Button } from '../components/Button'
 import {
@@ -8,6 +9,15 @@ import {
   type DiscoveryQuestion,
 } from '../data/discoveryQuestions'
 import '../styles/discovery.css'
+
+const privateDiscoveryHead = (
+  <DocumentHead
+    title="Project Brief"
+    description="Private project discovery intake for Luke Libby consulting."
+    pathname="/discovery"
+    noindex
+  />
+)
 
 type AnswerState = Record<string, { choice?: string; detail?: string; text?: string }>
 
@@ -136,6 +146,7 @@ export function DiscoveryPage() {
   if (status === 'done') {
     return (
       <main className="discovery-page">
+        {privateDiscoveryHead}
         <div className="discovery-page__inner">
           <p className="discovery-page__eyebrow">Project brief</p>
           <h1 className="discovery-page__title">Thanks — brief received.</h1>
@@ -157,6 +168,7 @@ export function DiscoveryPage() {
 
   return (
     <main className="discovery-page">
+      {privateDiscoveryHead}
       <div className="discovery-page__top">
         <Link className="discovery-page__close" to={{ pathname: '/', hash: '#consulting' }}>
           ← Back

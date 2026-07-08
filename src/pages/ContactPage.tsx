@@ -1,14 +1,25 @@
 import { Link } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { ScrollReveal } from '../components/ScrollReveal'
 import { SectionHeading } from '../components/SectionHeading'
 import { ThemeBlock } from '../components/ThemeBlock'
 import { ContactForm } from '../components/consulting/ContactForm'
 import { resumeMeta } from '../data/resume'
+import { contactPageJsonLd } from '../utils/structuredData'
 import '../styles/forms.css'
 
 export function ContactPage() {
+  const description =
+    'Consulting, collaborations, or a quick question — contact Luke Libby.'
+
   return (
     <main className="contact-page">
+      <DocumentHead
+        title="Contact"
+        description={description}
+        pathname="/contact"
+        jsonLd={contactPageJsonLd({ description, path: '/contact' })}
+      />
       <section className="section section--hero" aria-labelledby="contact-heading">
         <ThemeBlock className="container contact-page__hero">
           <ScrollReveal variant="drift-left" immediate>

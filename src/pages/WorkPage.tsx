@@ -5,6 +5,7 @@ import { ProjectSystemCard } from '../components/work/ProjectSystemCard'
 import { WorkSection } from '../components/work/WorkSection'
 import { ScrollReveal } from '../components/ScrollReveal'
 import { Button } from '../components/Button'
+import { DocumentHead } from '../components/DocumentHead'
 import {
   productStories,
   productSystems,
@@ -12,10 +13,21 @@ import {
   workPageIntro,
   workPositioningLine,
 } from '../data/work'
+import { webPageJsonLd } from '../utils/structuredData'
 
 export function WorkPage() {
   return (
     <main className="work-page">
+      <DocumentHead
+        title="Work"
+        description={workPageIntro}
+        pathname="/work"
+        jsonLd={webPageJsonLd({
+          name: 'Work',
+          description: workPageIntro,
+          path: '/work',
+        })}
+      />
       <section
         className="section section--hero work-page__hero"
         aria-labelledby="work-page-heading"

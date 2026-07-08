@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { BrandSystemCanvas } from '../components/brand-system/BrandSystemCanvas'
 import { BrandSystemHero } from '../components/brand-system/BrandSystemHero'
 import { BrandSystemPageLayout } from '../components/brand-system/BrandSystemPageLayout'
@@ -6,6 +7,7 @@ import { BrandSystemSection } from '../components/brand-system/BrandSystemSectio
 import { BrandSystemSlotGrid } from '../components/brand-system/BrandSystemSlotGrid'
 import { ScrollReveal } from '../components/ScrollReveal'
 import { brandSystemNavItems, getBrandSystem } from '../data/brandSystems'
+import { creativeWorkJsonLd } from '../utils/structuredData'
 
 export function BrandSystemPage() {
   const { slug } = useParams<{ slug: string }>()
@@ -14,6 +16,11 @@ export function BrandSystemPage() {
   if (!system) {
     return (
       <main className="bs-page">
+        <DocumentHead
+          title="Brand System Not Found"
+          description="The requested brand and interface system could not be found."
+          noindex
+        />
         <div className="container">
           <p className="bs-not-found">Brand & interface system not found.</p>
           <Link className="cs-back" to="/work#brand-systems">
@@ -26,6 +33,17 @@ export function BrandSystemPage() {
 
   return (
     <main className="bs-page">
+      <DocumentHead
+        title={system.title}
+        description={system.description}
+        pathname={`/brand-systems/${system.slug}`}
+        jsonLd={creativeWorkJsonLd({
+          name: system.title,
+          description: system.description,
+          path: `/brand-systems/${system.slug}`,
+          keywords: system.tags,
+        })}
+      />
       <div className="container bs-page__intro">
         <ScrollReveal variant="drift-left" immediate>
           <Link className="cs-back" to="/work#brand-systems">

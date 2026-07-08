@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { ResumeExplorer } from '../components/resume/ResumeExplorer'
 import { ResumeHero } from '../components/resume/ResumeHero'
 import { ResumeSection } from '../components/resume/ResumeSection'
@@ -14,6 +15,7 @@ import {
   resumeSummary,
   type ResumeSectionId,
 } from '../data/resume'
+import { profilePageJsonLd } from '../utils/structuredData'
 import { useActiveSection } from '../hooks/useActiveSection'
 
 export function ResumePage() {
@@ -26,6 +28,15 @@ export function ResumePage() {
 
   return (
     <main className="resume-page">
+      <DocumentHead
+        title="Resume"
+        description={resumeSummary.split('\n\n')[0]}
+        pathname="/resume"
+        jsonLd={profilePageJsonLd({
+          description: resumeSummary.split('\n\n')[0],
+          path: '/resume',
+        })}
+      />
       <div className="container resume-page__layout">
         <aside className="resume-page__sidebar">
           <ThemeBlock>

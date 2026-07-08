@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { ArtifactGrid } from '../components/case-study/ArtifactGrid'
 import { CaseStudySection } from '../components/case-study/CaseStudySection'
 import { CaseStudyVisual } from '../components/case-study/CaseStudyVisual'
@@ -14,6 +15,7 @@ import {
   getProductStory,
   type ProductStorySlug,
 } from '../data/productStories'
+import { articleJsonLd } from '../utils/structuredData'
 
 function ProseBlock({ text }: { text: string }) {
   return <div className="cs-prose cs-prose--pre">{text}</div>
@@ -26,6 +28,11 @@ export function ProductStoryPage() {
   if (!story) {
     return (
       <main className="cs-page">
+        <DocumentHead
+          title="Product Story Not Found"
+          description="The requested product story could not be found."
+          noindex
+        />
         <div className="container">
           <p className="cs-not-found">Product story not found.</p>
           <Link className="cs-back" to="/work#product-stories">
@@ -40,6 +47,20 @@ export function ProductStoryPage() {
 
   return (
     <main className={`cs-page ps-page${isConceptStory ? ' ps-page--concept' : ''}`}>
+      <DocumentHead
+        title={story.title}
+        description={story.description}
+        pathname={`/stories/${story.slug}`}
+        imagePath={story.heroImageSrc ?? story.cardImageSrc}
+        type="article"
+        jsonLd={articleJsonLd({
+          headline: story.title,
+          description: story.description,
+          path: `/stories/${story.slug}`,
+          imagePath: story.heroImageSrc ?? story.cardImageSrc,
+          keywords: story.tags,
+        })}
+      />
       <div className="container cs-page__inner">
         <ScrollReveal variant="drift-left" immediate>
           <Link className="cs-back" to="/work#product-stories">

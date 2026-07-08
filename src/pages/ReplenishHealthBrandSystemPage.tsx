@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { ActivityFeed } from '../components/replenish-health/ActivityFeed'
 import { BrandPillars } from '../components/replenish-health/BrandPillars'
 import { ColorTokens } from '../components/replenish-health/ColorTokens'
@@ -23,6 +24,7 @@ import {
   replenishHealthNavItems,
   replenishHealthPrinciples,
 } from '../data/brandSystems/replenishHealth'
+import { creativeWorkJsonLd } from '../utils/structuredData'
 
 export function ReplenishHealthBrandSystemPage() {
   const system = getBrandSystem('replenish-health')
@@ -30,6 +32,19 @@ export function ReplenishHealthBrandSystemPage() {
 
   return (
     <main className="bs-page bs-page--replenish">
+      <DocumentHead
+        title={system.title}
+        description={system.description}
+        pathname="/brand-systems/replenish-health"
+        imagePath="/images/replenish-health/design-system-overview.png"
+        jsonLd={creativeWorkJsonLd({
+          name: system.title,
+          description: system.description,
+          path: '/brand-systems/replenish-health',
+          imagePath: '/images/replenish-health/design-system-overview.png',
+          keywords: system.tags,
+        })}
+      />
       <div className="container bs-page__intro">
         <ScrollReveal variant="drift-left" immediate>
           <Link className="cs-back" to="/work#brand-systems">

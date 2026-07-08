@@ -1,11 +1,20 @@
 import { useState, type FormEvent } from 'react'
 import { Link, Navigate, useLocation } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { Button } from '../components/Button'
 import { ScrollReveal } from '../components/ScrollReveal'
 import { ThemeBlock } from '../components/ThemeBlock'
 import { useAuth } from '../context/AuthContext'
 import { isSupabaseConfigured } from '../lib/supabase'
 import '../styles/forms.css'
+
+const privateAuthHead = (
+  <DocumentHead
+    title="Sign In"
+    description="Admin sign-in for Luke Libby portfolio dashboard."
+    noindex
+  />
+)
 
 type AuthMode = 'password' | 'magic'
 type AuthView = 'sign-in' | 'forgot-password'
@@ -43,6 +52,7 @@ export function AuthPage() {
   if (!loading && user && !isAdmin) {
     return (
       <main className="section auth-page">
+        {privateAuthHead}
         <ThemeBlock className="container auth-shell">
           <ScrollReveal variant="rise" immediate>
             <p className="auth-shell__eyebrow">Access denied</p>
@@ -112,6 +122,7 @@ export function AuthPage() {
 
   return (
     <main className="section auth-page">
+      {privateAuthHead}
       <ThemeBlock className="container auth-shell">
         <ScrollReveal variant="rise" immediate>
           <p className="auth-shell__eyebrow">

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { DocumentHead } from '../components/DocumentHead'
 import {
   education,
   experience,
@@ -34,6 +35,12 @@ function PrintSection({
 export function ResumePrintPage() {
   return (
     <div className="resume-print">
+      <DocumentHead
+        title="Resume Print"
+        description="Print-friendly resume for Luke Libby."
+        pathname="/resume/print"
+        noindex
+      />
       <article className="resume-print__sheet">
         <header className="resume-print__hero">
           <p className="resume-print__eyebrow">Field Report / Resume</p>

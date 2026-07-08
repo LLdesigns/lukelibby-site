@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /auth
+Disallow: /auth/
+Disallow: /dashboard
+Disallow: /discovery
+Disallow: /resume/print
+Disallow: /client
+
+Sitemap: https://lukelibby.com/sitemap.xml

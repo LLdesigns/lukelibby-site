@@ -1,10 +1,19 @@
 import { useState, type FormEvent } from 'react'
 import { Link, Navigate } from 'react-router-dom'
+import { DocumentHead } from '../components/DocumentHead'
 import { Button } from '../components/Button'
 import { ScrollReveal } from '../components/ScrollReveal'
 import { ThemeBlock } from '../components/ThemeBlock'
 import { useAuth } from '../context/AuthContext'
 import '../styles/forms.css'
+
+const privateResetHead = (
+  <DocumentHead
+    title="Reset Password"
+    description="Reset password for Luke Libby portfolio admin access."
+    noindex
+  />
+)
 
 export function ResetPasswordPage() {
   const { user, loading, isAdmin, isPasswordRecovery, updatePassword } = useAuth()
@@ -45,6 +54,7 @@ export function ResetPasswordPage() {
   if (loading) {
     return (
       <main className="section auth-page">
+        {privateResetHead}
         <ThemeBlock className="container auth-shell">
           <p className="auth-shell__status">Loading…</p>
         </ThemeBlock>
@@ -59,6 +69,7 @@ export function ResetPasswordPage() {
   if (status === 'done') {
     return (
       <main className="section auth-page">
+        {privateResetHead}
         <ThemeBlock className="container auth-shell">
           <ScrollReveal variant="rise" immediate>
             <div className="form-panel form-panel--success">
@@ -77,6 +88,7 @@ export function ResetPasswordPage() {
   if (!canReset) {
     return (
       <main className="section auth-page">
+        {privateResetHead}
         <ThemeBlock className="container auth-shell">
           <ScrollReveal variant="rise" immediate>
             <p className="auth-shell__eyebrow">Reset password</p>
@@ -95,6 +107,7 @@ export function ResetPasswordPage() {
 
   return (
     <main className="section auth-page">
+      {privateResetHead}
       <ThemeBlock className="container auth-shell">
         <ScrollReveal variant="rise" immediate>
           <p className="auth-shell__eyebrow">Reset password</p>
