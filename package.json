@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-seo-files.mjs && tsc -b && vite build && node scripts/prerender-routes.mjs",
+    "build": "node scripts/generate-seo-files.mjs && tsc -b && vite build && node scripts/apply-crawl-snapshots.mjs",
+    "build:render": "node scripts/generate-seo-files.mjs && tsc -b && vite build && node scripts/prerender-routes.mjs",
+    "update:crawl-snapshots": "npm run build:render && node scripts/update-crawl-snapshots.mjs",
     "generate:seo": "node scripts/generate-seo-files.mjs",
     "preview": "vite preview",
     "generate:resume-pdf": "node scripts/generate_resume_pdf.mjs"
