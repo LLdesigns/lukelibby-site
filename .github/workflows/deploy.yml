@@ -40,6 +40,12 @@ jobs:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
 
+      - name: Verify prerender output
+        run: |
+          test "$(wc -c < dist/index.html)" -gt 8000
+          test "$(wc -c < dist/work/index.html)" -gt 8000
+          test "$(wc -c < dist/stories/wyldtracks/index.html)" -gt 8000
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

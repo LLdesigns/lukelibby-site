@@ -1,5 +1,5 @@
 import { spawn } from 'node:child_process'
-import { copyFileSync, mkdirSync, writeFileSync } from 'node:fs'
+import { copyFileSync, mkdirSync, statSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
@@ -10,6 +10,7 @@ const distDir = resolve(rootDir, 'dist')
 const port = 5198
 const host = '127.0.0.1'
 const baseUrl = `http://${host}:${port}`
+const minHtmlBytes = 4000
 
 function startPreview() {
   return new Promise((resolvePreview, reject) => {
@@ -24,38 +25,55 @@ function startPreview() {
     )
 
     let settled = false
-    const markReady = () => {
+    const fail = (error) => {
       if (settled) return
       settled = true
       clearTimeout(timeout)
-      resolvePreview(child)
+      reject(error)
     }
 
-    const onData = (chunk) => {
-      const text = chunk.toString()
-      if (text.includes(`${host}:${port}`)) markReady()
-    }
+    const timeout = setTimeout(() => {
+      child.kill('SIGTERM')
+      fail(new Error('Timed out waiting for Vite preview server'))
+    }, 45000)
 
-    child.stdout.on('data', onData)
-    child.stderr.on('data', onData)
-    child.on('error', (error) => {
-      if (!settled) {
-        settled = true
-        clearTimeout(timeout)
-        reject(error)
+    child.on('error', fail)
+    child.on('exit', (code) => {
+      if (!settled && code !== 0) {
+        fail(new Error(`Vite preview exited with code ${code}`))
       }
     })
 
-    const timeout = setTimeout(() => {
-      if (!settled) {
+    waitForPreview()
+      .then(() => {
+        if (settled) return
         settled = true
-        child.kill('SIGTERM')
-        reject(new Error('Timed out waiting for Vite preview server'))
-      }
-    }, 45000)
-
-    setTimeout(markReady, 1500)
+        clearTimeout(timeout)
+        resolvePreview(child)
+      })
+      .catch(fail)
   })
+}
+
+async function waitForPreview() {
+  const deadline = Date.now() + 45000
+
+  while (Date.now() < deadline) {
+    try {
+      const response = await fetch(`${baseUrl}/`)
+      if (response.ok) return
+    } catch {
+      // Preview not ready yet.
+    }
+
+    await delay(400)
+  }
+
+  throw new Error('Preview server did not respond')
+}
+
+function delay(ms) {
+  return new Promise((resolveDelay) => setTimeout(resolveDelay, ms))
 }
 
 function outputPath(routePath) {
@@ -63,19 +81,28 @@ function outputPath(routePath) {
   return resolve(distDir, `.${routePath}`, 'index.html')
 }
 
+function assertPrerendered(target, routePath) {
+  const size = statSync(target).size
+  if (size < minHtmlBytes) {
+    throw new Error(
+      `Prerender for ${routePath} is too small (${size} bytes). Expected rendered HTML, not the SPA shell.`,
+    )
+  }
+}
+
 async function revealAllContent(page) {
   await page.evaluate(async () => {
-    const delay = (ms) => new Promise((resolveDelay) => setTimeout(resolveDelay, ms))
+    const wait = (ms) => new Promise((resolveDelay) => setTimeout(resolveDelay, ms))
     const step = Math.max(300, window.innerHeight * 0.75)
     const maxScroll = document.body.scrollHeight
 
     for (let y = 0; y <= maxScroll; y += step) {
       window.scrollTo(0, y)
-      await delay(120)
+      await wait(80)
     }
 
     window.scrollTo(0, 0)
-    await delay(400)
+    await wait(200)
 
     document.querySelectorAll('.scroll-reveal').forEach((element) => {
       element.classList.add('scroll-reveal--visible')
@@ -92,19 +119,32 @@ async function revealAllContent(page) {
     })
   })
 
-  await page.waitForTimeout(800)
+  await delay(400)
+}
+
+async function waitForMainContent(page) {
+  await page.waitForSelector('main', { timeout: 30000 })
+  await page.waitForFunction(
+    () => {
+      const main = document.querySelector('main')
+      return Boolean(main && main.innerText.trim().length > 120)
+    },
+    { timeout: 30000 },
+  )
 }
 
 async function prerenderRoute(page, routePath) {
   const url = routePath === '/' ? `${baseUrl}/` : `${baseUrl}${routePath}`
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 90000 })
-  await page.waitForSelector('main', { timeout: 30000 })
+
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 })
+  await waitForMainContent(page)
   await revealAllContent(page)
 
   const html = await page.content()
   const target = outputPath(routePath)
   mkdirSync(resolve(target, '..'), { recursive: true })
   writeFileSync(target, html, 'utf8')
+  assertPrerendered(target, routePath)
 }
 
 async function main() {
@@ -114,6 +154,19 @@ async function main() {
   try {
     const browser = await chromium.launch()
     const context = await browser.newContext()
+    await context.route('**/*', (route) => {
+      const requestUrl = route.request().url()
+      if (
+        requestUrl.includes('supabase.co') ||
+        requestUrl.includes('google-analytics.com') ||
+        requestUrl.includes('googletagmanager.com')
+      ) {
+        route.abort()
+        return
+      }
+
+      route.continue()
+    })
     await context.addInitScript(() => {
       window.__PRERENDER__ = true
     })
