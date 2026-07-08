@@ -10,7 +10,7 @@ const distDir = resolve(rootDir, 'dist')
 const port = 5198
 const host = '127.0.0.1'
 const baseUrl = `http://${host}:${port}`
-const minHtmlBytes = 4000
+const minHtmlBytes = 4000 // Reject SPA shell-only output.
 
 function startPreview() {
   return new Promise((resolvePreview, reject) => {
