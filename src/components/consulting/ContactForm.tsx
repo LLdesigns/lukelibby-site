@@ -124,14 +124,17 @@ export function ContactForm({ source, id, onSuccess }: ContactFormProps) {
         />
       </label>
 
-      <label className="form-honeypot" htmlFor={`${formId}-website`} aria-hidden="true">
-        Website
+      <label className="form-honeypot" htmlFor={`${formId}-hp`} aria-hidden="true">
+        Company fax
         <input
-          id={`${formId}-website`}
+          id={`${formId}-hp`}
           type="text"
-          name="website"
+          name="ll_hp_fax"
           tabIndex={-1}
           autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck={false}
           value={website}
           onChange={(event) => setWebsite(event.target.value)}
         />

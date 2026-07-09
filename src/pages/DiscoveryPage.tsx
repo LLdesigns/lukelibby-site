@@ -197,11 +197,15 @@ export function DiscoveryPage() {
         ) : null}
 
         <label className="form-honeypot" aria-hidden="true">
-          Website
+          Company fax
           <input
             type="text"
+            name="ll_hp_fax"
             tabIndex={-1}
             autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
             value={website}
             onChange={(event) => setWebsite(event.target.value)}
           />

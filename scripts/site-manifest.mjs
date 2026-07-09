@@ -98,3 +98,10 @@ export const staticAssets = [
     section: 'Files',
   },
 ]
+
+/** Private interactive routes that need a real index.html shell on GitHub Pages (no empty 404). */
+export const spaShellRoutes = [
+  '/discovery',
+  '/auth',
+  '/auth/reset-password',
+]

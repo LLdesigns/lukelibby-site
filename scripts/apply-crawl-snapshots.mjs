@@ -1,7 +1,7 @@
-import { copyFileSync, existsSync, mkdirSync, statSync } from 'node:fs'
+import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { publicPages } from './site-manifest.mjs'
+import { publicPages, spaShellRoutes } from './site-manifest.mjs'
 
 const rootDir = resolve(fileURLToPath(new URL('.', import.meta.url)), '..')
 const snapshotsDir = resolve(rootDir, 'crawl-snapshots')
@@ -24,6 +24,13 @@ if (!existsSync(snapshotsDir)) {
   )
 }
 
+const viteShellPath = resolve(distDir, 'index.html')
+if (!existsSync(viteShellPath)) {
+  throw new Error('Missing dist/index.html. Run vite build before applying crawl snapshots.')
+}
+
+const spaShellHtml = readFileSync(viteShellPath, 'utf8')
+
 for (const page of publicPages) {
   const source = snapshotPath(page.path)
   const target = distPath(page.path)
@@ -41,5 +48,13 @@ for (const page of publicPages) {
   copyFileSync(source, target)
 }
 
+for (const routePath of spaShellRoutes) {
+  const target = distPath(routePath)
+  mkdirSync(dirname(target), { recursive: true })
+  writeFileSync(target, spaShellHtml, 'utf8')
+}
+
 copyFileSync(resolve(snapshotsDir, 'index.html'), resolve(distDir, '404.html'))
-console.log(`Applied ${publicPages.length} crawl snapshots to dist/`)
+console.log(
+  `Applied ${publicPages.length} crawl snapshots and ${spaShellRoutes.length} SPA shells to dist/`,
+)
