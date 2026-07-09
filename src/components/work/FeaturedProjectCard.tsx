@@ -16,9 +16,6 @@ export function FeaturedProjectCard({ item, revealDelay = 0 }: FeaturedProjectCa
 
   const content = (
     <>
-      <div className="work-card__top">
-        <span className="work-card__folder-tab" aria-hidden="true" />
-      </div>
       <WorkCardVisual
         imageLabel={item.imageLabel}
         imageSrc={item.imageSrc}

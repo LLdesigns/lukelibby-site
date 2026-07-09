@@ -54,7 +54,12 @@ export function ContactForm({ source, id, onSuccess }: ContactFormProps) {
 
   if (status === 'success') {
     return (
-      <div className="form-panel form-panel--success" id={id}>
+      <div className="form-panel form-panel--accent form-panel--success" id={id}>
+        <div className="form-success-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
         <p className="form-panel__success-title">Message sent</p>
         <p className="form-panel__success-copy">
           Thanks — I will get back to you soon.
@@ -67,7 +72,7 @@ export function ContactForm({ source, id, onSuccess }: ContactFormProps) {
   }
 
   return (
-    <form className="form-panel" id={id} onSubmit={handleSubmit} noValidate>
+    <form className="form-panel form-panel--accent" id={id} onSubmit={handleSubmit} noValidate>
       <div className="form-panel__grid">
         <label className="form-field">
           <span className="form-field__label">Name</span>

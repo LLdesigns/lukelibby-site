@@ -51,11 +51,11 @@ export function ConsultingSection() {
               <article className="consulting-section__card">
                 <h3 className="consulting-section__card-title">{service.title}</h3>
                 <p className="consulting-section__card-desc">{service.description}</p>
-                <ul className="consulting-section__card-list">
+                <div className="consulting-section__card-tags">
                   {service.bullets.map((item) => (
-                    <li key={item}>{item}</li>
+                    <Tag key={item}>{item}</Tag>
                   ))}
-                </ul>
+                </div>
               </article>
             </ScrollReveal>
           ))}

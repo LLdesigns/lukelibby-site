@@ -177,6 +177,17 @@ a.work-card:focus-visible {
   font-style: italic;
 }
 
+.work-card--featured .work-card__visual {
+  margin: 0;
+}
+
+.work-card--featured .work-card__img {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--color-border-paper);
+  max-height: 15rem;
+}
+
 .work-card__top {
   display: flex;
   justify-content: flex-end;
@@ -239,7 +250,7 @@ a.work-card:focus-visible {
 }
 
 .work-card__body {
-  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  padding: var(--space-lg) var(--space-lg) 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -249,14 +260,26 @@ a.work-card:focus-visible {
   padding: var(--space-sm) var(--space-md) var(--space-md);
 }
 
-.work-card__status {
+.work-card__category {
+  margin: var(--space-xs) 0 0;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: var(--tracking-label);
-  color: var(--color-clay);
-  margin-bottom: var(--space-xs);
+  color: var(--color-text-muted-on-paper);
 }
+
+.work-card__outcome {
+  margin: var(--space-md) 0 0;
+  padding: 0.55rem 0.75rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: var(--leading-normal);
+  color: var(--color-text-on-paper);
+  background: color-mix(in srgb, var(--color-clay) 9%, var(--color-paper-muted));
+  border-left: 3px solid var(--color-clay);
+}
+
 
 .work-card__title {
   font-weight: 800;
@@ -297,24 +320,36 @@ a.work-card:focus-visible {
 .work-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
+  align-items: center;
+  gap: var(--space-sm) var(--space-md);
   margin-top: var(--space-md);
+}
+
+.work-card__tags-more {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted-on-paper);
 }
 
 .work-card--library .work-card__tags {
   margin-top: var(--space-sm);
 }
 
+.work-card__footer {
+  margin-top: auto;
+  padding: var(--space-md) var(--space-lg);
+  margin-inline: calc(-1 * var(--space-lg));
+  border-top: 1px solid var(--color-border-paper);
+}
+
 .work-card__cta {
   display: inline-block;
-  margin-top: var(--space-md);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-clay);
 }
 
 .work-card--library .work-card__cta {
-  margin-top: var(--space-sm);
   font-size: var(--text-xs);
 }
 

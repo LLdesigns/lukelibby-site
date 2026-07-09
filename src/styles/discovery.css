@@ -3,11 +3,46 @@ body.discovery-open {
 }
 
 .discovery-page {
+  --discovery-grid-line: color-mix(in srgb, var(--color-border-on-dark) 55%, transparent);
   min-height: 100dvh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  background: var(--color-surface-dark);
+  background-color: var(--color-surface-dark);
+  background-image:
+    linear-gradient(var(--discovery-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--discovery-grid-line) 1px, transparent 1px),
+    radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      color-mix(in srgb, var(--color-olive) 8%, transparent),
+      transparent 70%
+    );
+  background-size:
+    48px 48px,
+    48px 48px,
+    100% 100%;
+  background-position: center top;
   color: var(--color-text-on-dark);
+  position: relative;
+  isolation: isolate;
+}
+
+.discovery-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-surface-dark) 35%, transparent) 55%,
+    var(--color-surface-dark) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.discovery-page > * {
+  position: relative;
+  z-index: 1;
 }
 
 .discovery-page__top {
@@ -31,17 +66,23 @@ body.discovery-open {
 }
 
 .discovery-page__progress {
-  height: 4px;
-  background: color-mix(in srgb, var(--color-border-on-dark) 70%, transparent);
+  height: 6px;
+  background: color-mix(in srgb, var(--color-border-on-dark) 55%, transparent);
   border-radius: 999px;
   overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18);
 }
 
 .discovery-page__progress-fill {
   display: block;
   height: 100%;
-  background: var(--color-clay);
-  transition: width 240ms ease;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-clay) 88%, white 4%),
+    var(--color-clay)
+  );
+  border-radius: inherit;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--color-clay) 45%, transparent);
 }
 
 .discovery-page__step {
@@ -54,11 +95,15 @@ body.discovery-open {
 }
 
 .discovery-page__inner {
-  padding: var(--space-2xl) var(--space-lg);
-  max-width: 42rem;
+  padding: clamp(2rem, 6vw, 3rem) var(--space-lg);
+  max-width: 44rem;
   width: 100%;
   margin: 0 auto;
   align-self: center;
+}
+
+.discovery-page__inner--success {
+  text-align: left;
 }
 
 .discovery-page__eyebrow {
@@ -103,12 +148,15 @@ body.discovery-open {
   font-size: clamp(1.5rem, 3.5vw, 2rem);
   font-weight: 800;
   line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  max-width: 28ch;
 }
 
 .discovery-slide__helper {
   margin-top: var(--space-md);
   color: var(--color-text-muted-on-dark);
   line-height: var(--leading-normal);
+  max-width: 38rem;
 }
 
 .discovery-slide__choices {
@@ -117,25 +165,50 @@ body.discovery-open {
   margin-top: var(--space-xl);
 }
 
+@media (min-width: 640px) {
+  .discovery-slide__choices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-md);
+  }
+
+  .discovery-slide__choices--stacked {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .discovery-choice {
   text-align: left;
-  padding: 0.95rem 1rem;
+  padding: 1rem 1.1rem;
+  min-height: 3.25rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border-on-dark);
-  background: color-mix(in srgb, var(--color-surface-dark) 90%, white 2%);
+  background: color-mix(in srgb, var(--color-surface-dark) 82%, white 3%);
   color: var(--color-text-on-dark);
   font: inherit;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
   cursor: pointer;
-  transition: border-color 160ms ease, background-color 160ms ease;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 4%, transparent),
+    0 1px 2px rgba(0, 0, 0, 0.12);
 }
 
 .discovery-choice:hover {
   border-color: var(--color-brass);
+  background: color-mix(in srgb, var(--color-surface-dark) 75%, white 4%);
 }
 
 .discovery-choice.is-selected {
   border-color: var(--color-clay);
-  background: color-mix(in srgb, var(--color-clay) 12%, transparent);
+  background: color-mix(in srgb, var(--color-clay) 14%, var(--color-surface-dark));
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--color-clay) 35%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-clay) 20%, transparent);
+}
+
+.discovery-choice:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
 }
 
 .discovery-slide__detail {
@@ -150,8 +223,16 @@ body.discovery-open {
 
 .discovery-slide .form-field__input,
 .discovery-slide .form-field__textarea {
-  background: color-mix(in srgb, var(--color-surface-dark) 92%, white 3%);
+  background: color-mix(in srgb, var(--color-surface-dark) 88%, white 4%);
   border-color: var(--color-border-on-dark);
+  padding: 0.85rem 1rem;
+}
+
+.discovery-slide .form-field__input:focus-visible,
+.discovery-slide .form-field__textarea:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+  border-color: color-mix(in srgb, var(--color-brass) 55%, var(--color-border-on-dark));
 }
 
 .discovery-slide .form-field__label {
@@ -161,4 +242,22 @@ body.discovery-open {
 .discovery-page .form-panel__error {
   margin-top: var(--space-lg);
   color: var(--color-danger-on-dark);
+}
+
+.discovery-success-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: var(--space-lg);
+  border-radius: 999px;
+  border: 2px solid var(--color-clay);
+  background: color-mix(in srgb, var(--color-clay) 12%, transparent);
+  color: var(--color-clay);
+}
+
+.discovery-success-mark svg {
+  width: 1.35rem;
+  height: 1.35rem;
 }
