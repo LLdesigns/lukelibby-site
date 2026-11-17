@@ -92,6 +92,15 @@ export const skillCategories = [
 
 export type SkillCategoryId = (typeof skillCategories)[number]['id']
 
+export type ResumeContribution = {
+  label: string
+  detail: string
+}
+
+export function formatContribution(item: ResumeContribution) {
+  return `${item.label}: ${item.detail}`
+}
+
 export const experience = [
   {
     id: 'ps-creative-technologist',
@@ -101,13 +110,35 @@ export const experience = [
     intro:
       'Building internal products and AI-assisted systems for learning and video production—designing the product, the relationships in the content, and the workflows teams use to ship.',
     contributions: [
-      'Design and develop internal products such as VideoKit and SlideKit for video review, presentation standards, and production workflows.',
-      'Build AI-assisted workflows and MCPs for review, QC, and delivery, including automated preflight validation.',
-      'Designed and prototyped Luma, connecting learning content, objectives, concepts, and skills through a knowledge graph to support content analysis and human review.',
-      'Applied ontology modeling and skill taxonomies to define relationships between learning concepts, using AI-assisted development to implement and refine those connections.',
-      'Write and maintain product documentation, including internal guides and external help docs.',
-      'Optimize end-to-end video pipelines with automation and tighter QC.',
-    ],
+      {
+        label: 'VideoKit & SlideKit',
+        detail:
+          'Design and develop internal products for video review, presentation standards, and production workflows.',
+      },
+      {
+        label: 'AI workflows & MCPs',
+        detail:
+          'Build AI-assisted workflows for review, QC, and delivery, including automated preflight validation.',
+      },
+      {
+        label: 'Luma',
+        detail:
+          'Designed and prototyped a knowledge graph connecting learning content, objectives, concepts, and skills to support content analysis and human review.',
+      },
+      {
+        label: 'Ontology & taxonomies',
+        detail:
+          'Applied ontology modeling and skill taxonomies to define relationships between learning concepts, using AI-assisted development to implement and refine those connections.',
+      },
+      {
+        label: 'Product documentation',
+        detail: 'Write and maintain product documentation, including internal guides and external help docs.',
+      },
+      {
+        label: 'Video pipelines',
+        detail: 'Optimize end-to-end video pipelines with automation and tighter QC.',
+      },
+    ] satisfies ResumeContribution[],
     technologies: [
       'Product development',
       'Knowledge graph design',
@@ -129,13 +160,36 @@ export const experience = [
     intro:
       'Designed and published 60+ hands-on learning products in Python, R, and SQL, each centered on a distinct application or technical workflow. Owned the experience from initial concept through implementation, validation, and publication.',
     contributions: [
-      'Applied instructional design principles to structure learning objectives, guided tasks, and completion criteria into practical coding experiences.',
-      'Used skill taxonomies to align hands-on workflows with relevant concepts and competencies.',
-      'Built functional applications and supporting exercises with AI-assisted development, validating technical accuracy and expected behavior.',
-      'Designed AI-assisted production processes to support lab creation, technical review, and publication.',
-      'Collaborated with SMEs and authors across time zones to deliver complete, usable learning experiences.',
-      'Reviewed code, configurations, and unit tests; mentored authors on tooling and development practices.',
-    ],
+      {
+        label: 'Instructional design',
+        detail:
+          'Applied instructional design principles to structure learning objectives, guided tasks, and completion criteria into practical coding experiences.',
+      },
+      {
+        label: 'Skill taxonomies',
+        detail: 'Used skill taxonomies to align hands-on workflows with relevant concepts and competencies.',
+      },
+      {
+        label: 'AI-assisted builds',
+        detail:
+          'Built functional applications and supporting exercises with AI-assisted development, validating technical accuracy and expected behavior.',
+      },
+      {
+        label: 'Production systems',
+        detail:
+          'Designed AI-assisted production processes to support lab creation, technical review, and publication.',
+      },
+      {
+        label: 'Author partnership',
+        detail:
+          'Collaborated with SMEs and authors across time zones to deliver complete, usable learning experiences.',
+      },
+      {
+        label: 'Technical mentorship',
+        detail:
+          'Reviewed code, configurations, and unit tests; mentored authors on tooling and development practices.',
+      },
+    ] satisfies ResumeContribution[],
     technologies: [
       'Product development',
       'Instructional design',
@@ -154,11 +208,23 @@ export const experience = [
     intro:
       'Led end-to-end video production for learner-focused educational content; coached authors on tools, standards, and delivery.',
     contributions: [
-      'Managed production schedules tied to business goals.',
-      'Onboarded and coached authors in Pluralsight tools and best practices.',
-      'Oversaw audio, visual, and post-production standards across Adobe suite workflows.',
-      'Reviewed submissions and collaborated on platform and workflow evolution.',
-    ],
+      {
+        label: 'Production schedules',
+        detail: 'Managed production schedules tied to business goals.',
+      },
+      {
+        label: 'Author coaching',
+        detail: 'Onboarded and coached authors in Pluralsight tools and best practices.',
+      },
+      {
+        label: 'A/V standards',
+        detail: 'Oversaw audio, visual, and post-production standards across Adobe suite workflows.',
+      },
+      {
+        label: 'Platform evolution',
+        detail: 'Reviewed submissions and collaborated on platform and workflow evolution.',
+      },
+    ] satisfies ResumeContribution[],
     technologies: [
       'Adobe Creative Suite',
       'Video production',
@@ -174,11 +240,23 @@ export const experience = [
     intro:
       'Supported authors through course production; improved processes for faster publish times and higher author satisfaction.',
     contributions: [
-      'Designed author workflows from surveys and interviews.',
-      'Led author onboarding, day-to-day support, and full project management.',
-      'Reviewed materials for A/V quality; performed non-linear editing to meet standards.',
-      'Coordinated publication and trained new production editors.',
-    ],
+      {
+        label: 'Workflow design',
+        detail: 'Designed author workflows from surveys and interviews.',
+      },
+      {
+        label: 'Project ownership',
+        detail: 'Led author onboarding, day-to-day support, and full project management.',
+      },
+      {
+        label: 'Editing',
+        detail: 'Reviewed materials for A/V quality; performed non-linear editing to meet standards.',
+      },
+      {
+        label: 'Publication',
+        detail: 'Coordinated publication and trained new production editors.',
+      },
+    ] satisfies ResumeContribution[],
     technologies: [
       'Premiere Pro',
       'Audition',
@@ -194,10 +272,19 @@ export const experience = [
     intro:
       'Maintained quality standards for course content through review, editing, and trailer production.',
     contributions: [
-      'Reviewed and edited submitted videos for company standards compliance.',
-      'Created course trailers with motion graphics in Adobe tools.',
-      'Developed documentation to track course errors and improve content quality.',
-    ],
+      {
+        label: 'Standards review',
+        detail: 'Reviewed and edited submitted videos for company standards compliance.',
+      },
+      {
+        label: 'Trailers',
+        detail: 'Created course trailers with motion graphics in Adobe tools.',
+      },
+      {
+        label: 'Error tracking',
+        detail: 'Developed documentation to track course errors and improve content quality.',
+      },
+    ] satisfies ResumeContribution[],
     technologies: ['Adobe After Effects', 'Premiere Pro', 'QA', 'Documentation'],
   },
   {
@@ -208,10 +295,19 @@ export const experience = [
     intro:
       'Managed video content quality on the Digital-Tutors platform; trailers, audio post, and documentation.',
     contributions: [
-      'Updated video patches and audio work for published courses.',
-      'Created course trailers with motion graphics.',
-      'Edited audio to industry standards using Izotope and Adobe Audition.',
-    ],
+      {
+        label: 'Course updates',
+        detail: 'Updated video patches and audio work for published courses.',
+      },
+      {
+        label: 'Trailers',
+        detail: 'Created course trailers with motion graphics.',
+      },
+      {
+        label: 'Audio post',
+        detail: 'Edited audio to industry standards using Izotope and Adobe Audition.',
+      },
+    ] satisfies ResumeContribution[],
     technologies: ['After Effects', 'Premiere Pro', 'Audition', 'Izotope'],
   },
   {
@@ -222,10 +318,19 @@ export const experience = [
     intro:
       'UI/UX design, photography, 3D modeling, graphic design, and product design for web and mobile clients.',
     contributions: [
-      'Build websites and applications with FlutterFlow, Flutter, Webflow, Supabase, and Firebase.',
-      'Deliver digital work that looks good and holds up in production.',
-      'Combine creative direction with technical execution across product engagements.',
-    ],
+      {
+        label: 'Product builds',
+        detail: 'Build websites and applications with FlutterFlow, Flutter, Webflow, Supabase, and Firebase.',
+      },
+      {
+        label: 'Production craft',
+        detail: 'Deliver digital work that looks good and holds up in production.',
+      },
+      {
+        label: 'Direction + build',
+        detail: 'Combine creative direction with technical execution across product engagements.',
+      },
+    ] satisfies ResumeContribution[],
     technologies: [
       'FlutterFlow',
       'Flutter',

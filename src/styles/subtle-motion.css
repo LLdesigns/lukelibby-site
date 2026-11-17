@@ -48,7 +48,8 @@
   will-change: auto;
 }
 
-.v2[data-motion] .v2-honeycomb__item:not(.v2-honeycomb__item--shape).is-in {
+.v2[data-motion] .v2-honeycomb__item:not(.v2-honeycomb__item--shape).is-in,
+.v2[data-motion] .v2-honeycomb.is-revealed .v2-honeycomb__item:not(.v2-honeycomb__item--shape) {
   opacity: 1;
   will-change: auto;
 }

@@ -36,7 +36,9 @@ export function ExperienceAccordion() {
                 <h4 className="resume-accordion__subhead">Key Contributions</h4>
                 <ul className="resume-accordion__list">
                   {job.contributions.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item.label}>
+                      <strong>{item.label}.</strong> {item.detail}
+                    </li>
                   ))}
                 </ul>
                 <div className="resume-accordion__tech">

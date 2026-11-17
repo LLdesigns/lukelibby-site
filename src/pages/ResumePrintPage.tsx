@@ -3,6 +3,7 @@ import { DocumentHead } from '../components/DocumentHead'
 import {
   education,
   experience,
+  formatContribution,
   independentProjects,
   resumeMeta,
   skillCategories,
@@ -80,7 +81,7 @@ export function ResumePrintPage() {
                 </div>
                 <ul className="resume-print__bullets">
                   {role.contributions.slice(0, 2).map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item.label}>{formatContribution(item)}</li>
                   ))}
                 </ul>
               </article>
@@ -109,7 +110,7 @@ export function ResumePrintPage() {
                   <p className="resume-print__role-period">{freelanceRole.period}</p>
                 </div>
                 <p className="resume-print__copy resume-print__copy--compact">
-                  {freelanceRole.contributions[0]}
+                  {formatContribution(freelanceRole.contributions[0])}
                 </p>
               </article>
             )}

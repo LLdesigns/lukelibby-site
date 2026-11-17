@@ -124,14 +124,20 @@ export function V2Resume() {
                     </button>
                     {open ? (
                       <div className="v2-resume__job-body">
-                        <p>{job.intro}</p>
-                        <p className="v2-resume__subhead">Key contributions</p>
-                        <ul className="v2-resume__points">
+                        <p className="v2-resume__job-intro">{job.intro}</p>
+                        <ul className="v2-resume__highlights">
                           {job.contributions.map((point) => (
-                            <li key={point}>{point}</li>
+                            <li key={point.label}>
+                              <strong>{point.label}</strong>
+                              <span>{point.detail}</span>
+                            </li>
                           ))}
                         </ul>
-                        <p className="v2-resume__tech">{job.technologies.join(' · ')}</p>
+                        <ul className="v2-resume__tags" aria-label="Focus areas">
+                          {job.technologies.map((tech) => (
+                            <li key={tech}>{tech}</li>
+                          ))}
+                        </ul>
                       </div>
                     ) : null}
                   </article>
@@ -179,13 +185,16 @@ export function V2Resume() {
                   </div>
                 </div>
                 <p className="v2-resume__project-desc">{project.description}</p>
-                <p className="v2-resume__subhead">Highlights</p>
                 <ul className="v2-resume__points">
                   {project.highlights.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-                <p className="v2-resume__tech">{project.technologies.join(' · ')}</p>
+                <ul className="v2-resume__tags" aria-label="Technologies">
+                  {project.technologies.map((tech) => (
+                    <li key={tech}>{tech}</li>
+                  ))}
+                </ul>
               </article>
             ) : null}
           </div>

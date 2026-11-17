@@ -85,11 +85,14 @@ function composeRows(items: HoneycombItem[], columns: number) {
 }
 
 function coverScale(rect: DOMRect) {
-  const centerX = rect.left + rect.width / 2
-  const centerY = rect.top + rect.height / 2
+  const width = Math.max(rect.width, 48)
+  const height = Math.max(rect.height, 48)
+  const centerX = rect.left + width / 2
+  const centerY = rect.top + height / 2
   const reachX = Math.max(centerX, window.innerWidth - centerX)
   const reachY = Math.max(centerY, window.innerHeight - centerY)
-  return Math.max(reachX / (rect.width / 2), reachY / (rect.height / 2)) * 1.35
+  const scale = Math.max(reachX / (width / 2), reachY / (height / 2)) * 1.35
+  return Math.min(Math.max(scale, 1.2), 28)
 }
 
 /** Lays honeycomb tiles in offset rows and runs the project or photo action. */
