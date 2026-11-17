@@ -25,7 +25,7 @@ export function V2Research() {
             An AI-assisted hands-on lab production workflow where instructional review, code checks,
             and publishing standards stay in the loop.
           </p>
-          <Link className="v2-research__link" to="/v2/work/ai-lab-production">
+          <Link className="v2-research__link" to="/work/ai-lab-production">
             Read the case study
           </Link>
         </article>

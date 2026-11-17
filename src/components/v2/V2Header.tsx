@@ -56,7 +56,7 @@ function WorkMenu() {
   const panelRef = useRef<HTMLDivElement>(null)
   const closeTimer = useRef<number | null>(null)
   const menuId = useId()
-  const workActive = isLinkActive('#work', pathname, hash) || pathname.startsWith('/v2/work/')
+  const workActive = isLinkActive('#work', pathname, hash) || pathname.startsWith('/work/')
 
   function clearCloseTimer() {
     if (closeTimer.current === null) return

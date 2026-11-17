@@ -26,56 +26,56 @@ export const publicPages = [
     section: 'Site',
   },
   {
-    path: '/v2/work/ovrmaps',
+    path: '/work/ovrmaps',
     title: 'OVRmaps',
     description:
       'Outdoor platform for maps, GPS recording, trail observations, and community sharing.',
     section: 'Work',
   },
   {
-    path: '/v2/work/wyldtracks',
+    path: '/work/wyldtracks',
     title: 'WyldTracks',
     description:
       'Wildlife field journal with evidence-backed IDs, GBIF validation, and a personal observation record.',
     section: 'Work',
   },
   {
-    path: '/v2/work/play-it-pro',
+    path: '/work/play-it-pro',
     title: 'Play It Pro',
     description:
       'Music education platform for teachers, students, and tutorial authors.',
     section: 'Work',
   },
   {
-    path: '/v2/work/slidekit',
+    path: '/work/slidekit',
     title: 'SlideKit',
     description:
       'PowerPoint add-in for catching presentation standards problems before video production.',
     section: 'Work',
   },
   {
-    path: '/v2/work/videokit',
+    path: '/work/videokit',
     title: 'VideoKit',
     description:
       'Internal video review workflow for findings, status, and standards checks in one place.',
     section: 'Work',
   },
   {
-    path: '/v2/work/plottr',
+    path: '/work/plottr',
     title: 'Plottr',
     description:
       'Presentation review that imports a deck, checks it, and exports actionable findings.',
     section: 'Work',
   },
   {
-    path: '/v2/work/luma',
+    path: '/work/luma',
     title: 'Luma',
     description:
       'Technology-course review system for objectives, concepts, procedures, and tools.',
     section: 'Work',
   },
   {
-    path: '/v2/work/ai-lab-production',
+    path: '/work/ai-lab-production',
     title: 'AI-Assisted Lab Production',
     description:
       'AI-assisted hands-on lab production workflow with human review gates intact.',
@@ -111,12 +111,12 @@ export const spaShellRoutes = [
   '/discovery',
   '/auth',
   '/auth/reset-password',
-  '/v2/work/ovrmaps',
-  '/v2/work/wyldtracks',
-  '/v2/work/play-it-pro',
-  '/v2/work/slidekit',
-  '/v2/work/videokit',
-  '/v2/work/plottr',
-  '/v2/work/luma',
-  '/v2/work/ai-lab-production',
+  '/work/ovrmaps',
+  '/work/wyldtracks',
+  '/work/play-it-pro',
+  '/work/slidekit',
+  '/work/videokit',
+  '/work/plottr',
+  '/work/luma',
+  '/work/ai-lab-production',
 ]

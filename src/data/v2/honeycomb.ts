@@ -153,7 +153,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
       'A PowerPoint add-in for catching standards problems while the author is still editing, before they are recorded.',
     imageAlt: 'SlideKit Tools panel beside a PowerPoint slide',
     art: 'slides',
-    href: '/v2/work/slidekit',
+    href: '/work/slidekit',
   },
   {
     kind: 'project',
@@ -165,7 +165,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
       'A presentation review that brings a deck in, checks it, and sends it back out. The wide editor stayed a prototype.',
     imageAlt: 'Plottr new-project and AI Copilot screens',
     art: 'plottr',
-    href: '/v2/work/plottr',
+    href: '/work/plottr',
   },
   {
     kind: 'project',
@@ -177,7 +177,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
       'One review for the clip, the picture, and the finding, with a person still accepting or setting aside what a check reports.',
     imageAlt: 'VideoKit review layout inside a video monitor',
     art: 'video',
-    href: '/v2/work/videokit',
+    href: '/work/videokit',
   },
   {
     kind: 'project',
@@ -189,7 +189,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
       'A review of technology lessons—objectives, concepts, procedures, and tools—and the topics that were taught without supporting the skill.',
     imageAlt: 'Luma knowledge graph with a selected objective and connected nodes',
     art: 'luma',
-    href: '/v2/work/luma',
+    href: '/work/luma',
   },
   {
     kind: 'project',
@@ -202,7 +202,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     image: '/images/v2/ovrmaps-honeycomb.png',
     imageAlt: 'OVRmaps logo over mountain ridges with trail and campsite map pins',
     imagePosition: 'center 32%',
-    href: '/v2/work/ovrmaps',
+    href: '/work/ovrmaps',
   },
   {
     kind: 'project',
@@ -215,7 +215,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     image: '/images/v2/wyldtracks-field.jpg',
     imageAlt: 'A tree frog beside a phone and tablet showing the WyldTracks field journal',
     imagePosition: '42% center',
-    href: '/v2/work/wyldtracks',
+    href: '/work/wyldtracks',
   },
   {
     kind: 'project',
@@ -227,7 +227,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
       'An AI-assisted production pipeline for creating interactive technical learning labs through structured workflows, content generation, and quality review.',
     imageAlt: 'Structured AI-assisted lab pipeline diagram',
     art: 'lab',
-    href: '/v2/work/ai-lab-production',
+    href: '/work/ai-lab-production',
   },
   {
     kind: 'project',
@@ -239,6 +239,6 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
       'An interactive music education platform designed to help learners develop practical skills through structured lessons and hands-on exercises.',
     imageAlt: 'Play It Pro lesson builder interface',
     art: 'play',
-    href: '/v2/work/play-it-pro',
+    href: '/work/play-it-pro',
   },
 ]

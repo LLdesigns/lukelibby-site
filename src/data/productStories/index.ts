@@ -39,13 +39,13 @@ export const productStoriesList: ProductStoryDetail[] = PRODUCT_STORY_ORDER.map(
 )
 
 const STORY_TO_V2_HREF: Record<string, string> = {
-  'ai-lab-production': '/v2/work/ai-lab-production',
-  'presentation-builder': '/v2/work/plottr',
-  plottr: '/v2/work/plottr',
-  'play-it-pro': '/v2/work/play-it-pro',
+  'ai-lab-production': '/work/ai-lab-production',
+  'presentation-builder': '/work/plottr',
+  plottr: '/work/plottr',
+  'play-it-pro': '/work/play-it-pro',
   skatespot: '/',
-  wyldtracks: '/v2/work/wyldtracks',
-  nutriant: '/v2/work/wyldtracks',
+  wyldtracks: '/work/wyldtracks',
+  nutriant: '/work/wyldtracks',
 }
 
 export function getProductStoryHref(slug: string): string {

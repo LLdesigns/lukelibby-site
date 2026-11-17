@@ -105,17 +105,17 @@ export const consultingProof = {
     {
       label: 'WyldTracks',
       detail: 'AI field journal from vision pipeline through to the user-facing journal',
-      href: '/v2/work/wyldtracks',
+      href: '/work/wyldtracks',
     },
     {
       label: 'Presentation Builder',
       detail: 'Production workflow product turning messy decks into structured, usable data',
-      href: '/v2/work/plottr',
+      href: '/work/plottr',
     },
     {
       label: 'Play It Pro',
       detail: 'Music education platform with lesson builders, paths, and a tutorial library',
-      href: '/v2/work/play-it-pro',
+      href: '/work/play-it-pro',
     },
   ],
 } as const

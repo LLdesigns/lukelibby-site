@@ -27,25 +27,32 @@ import { NotesLayer } from './components/notes/NotesLayer'
 /** Set to true to show the sticky notes overlay */
 const NOTES_FEATURE_ENABLED = false
 
-/** Old /stories and /case-studies URLs → current v2 project pages. */
-const STORY_TO_V2: Record<string, string> = {
-  wyldtracks: '/v2/work/wyldtracks',
-  nutriant: '/v2/work/wyldtracks',
-  'play-it-pro': '/v2/work/play-it-pro',
-  'presentation-builder': '/v2/work/plottr',
-  plottr: '/v2/work/plottr',
-  'ai-lab-production': '/v2/work/ai-lab-production',
-  slidekit: '/v2/work/slidekit',
-  videokit: '/v2/work/videokit',
-  luma: '/v2/work/luma',
-  ovrmaps: '/v2/work/ovrmaps',
+/** Old story / case-study / v2 URLs → current project pages at /work/:slug. */
+const LEGACY_TO_WORK: Record<string, string> = {
+  wyldtracks: '/work/wyldtracks',
+  nutriant: '/work/wyldtracks',
+  'play-it-pro': '/work/play-it-pro',
+  'presentation-builder': '/work/plottr',
+  plottr: '/work/plottr',
+  'ai-lab-production': '/work/ai-lab-production',
+  slidekit: '/work/slidekit',
+  videokit: '/work/videokit',
+  luma: '/work/luma',
+  ovrmaps: '/work/ovrmaps',
 }
 
 function LegacyStoryRedirect() {
   const { slug } = useParams<{ slug: string }>()
   if (!slug) return <Navigate to="/" replace />
-  const next = STORY_TO_V2[slug]
+  const next = LEGACY_TO_WORK[slug]
   return <Navigate to={next ?? '/'} replace />
+}
+
+function LegacyV2WorkRedirect() {
+  const { slug } = useParams<{ slug: string }>()
+  if (!slug) return <Navigate to="/" replace />
+  const next = LEGACY_TO_WORK[slug] ?? `/work/${slug}`
+  return <Navigate to={next} replace />
 }
 
 function LegacyBrandSystemRedirect() {
@@ -54,7 +61,7 @@ function LegacyBrandSystemRedirect() {
   return <Navigate to={`/brand-systems/${slug}`} replace />
 }
 
-/** Legacy work archive and tools. Public home is v2 at `/`. */
+/** Legacy archive and tools. Public home is `/`; project pages are `/work/:slug`. */
 function SiteApp() {
   return (
     <>
@@ -123,8 +130,9 @@ function App() {
           <HoneycombLaunchOverlay />
           <Routes>
             <Route path="/" element={<V2LandingPage />} />
+            <Route path="/work/:slug" element={<V2ProjectPage />} />
             <Route path="/v2" element={<Navigate to="/" replace />} />
-            <Route path="/v2/work/:slug" element={<V2ProjectPage />} />
+            <Route path="/v2/work/:slug" element={<LegacyV2WorkRedirect />} />
             <Route path="/resume/print" element={<ResumePrintPage />} />
             <Route path="/discovery" element={<DiscoveryPage />} />
             <Route path="/*" element={<SiteApp />} />

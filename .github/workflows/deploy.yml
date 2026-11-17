@@ -41,7 +41,7 @@ jobs:
         run: |
           test -f dist/index.html
           test "$(wc -c < dist/work/index.html)" -gt 8000
-          test -f dist/v2/work/wyldtracks/index.html
+          test -f dist/work/wyldtracks/index.html
           test -f dist/discovery/index.html
           test -f dist/404.html
           # Homepage must stay the Vite SPA shell (v2), not the retired v1 crawl snapshot.

@@ -348,7 +348,7 @@ export const independentProjects = [
     title: 'OVRmaps',
     subtitle: 'Active beta',
     role: 'Founder / Product Designer / Full-Stack Builder',
-    href: '/v2/work/ovrmaps',
+    href: '/work/ovrmaps',
     description:
       'I founded, designed, and built an outdoor exploration platform with offline maps, GPS route recording, trail observations, and social features for sharing routes and forming crews. Field use and conversations with riders shaped what I prioritized over a frozen map someone else had published.',
     highlights: [
@@ -370,7 +370,7 @@ export const independentProjects = [
     title: 'WyldTracks',
     subtitle: 'Published',
     role: 'Founder / Product Designer / Full-Stack Builder',
-    href: '/v2/work/wyldtracks',
+    href: '/work/wyldtracks',
     liveUrl: 'https://www.wyldtracks.com',
     description:
       'I designed, built, and launched a wildlife journal that helps people identify animals and signs, review the evidence behind AI-suggested identifications, and save their observations. The key product choice is that people can review and edit the identification before it becomes part of the saved record.',
@@ -395,7 +395,7 @@ export const independentProjects = [
     title: 'Play It Pro',
     subtitle: 'Live platform',
     role: 'Founder / Product Designer / Full-Stack Builder',
-    href: '/v2/work/play-it-pro',
+    href: '/work/play-it-pro',
     description:
       'I founded, designed, and built a music education platform that connects structured tutorial authoring, teacher studio tools, and student practice. Teachers can turn lessons into a clear practice plan students can follow between sessions, instead of scattered videos, texts, and memory.',
     highlights: [

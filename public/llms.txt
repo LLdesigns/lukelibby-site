@@ -13,14 +13,14 @@ Portfolio of product work by Luke Libby — AI workflows, internal tools, outdoo
 - [Work archive](https://lukelibby.com/work): Archive of product stories, brand systems, and earlier work by Luke Libby.
 
 ## Work
-- [OVRmaps](https://lukelibby.com/v2/work/ovrmaps): Outdoor platform for maps, GPS recording, trail observations, and community sharing.
-- [WyldTracks](https://lukelibby.com/v2/work/wyldtracks): Wildlife field journal with evidence-backed IDs, GBIF validation, and a personal observation record.
-- [Play It Pro](https://lukelibby.com/v2/work/play-it-pro): Music education platform for teachers, students, and tutorial authors.
-- [SlideKit](https://lukelibby.com/v2/work/slidekit): PowerPoint add-in for catching presentation standards problems before video production.
-- [VideoKit](https://lukelibby.com/v2/work/videokit): Internal video review workflow for findings, status, and standards checks in one place.
-- [Plottr](https://lukelibby.com/v2/work/plottr): Presentation review that imports a deck, checks it, and exports actionable findings.
-- [Luma](https://lukelibby.com/v2/work/luma): Technology-course review system for objectives, concepts, procedures, and tools.
-- [AI-Assisted Lab Production](https://lukelibby.com/v2/work/ai-lab-production): AI-assisted hands-on lab production workflow with human review gates intact.
+- [OVRmaps](https://lukelibby.com/work/ovrmaps): Outdoor platform for maps, GPS recording, trail observations, and community sharing.
+- [WyldTracks](https://lukelibby.com/work/wyldtracks): Wildlife field journal with evidence-backed IDs, GBIF validation, and a personal observation record.
+- [Play It Pro](https://lukelibby.com/work/play-it-pro): Music education platform for teachers, students, and tutorial authors.
+- [SlideKit](https://lukelibby.com/work/slidekit): PowerPoint add-in for catching presentation standards problems before video production.
+- [VideoKit](https://lukelibby.com/work/videokit): Internal video review workflow for findings, status, and standards checks in one place.
+- [Plottr](https://lukelibby.com/work/plottr): Presentation review that imports a deck, checks it, and exports actionable findings.
+- [Luma](https://lukelibby.com/work/luma): Technology-course review system for objectives, concepts, procedures, and tools.
+- [AI-Assisted Lab Production](https://lukelibby.com/work/ai-lab-production): AI-assisted hands-on lab production workflow with human review gates intact.
 
 ## Brand & Interface Systems
 - [Terrapin Outdoors](https://lukelibby.com/brand-systems/terrapin-outdoors): Map-first outdoor platform design system with foundations, map shells, and field-ready components.

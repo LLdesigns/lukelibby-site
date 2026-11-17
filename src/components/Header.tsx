@@ -14,7 +14,7 @@ function isNavLinkActive(href: string, pathname: string, hash: string): boolean 
       pathname.startsWith('/brand-systems/') ||
       pathname.startsWith('/case-studies/') ||
       pathname.startsWith('/product-systems/') ||
-      pathname.startsWith('/v2/work/')
+      pathname.startsWith('/work/')
     )
   }
 

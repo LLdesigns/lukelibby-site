@@ -23,7 +23,7 @@ export function V2ProjectPage() {
       <DocumentHead
         title={project.title}
         description={project.description}
-        pathname={`/v2/work/${project.slug}`}
+        pathname={`/work/${project.slug}`}
         imagePath={project.hero.image}
         type="article"
         noindex={project.published === false}
