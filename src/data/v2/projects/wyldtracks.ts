@@ -5,7 +5,7 @@ export const wyldtracksProject: ProjectDocument = {
   slug: 'wyldtracks',
   title: 'WyldTracks',
   description:
-    'A wildlife observation platform designed, built, and launched independently, so documenting a sighting can be as simple as taking a photograph.',
+    'A wildlife observation platform I designed, built, and launched independently: photo-first capture, scientific context, and optional identification in one journal.',
   liveUrl: 'https://www.wyldtracks.com',
   liveLabel: 'Live alpha',
   theme: {
@@ -16,9 +16,9 @@ export const wyldtracksProject: ProjectDocument = {
     accent: '#8fd0a6',
   },
   hero: {
-    eyebrow: 'WyldTracks',
+    eyebrow: 'Independent product',
     title: 'WyldTracks',
-    lede: 'Making wildlife observation as simple as taking a photograph.',
+    lede: 'Photo-First Wildlife Journal',
     role: 'A wildlife observation platform I independently designed, built, and launched. It brings field journaling, scientific context, and AI-assisted identification into one experience for everyday explorers and working biologists.',
     meta: 'Progressive Web App',
     tags: [
@@ -37,9 +37,9 @@ export const wyldtracksProject: ProjectDocument = {
     {
       type: 'split',
       id: 'opportunity',
-      nav: 'Opportunity',
-      eyebrow: '01  —  The opportunity',
-      title: 'A simple request that opened up a bigger idea.',
+      nav: 'Problem',
+      eyebrow: '01  —  Background',
+      title: 'The Problem',
       paragraphs: [
         'The idea started with a biologist I know who wanted a better way to document the wildlife he encountered in the field. He wanted to record observations, verify findings, and share discoveries with friends and fellow scientists.',
         'I researched existing tools and interviewed biologists about their workflows. There were specialized applications for birding, plants, and specific animal groups, but I kept returning to the same question: why couldn’t documenting wildlife be as simple as taking a photograph?',
@@ -51,10 +51,10 @@ export const wyldtracksProject: ProjectDocument = {
       id: 'research',
       nav: 'Research',
       eyebrow: '02  —  Research and discovery',
-      title: 'Scientific depth without scientific complexity.',
+      title: 'User Research',
       paragraphs: [
         'The research showed two different needs. A casual explorer may only want to know what animal they encountered. A biologist may need environment, behavior, location, and other context for the observation to be useful later.',
-        'I used what I know from learning design, including cognitive load and how understanding builds in stages, to decide how much information a person should meet at once.',
+        'I drew on learning design—cognitive load and staged understanding—to decide how much information someone should see on first open versus when they drill into a record.',
         'The experience is progressive: simple for someone new, with more scientific detail available when it is needed. Capture the encounter first. Add depth when it matters.',
       ],
     },
@@ -63,12 +63,12 @@ export const wyldtracksProject: ProjectDocument = {
       id: 'design',
       nav: 'Design',
       eyebrow: '03  —  Product design',
-      title: 'Designing around the moment, not the form.',
+      title: 'Product Design',
       intro:
         'I tested two ways to begin an observation with 20 people, using in-app analytics and interviews. Starting with a form left people unsure what they were supposed to enter. Starting with the camera fit a sighting that does not wait.',
       features: [
         {
-          title: 'The photograph comes first.',
+          title: 'Photograph First',
           problem:
             'A form-first start asked for details before the encounter was even recorded. In the field, that uncertainty costs the sighting.',
           decision:
@@ -88,11 +88,11 @@ export const wyldtracksProject: ProjectDocument = {
       id: 'ai',
       nav: 'AI',
       eyebrow: '04  —  Designing AI into the experience',
-      title: 'The observer knows things a photograph doesn’t.',
+      title: 'Human Review and AI Assist',
       paragraphs: [
         'A photograph can show what an animal looks like. It does not necessarily capture behavior, sound, habitat, or the circumstances of the encounter.',
         'The experience combines the visual evidence with scientific context and the observer’s own notes, without turning every sighting into a questionnaire.',
-        'The AI assists with interpretation. The person remains involved in evaluating the result. AI should help people understand what they found, not replace their judgment.',
+        'The AI assists with interpretation. The person still decides what belongs in the record and whether a suggestion is close enough to keep.',
       ],
       mediaSide: 'end',
       media: {
@@ -106,7 +106,7 @@ export const wyldtracksProject: ProjectDocument = {
       id: 'build',
       nav: 'Build',
       eyebrow: '05  —  From idea to working application',
-      title: 'Designing, building, testing, and repeating.',
+      title: 'From Idea to Alpha',
       intro:
         'I owned the product from the concept through the working alpha. I designed the interface in Figma, defined the flows and how the pieces fit together, and used AI-assisted development to implement and refine it. The product had to be a Progressive Web App so it could reach the devices people already carry, and so I could iterate without separate native releases.',
       stages: [
@@ -120,9 +120,9 @@ export const wyldtracksProject: ProjectDocument = {
     {
       type: 'experience',
       id: 'result',
-      nav: 'Result',
-      eyebrow: '06  —  The result',
-      title: 'A working product, with room to grow.',
+      nav: 'Results',
+      eyebrow: '06  —  Live alpha',
+      title: 'Results',
       intro:
         'WyldTracks is live on the web: a personal wildlife journal, a way to capture an observation, and screens for exploring and sharing what was found. The longer view includes community-supported observations and a deeper reading of wildlife patterns. The first product stays narrower than that on purpose.',
       scenes: [
@@ -171,11 +171,12 @@ export const wyldtracksProject: ProjectDocument = {
       type: 'reflection',
       id: 'belief',
       nav: 'Belief',
-      eyebrow: '06  —  The result',
-      title: 'Remove the steps that are not the point.',
+      eyebrow: '07  —  Product focus',
+      title: 'Product Focus',
       statement:
-        'The goal is not to give people every possible capability. It is to understand what they are trying to accomplish and remove the unnecessary steps between them and that outcome.',
-      detail: 'Building WyldTracks made that concrete. The first version stays focused on the observation itself.',
+        'Photo first, details when they matter—that was the product bet for WyldTracks.',
+      detail:
+        'Building WyldTracks made that concrete. Casual explorers and working biologists share one journal, but they do not need the same depth on first open. The alpha stays focused on recording the sighting before a form or identification step gets in the way. The goal is not to give people every possible capability—it is to understand what they are trying to accomplish and remove the unnecessary steps. Community-supported observations and deeper pattern reading are on the longer view; they are not the first job.',
     },
   ],
 }

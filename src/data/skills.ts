@@ -17,7 +17,7 @@ export const builderNoteTags = [
 ] as const
 
 export const builderNotesParagraphs = [
-  'I am a creative technologist with a background in design, technical content, photo, video, and hands-on product building. I work at the overlap of interface design, systems thinking, and prototyping, usually trying to make complex ideas easier to grasp.',
+  'I am a creative technologist with a background in design, technical content, photo, video, and hands-on product building. I design interfaces and prototypes and try to make complex technical work easier to follow.',
   'Outside of work, I am usually exploring somewhere outdoors: backpacking, overlanding, biking, camping, or looking for the next place that needs a map.',
 ] as const
 

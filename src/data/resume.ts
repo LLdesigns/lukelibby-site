@@ -21,7 +21,7 @@ export const resumeSummary = `Creative technologist and product builder with ten
 
 I design products, systems, and the relationships inside learning content—then use AI-assisted development to implement them. That includes video and presentation tools, knowledge-graph systems for course review, and 60+ hands-on labs in Python, R, and SQL.
 
-I care about strong UX, outdoor culture, and education, and I like building tools that help people tackle hard problems with more confidence.`
+I care about clear UX, outdoor culture, and education—the same problems show up in my independent apps and my day job.`
 
 export type ResumeSectionId =
   | 'summary'
@@ -444,14 +444,14 @@ export const education = [
 
 export const additionalStrengths = [
   {
-    label: 'Entrepreneurial initiative',
+    label: 'Independent product work',
     detail:
-      'Turns real-world problems into product concepts, working prototypes, and usable tools.',
+      'Takes field problems into product concepts, working prototypes, and usable tools (OVRmaps, WyldTracks, Play It Pro).',
   },
   {
-    label: 'Human-centered design',
+    label: 'Design for real workflows',
     detail:
-      'Simplifies complex workflows so people can act with greater clarity and confidence.',
+      'Simplifies messy workflows so the next step is obvious.',
   },
   {
     label: 'Cross-functional collaboration',

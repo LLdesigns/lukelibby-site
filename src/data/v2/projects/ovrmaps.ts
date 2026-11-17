@@ -4,11 +4,12 @@ export const ovrmapsProject: ProjectDocument = {
   slug: 'ovrmaps',
   title: 'OVRmaps',
   description:
-    'An outdoor platform that connects exploration with the knowledge people gather along the way: maps, GPS recording, location-based observations, and community sharing in one experience.',
+    'An outdoor platform for maps, GPS recording, location-based observations, and community sharing. Navigation and unpublished studio tools are still in progress.',
   published: true,
   liveUrl: 'https://ovrmaps.com',
   liveLabel: 'Active beta',
-  closing: 'OVRmaps turns what people discover outdoors into knowledge others can build on.',
+  closing:
+    'Placing a pin on the map is straightforward. The harder part is giving the next person useful context—what you found, what changed, and what to expect when they arrive.',
   theme: {
     background: '#121614',
     surface: '#1a221c',
@@ -17,10 +18,10 @@ export const ovrmapsProject: ProjectDocument = {
     accent: '#c4a46a',
   },
   hero: {
-    eyebrow: 'OVRmaps',
+    eyebrow: 'Independent product',
     title: 'OVRmaps',
-    lede: 'Explore a place. Contribute what you discover.',
-    role: 'I founded OVRmaps to connect outdoor exploration with the knowledge people gather along the way. It brings maps, GPS recording, location-based observations, and community sharing into one experience. I lead product strategy, UX/UI, systems design, and AI-assisted development, from defining the core workflows to taking the product outdoors and refining it through use and feedback.',
+    lede: 'Outdoor Maps You Can Add To',
+    role: 'I founded OVRmaps to connect outdoor exploration with the knowledge people gather along the way. The product brings together maps, GPS recording, location-based observations, and community sharing. I own product strategy, UX/UI, and systems design, use AI-assisted development to move from workflow ideas to working software, and refine the experience by taking it outdoors and acting on feedback.',
     meta: 'Active beta · Mobile + web',
     image: '/images/v2/ovrmaps-honeycomb.png',
     imageAlt: 'OVRmaps logo over mountain ridges with trail and campsite map pins',
@@ -37,9 +38,9 @@ export const ovrmapsProject: ProjectDocument = {
     {
       type: 'split',
       id: 'opportunity',
-      nav: 'Opportunity',
-      eyebrow: '01  ·  The opportunity',
-      title: 'The map shows the trail. People know what changed.',
+      nav: 'Problem',
+      eyebrow: '01  ·  Background',
+      title: 'The Problem',
       paragraphs: [
         'The idea came from my own time off-road and outdoors. I could save a route or mark a location, but the information I wanted to contribute often needed more context: what I found, why it mattered, and what another person should know before arriving.',
         'A campsite, an obstacle, and a trailhead might all appear as pins, but they serve different needs. I wanted to make those differences useful, and connect the information to people who could benefit from it.',
@@ -51,7 +52,7 @@ export const ovrmapsProject: ProjectDocument = {
       id: 'role',
       nav: 'Role',
       eyebrow: '02  ·  My role',
-      title: 'From an outdoor problem to a working product.',
+      title: 'My Role',
       paragraphs: [
         'As the founder and independent builder, I work across the full product: audience and direction, interfaces and workflows across mobile and desktop, how recordings, routes, observations, and community contributions relate, AI-assisted implementation, and field testing that turns feedback into the next change.',
         'Owning these responsibilities lets me move quickly between an idea, a working experience, and the conditions it needs to survive outdoors.',
@@ -62,7 +63,7 @@ export const ovrmapsProject: ProjectDocument = {
       id: 'working-ia',
       nav: 'Early boards',
       eyebrow: 'Working boards',
-      title: 'The product was drawn before it was shipped.',
+      title: 'Early Product Boards',
       intro:
         'Early whiteboards mapped the app itself: Map, Explore, Social, and Settings; how a trail ticket should read; swipe to save or dismiss; and an information architecture that connected the map line to safety, tools, markers, profile, forums, meetups, search, and discovery. Those boards are the working model that later became Field and Studio.',
       image: '/images/v2/ovrmaps/working/app-ia-whiteboard.jpg',
@@ -75,7 +76,7 @@ export const ovrmapsProject: ProjectDocument = {
       id: 'working-model',
       nav: 'Early model',
       eyebrow: 'Membership, trails, and story',
-      title: 'Trail facts on one board. How a trail would be told on another.',
+      title: 'Trail Model and Storyboards',
       paragraphs: [
         'One board held the early membership and trail model—premium and certified drivers, trail events, campsites, difficulty, weather, connected trails, and how a host might earn a place in the community. Not every idea shipped. The useful ones named what a trail listing had to carry and what contribution could mean.',
         'Separately, “IG page slides” storyboarded how a trail might be shared: road name and place, what to expect, what to see, then the pictures. That sequence is still how trail context wants to read—title and location first, then difficulty and uniqueness, then the proof in photos.',
@@ -102,7 +103,7 @@ export const ovrmapsProject: ProjectDocument = {
       id: 'core',
       nav: 'Experience',
       eyebrow: '03  ·  The core experience',
-      title: 'Record the outing. Capture the detail. Share what matters.',
+      title: 'Record, Observe, Share',
       intro:
         'I organized the experience around three connected jobs. Together, these workflows connect a personal outdoor experience with information someone else can use.',
       columns: [
@@ -132,7 +133,7 @@ export const ovrmapsProject: ProjectDocument = {
       id: 'field',
       nav: 'Field',
       eyebrow: '04  ·  Designing for the field',
-      title: 'The map is the starting point.',
+      title: 'Field Design',
       intro:
         'On mobile, I wanted the first screen to answer immediate questions: Where am I? What is around me? How do I start recording? The interface opens directly onto the map. Recording, layers, search, and observation tools remain close to the terrain they affect. Large targets and restrained controls help keep the experience readable without surrounding the map with competing actions. Field use continues to shape those decisions. A control that feels accessible at a desk can become awkward when moving, dealing with glare, or checking the phone briefly at a stop.',
       image: '/images/v2/ovrmaps/product-field-map.jpg',
@@ -145,7 +146,7 @@ export const ovrmapsProject: ProjectDocument = {
       id: 'decisions',
       nav: 'Decisions',
       eyebrow: '05  ·  Key product decisions',
-      title: 'Decisions that keep contribution useful outdoors.',
+      title: 'Product Decisions',
       intro:
         'Three choices shape how people explore, capture, and return to what they found.',
       features: [
@@ -198,7 +199,7 @@ export const ovrmapsProject: ProjectDocument = {
       id: 'layers',
       nav: 'Layers',
       eyebrow: '06  ·  Making a complex map understandable',
-      title: 'Every layer needs a reason to be there.',
+      title: 'Map Layers',
       paragraphs: [
         'OVRmaps brings together roads, trails, terrain, and other outdoor information. Making that information available is only part of the design problem. People also need to understand what they are seeing and control what matters to their trip.',
         'I use layer grouping, legends, marker types, and basemap choices to make the map easier to interpret. Outdoor styling emphasizes roads and recreation, while satellite imagery provides visual context about the surrounding landscape.',
@@ -226,7 +227,7 @@ export const ovrmapsProject: ProjectDocument = {
       id: 'search',
       nav: 'Search',
       eyebrow: '07  ·  Search and exploration',
-      title: 'Find a place. Edit the network when you need to.',
+      title: 'Search and Studio',
       intro:
         'Search moves someone from a place name to terrain they can inspect. Results provide location context and bring the map to the selected area. Studio is a separate authoring surface for connected trail networks: recording segments, placing junctions, and editing nodes. Keeping search and Studio apart keeps each job clear. One helps you arrive. The other helps you shape what the map can hold.',
       scenes: [
@@ -257,8 +258,8 @@ export const ovrmapsProject: ProjectDocument = {
       type: 'aside',
       id: 'iteration',
       nav: 'Iteration',
-      eyebrow: '08  ·  Iteration and validation',
-      title: 'Outdoor use reveals what the interface needs next.',
+      eyebrow: '08  ·  Iteration and field testing',
+      title: 'Field Iteration',
       paragraphs: [
         'I combine field use, conversations with riders, and structured interface reviews to identify friction across the product.',
         'Those reviews have surfaced practical issues: desktop panels stacking over the map, inconsistent naming across surfaces, and insufficient guidance on first open.',
@@ -276,7 +277,7 @@ export const ovrmapsProject: ProjectDocument = {
       id: 'build',
       nav: 'Build',
       eyebrow: '09  ·  Building the system',
-      title: 'Connect the experience across devices.',
+      title: 'Building the System',
       intro:
         'Behind the interface, OVRmaps uses shared TypeScript domain logic, MapLibre, and a local-first capture approach. These foundations support connected concepts across mobile and web while accounting for unreliable connectivity outdoors. I use AI heavily during implementation. My role is to define the intended behavior, direct the product and interaction design, investigate problems, and validate the resulting experience. This work has pushed me to think beyond individual screens: how information is captured, preserved, revisited, and eventually shared is part of the design.',
       stages: [
@@ -290,12 +291,13 @@ export const ovrmapsProject: ProjectDocument = {
     {
       type: 'reflection',
       id: 'direction',
-      nav: 'Direction',
-      eyebrow: '10  ·  Current stage and direction',
-      title: 'An active beta shaped by real use.',
-      statement: 'OVRmaps turns what people discover outdoors into knowledge others can build on.',
+      nav: 'Results',
+      eyebrow: '10  ·  Active beta',
+      title: 'Results',
+      statement:
+        'Placing a pin on the map is straightforward. The harder part is giving the next person useful context—what you found, what changed, and what to expect when they arrive.',
       detail:
-        'OVRmaps is in active beta, with recording, trail inspection, observations, offline preparation, and early community features at different stages of development and validation. Current work focuses on strengthening the core field experience and developing the ways people contribute and share. Studio is an evolving authoring environment for exploring connected trail networks and segment editing. The most important shift in my thinking has been from adding information to making that information useful. More layers alone do not answer someone’s question. Clear context, understandable actions, and relevant contributions bring the product closer to that goal.',
+        'OVRmaps is in active beta, with recording, trail inspection, observations, offline preparation, and early community features at different stages of development and validation. Current work focuses on strengthening the core field experience and developing the ways people contribute and share. Studio is an evolving authoring environment for exploring connected trail networks and segment editing. The shift that has stayed with me is less about adding more map layers and more about whether a contribution helps the next person—typed observations, clear actions, and context that matches what they need before they arrive.',
     },
   ],
 }

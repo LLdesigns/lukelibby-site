@@ -148,7 +148,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     id: 'slidekit',
     title: 'SlideKit',
     type: 'EdTech',
-    summary: 'Fix the slide before the video.',
+    summary: 'PowerPoint Standards Add-in',
     detail:
       'A PowerPoint add-in for catching standards problems while the author is still editing, before they are recorded.',
     imageAlt: 'SlideKit Tools panel beside a PowerPoint slide',
@@ -160,7 +160,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     id: 'plottr',
     title: 'Plottr',
     type: 'Diagrams',
-    summary: 'Import, review, and export.',
+    summary: 'Import, Review, and Export',
     detail:
       'A presentation review that brings a deck in, checks it, and sends it back out. The wide editor stayed a prototype.',
     imageAlt: 'Plottr new-project and AI Copilot screens',
@@ -172,7 +172,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     id: 'videokit',
     title: 'VideoKit',
     type: 'Video',
-    summary: 'web and desktop',
+    summary: 'AI-Assisted Video Review',
     detail:
       'One review for the clip, the picture, and the finding, with a person still accepting or setting aside what a check reports.',
     imageAlt: 'VideoKit review layout inside a video monitor',
@@ -184,7 +184,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     id: 'luma',
     title: 'Luma',
     type: 'Learning',
-    summary: 'See what a tech course actually teaches.',
+    summary: 'Technology Course Review',
     detail:
       'A review of technology lessons—objectives, concepts, procedures, and tools—and the topics that were taught without supporting the skill.',
     imageAlt: 'Luma knowledge graph with a selected objective and connected nodes',
@@ -196,7 +196,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     id: 'ovrmaps',
     title: 'OVRmaps',
     type: 'Mapping',
-    summary: 'A map you can add to.',
+    summary: 'Outdoor Maps You Can Add To',
     detail:
       'An active outdoor platform for recording a trip and identifying the trail under you. Navigation and unpublished studio tools are not part of that claim.',
     image: '/images/v2/ovrmaps-honeycomb.png',
@@ -209,7 +209,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     id: 'wyldtracks',
     title: 'WyldTracks',
     type: 'Wildlife',
-    summary: 'As simple as taking a photograph.',
+    summary: 'Photo-First Wildlife Journal',
     detail:
       'A wildlife observation platform for recording a sighting, keeping scientific context, and reviewing an identification.',
     image: '/images/v2/wyldtracks-field.jpg',
@@ -220,11 +220,11 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
   {
     kind: 'project',
     id: 'hands-on-labs',
-    title: 'AI-Generated Hands-On Labs',
+    title: 'AI-Assisted Lab Production',
     type: 'Workflow',
-    summary: 'Structured lab production.',
+    summary: 'AI-Assisted Lab Production',
     detail:
-      'An AI-assisted production pipeline for creating interactive technical learning labs through structured workflows, content generation, and quality review.',
+      'An AI-assisted lab pipeline from brief to publish—assisted drafts, with human review for instruction, code, and sign-off.',
     imageAlt: 'Structured AI-assisted lab pipeline diagram',
     art: 'lab',
     href: '/work/ai-lab-production',
@@ -234,9 +234,9 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     id: 'play-it-pro',
     title: 'Play It Pro',
     type: 'Music',
-    summary: 'Lessons for practical music skills.',
+    summary: 'Structured Music Lessons',
     detail:
-      'An interactive music education platform designed to help learners develop practical skills through structured lessons and hands-on exercises.',
+      'Block-based lessons for teachers, assignments and practice tasks for students—live on React and Supabase.',
     imageAlt: 'Play It Pro lesson builder interface',
     art: 'play',
     href: '/work/play-it-pro',

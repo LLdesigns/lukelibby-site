@@ -223,7 +223,7 @@ export function V2Header() {
           />
           <span className="v2-header__identity">
             <span className="v2-header__name">Luke Libby</span>
-            <span className="v2-header__tag">Inspired to create the next big thing</span>
+            <span className="v2-header__tag">Creative Technologist and Product Builder</span>
           </span>
         </Link>
         <nav className="v2-header__nav" aria-label="Main">

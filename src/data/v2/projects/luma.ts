@@ -14,20 +14,32 @@ export const lumaProject: ProjectDocument = {
     accent: '#d7b07a',
   },
   hero: {
-    eyebrow: 'Luma',
+    eyebrow: 'Internal product',
     title: 'Luma',
-    lede: 'A finished deck is not proof a technology lesson taught what it claimed.',
+    lede: 'Technology Course Review',
     role: 'Plottr could make a presentation look complete and still have no account of the skills, APIs, or procedures a learner was supposed to practice. I built Luma to inspect technology education itself: what concepts and processes were taught, how they connect, and whether the delivered material supported the objective.',
     meta: 'Technology education · Built product',
     tags: ['Product Strategy', 'Learning Design', 'UX/UI Design', 'AI Orchestration'],
   },
   blocks: [
     {
+      type: 'split',
+      id: 'origin',
+      nav: 'Origin',
+      eyebrow: 'Where it came from',
+      title: 'The Problem',
+      paragraphs: [
+        'The failure showed up inside Plottr. A model could fill an attractive template and still have no judgment about whether a Python function, a TypeScript type, or a JavaScript procedure had earned its place—or whether the lesson taught the process a learner needed. Pedagogy for technology courses does not fall out of one prompt.',
+        'I started by asking what an author decides in a tech lesson: which concepts, which procedures, which tools, and in what order. Content quality, peer review, and the people reading the outcome needed a view of that teaching structure, not another slide.',
+        'The model distinguishes what was taught from how it was taught: explanation, demonstration, worked example, and other instructional moves. I designed the taxonomy and the relationships, including prerequisites across languages and tooling. Luma began with presentation authors and grew toward anyone comparing an approved technology outline with what was actually delivered.',
+      ],
+    },
+    {
       type: 'graph',
       id: 'graph',
-      nav: 'The graph',
-      eyebrow: 'The decision',
-      title: 'Select a node. See what it is, and why each link exists.',
+      nav: 'Graph',
+      eyebrow: 'Design decision',
+      title: 'Lesson Graph',
       intro:
         'This reconstructed Python lesson has one objective at the top. Concepts and procedures should support that objective. Variables are a prerequisite underneath. Packaging was taught in the material, but it does not help write the function—so it sits outside the map. Selecting a node shows its role in the technology lesson, then the reason for each connection.',
       start: 'functions',
@@ -118,7 +130,7 @@ export const lumaProject: ProjectDocument = {
       id: 'explorer',
       nav: 'Explorer',
       eyebrow: 'Author review',
-      title: 'Coverage first. Then the objective, or the knowledge behind it.',
+      title: 'Course Explorer',
       paragraphs: [
         'The working analyzer opens on a technology course: modules, clips, objectives, and knowledge counts, with a coverage bar that separates well supported, partial, and missing. Objectives and Knowledge are two projections of the same lesson—skills and procedures on one side, language concepts and tools on the other.',
         'Selecting an objective shows where it is supported, which instructional moves were observed, and what still needs a human look. Selecting a knowledge item—functions, types, APIs, tooling—shows where it appears, how it was taught, and which objectives it connects to. The Python Basics course in these screens is the review subject; the same system was built for technology education more broadly.',
@@ -145,7 +157,7 @@ export const lumaProject: ProjectDocument = {
       id: 'graph-ui',
       nav: 'Graph views',
       eyebrow: 'Knowledge graph',
-      title: 'Relationships show why a link exists. Progression shows when it appears.',
+      title: 'Graph Views',
       paragraphs: [
         'The knowledge graph is the same review in spatial form. Relationships lets a reviewer select a node and read kind, locations, connections, and evidence. Progression lays the course sequence across the canvas so grounded knowledge sits with its modules, and items outside the sequence stay visibly apart.',
         'Selecting a node dims the rest of the graph and keeps the reason for each link in the detail pane. That is the same interaction the reconstruction above demonstrates, shown here in the working interface.',
@@ -172,7 +184,7 @@ export const lumaProject: ProjectDocument = {
       id: 'progression',
       nav: 'Progression',
       eyebrow: 'Course sequence',
-      title: 'Progression puts the outline back under the graph.',
+      title: 'Course Progression',
       intro:
         'When the review needs order, not only topology, Progression places grounded knowledge along the modules and parks anything outside the sequence in its own band. Coverage stays visible above the canvas, so a gap in support is still part of the same pass.',
       image: '/images/v2/luma/progression.jpg',
@@ -182,22 +194,10 @@ export const lumaProject: ProjectDocument = {
     },
     {
       type: 'split',
-      id: 'origin',
-      nav: 'Origin',
-      eyebrow: 'Where it came from',
-      title: 'Generating a slide could not decide what belonged on it.',
-      paragraphs: [
-        'The failure showed up inside Plottr. A model could fill an attractive template and still have no judgment about whether a Python function, a TypeScript type, or a JavaScript procedure had earned its place—or whether the lesson taught the process a learner needed. Pedagogy for technology courses does not fall out of one prompt.',
-        'I started by asking what an author decides in a tech lesson: which concepts, which procedures, which tools, and in what order. Content quality, peer review, and the people reading the outcome needed a view of that teaching structure, not another slide.',
-        'The model distinguishes what was taught from how it was taught: explanation, demonstration, worked example, and other instructional moves. I designed the taxonomy and the relationships, including prerequisites across languages and tooling. Luma began with presentation authors and grew toward anyone comparing an approved technology outline with what was actually delivered.',
-      ],
-    },
-    {
-      type: 'split',
       id: 'judgment',
       nav: 'Judgment',
       eyebrow: 'What the person still decides',
-      title: 'The model may propose. It does not own the alignment.',
+      title: 'Human Review',
       paragraphs: [
         'The inputs are an approved outline, and optionally a transcript and quality notes. From those, the review names the concepts and instructional moves, maps relationships, judges support against evidence, and shows a review a person can read. A model can suggest entities and relationships. The alignment itself stays with evidence, a constrained vocabulary, and checks that do not depend on the model’s confidence.',
         'Support can be solid, partial, missing, or simply unclear. An unclear result stays unclear. Material that was taught but does not serve the objective is the outlier the graph already demonstrates. The review advises. It does not rewrite the objective to make the lesson look complete.',
@@ -207,12 +207,13 @@ export const lumaProject: ProjectDocument = {
     {
       type: 'reflection',
       id: 'outcome',
-      nav: 'Outcome',
-      eyebrow: 'What changed',
-      title: 'The course had to become inspectable before the slide could be trusted.',
-      statement: 'Trustworthy generation needed a model of the teaching, not a better template.',
+      nav: 'Results',
+      eyebrow: 'Built product',
+      title: 'Results',
+      statement:
+        'For technology courses, reviewers need a clear picture of objectives, concepts, procedures, and tools before they can tell whether delivered material matches what was supposed to be taught.',
       detail:
-        'What exists is a working analyzer and an author-facing review of real technology course material. Selecting a node, and reading why a relationship exists, is the interaction I demonstrated. Cross-course relationships and a later learning path remain open next steps. I have not published a usage metric for it. What it changed for me was the order of the work: understand what the technology lesson is trying to teach—concepts, procedures, tools—then decide whether a generated slide deserves to exist.',
-    },
+        'What exists is a working analyzer and an author-facing review of real technology course material. Selecting a node and reading why a relationship exists is the interaction I demonstrated above. Cross-course relationships and a later learning path remain open next steps. I have not published a usage metric for it, and I am not claiming the organization adopted it. The practical sequence I kept using was to define what the lesson should teach—concepts, procedures, tools—and only then judge whether the generated or delivered slide actually supported that objective.',
+    }
   ],
 }

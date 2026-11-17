@@ -5,7 +5,7 @@ export const siteMeta = {
   title: 'Luke Libby — Creative Technologist',
   tagline: 'Creative Technologist and Product Builder',
   description:
-    'Luke Libby — Creative Technologist and Product Builder. AI workflows, internal tools, and digital systems.',
+    'Luke Libby — Creative Technologist and Product Builder. Internal tools, learning products, and video production at Pluralsight; independent mapping and wildlife apps.',
   locale: 'en_US',
   defaultImagePath: '/images/luke-libby.png',
   twitterHandle: '@lukelibby',

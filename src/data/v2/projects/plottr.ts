@@ -14,20 +14,32 @@ export const plottrProject: ProjectDocument = {
     accent: '#8fb9a4',
   },
   hero: {
-    eyebrow: 'Plottr',
+    eyebrow: 'Internal product',
     title: 'Plottr',
-    lede: 'Bring the deck in. Judge the lesson. Send it back out.',
+    lede: 'Import, Review, and Export',
     role: 'SlideKit could help inside PowerPoint. Plottr was my attempt to make the presentation itself a document that could be imported, reviewed, and exported, including from Keynote. I owned the concept, the design, and the build. DevOps was outside my scope.',
     meta: 'Presentation review · Staging beta',
-    tags: ['Product Strategy', 'UX/UI Design', 'Systems Design', 'AI-Assisted Build'],
+    tags: ['Product Strategy', 'UX/UI Design', 'Systems Design', 'AI-Assisted Implementation'],
   },
   blocks: [
     {
+      type: 'split',
+      id: 'origin',
+      nav: 'Origin',
+      eyebrow: 'Why it existed',
+      title: 'The Problem',
+      paragraphs: [
+        'Review feedback suggested that about 60 percent of the issues showing up later were presentation problems. I wanted those caught before a camera locked them in. That figure is from review feedback, not a published study.',
+        'Authors were working from PowerPoint and Keynote templates. Updating the brand meant downloading templates and icons again, and the copies drifted. I looked at those tools, and at how other learning platforms expected an author to work. External authors needed training slides. Internal teams needed decks that still looked like the brand.',
+        'The decision was one canonical document shared by import, the on-screen review, and export, rendered as HTML. A deck could be visually impressive and still fail as instruction: the wrong depth, the wrong sequence, too much on the slide under Bloom’s taxonomy and cognitive load. That limit is what later became Luma.',
+      ],
+    },
+    {
       type: 'pivot',
       id: 'pivot',
-      nav: 'The pivot',
-      eyebrow: 'The decision',
-      title: 'The beta was a review, not the whole editor I had prototyped.',
+      nav: 'Pivot',
+      eyebrow: 'Design decision',
+      title: 'Beta Scope',
       intro:
         'I prototyped a broad editor quickly, then narrowed what testers saw: import a PowerPoint or Keynote file, see a faithful conversion, get a review you can act on, edit lightly, and export. The wide editor, interactive pieces, and generated slides stayed in the prototype. The beta was the review.',
       flow: [
@@ -40,7 +52,7 @@ export const plottrProject: ProjectDocument = {
         {
           label: 'Prototype',
           title: 'A wide editor',
-          body: 'Interactive pieces, generated slides, Markdown drafts, and a large set of controls. Useful for learning what was possible. This is not what the beta asked people to use.',
+          body: 'Interactive pieces, generated slides, Markdown drafts, and a large set of controls. I used that breadth to learn what was possible, not as the surface the beta asked people to use.',
         },
         {
           label: 'Beta',
@@ -55,7 +67,7 @@ export const plottrProject: ProjectDocument = {
       id: 'prototype',
       nav: 'Prototype',
       eyebrow: 'What the broad editor looked like',
-      title: 'A starting screen, and a conversational way to change a slide.',
+      title: 'Prototype Editor',
       paragraphs: [
         'The prototype editor could begin from a template, a PowerPoint upload, or an AI-generated deck. Inside a deck, a copilot could rewrite a selected element, a slide, or the whole file. That breadth taught me what was possible. It was not what the beta asked people to use.',
         'The screens below are from that wider product. The beta kept the import, the review, and a lighter edit.',
@@ -82,9 +94,9 @@ export const plottrProject: ProjectDocument = {
       id: 'pipeline',
       nav: 'Pipeline',
       eyebrow: 'The document path',
-      title: 'Import, structure, review, then send it back out.',
+      title: 'Document Pipeline',
       intro:
-        'The sanitized pipeline from the earlier presentation-builder story is the same idea Plottr carried forward: bring a deck in, normalize it into one document, review against standards, and export again. The schema snippet in the diagram is illustrative. Internal field mapping stays off this page.',
+        'Plottr used the same pipeline idea as the earlier presentation-builder story: bring a deck in, normalize it into one document, review against standards, and export again. The schema snippet in the diagram is illustrative. I left internal field mapping off this page.',
       image: '/images/case-studies/presentation-builder/workflow-diagram.png',
       imageAlt:
         'Sanitized workflow diagram from presentation input through structured document, validation, and export',
@@ -95,7 +107,7 @@ export const plottrProject: ProjectDocument = {
       id: 'editor',
       nav: 'Editor shape',
       eyebrow: 'Prototype layout',
-      title: 'A slide list, the canvas, and only the controls for the selection.',
+      title: 'Editor Layout',
       intro:
         'The prototype editor kept outline, layers, canvas, and properties in one place, with a structured view underneath. This wireframe is the earlier public reconstruction of that shape. The beta narrowed the job to import, review, light edit, and export.',
       image: '/images/case-studies/presentation-builder/editor-wireframe.png',
@@ -105,24 +117,12 @@ export const plottrProject: ProjectDocument = {
     },
     {
       type: 'split',
-      id: 'origin',
-      nav: 'Origin',
-      eyebrow: 'Why it existed',
-      title: 'Most of the trouble in the video started on the slide.',
-      paragraphs: [
-        'Review feedback suggested that about 60 percent of the issues showing up later were presentation problems. I wanted those caught before a camera locked them in. That figure is from review feedback, not a published study.',
-        'Authors were working from PowerPoint and Keynote templates. Updating the brand meant downloading templates and icons again, and the copies drifted. I looked at those tools, and at how other learning platforms expected an author to work. External authors needed training slides. Internal teams needed decks that still looked like the brand.',
-        'The decision was one canonical document shared by import, the on-screen review, and export, rendered as HTML. A deck could be visually impressive and still fail as instruction: the wrong depth, the wrong sequence, too much on the slide under Bloom’s taxonomy and cognitive load. That limit is what later became Luma.',
-      ],
-    },
-    {
-      type: 'split',
       id: 'control',
       nav: 'Control',
-      eyebrow: 'What the interface refused to show',
-      title: 'Only the controls for the thing you have selected.',
+      eyebrow: 'Interface decisions',
+      title: 'Selection-Based Controls',
       paragraphs: [
-        'The layout I kept was a slide list, the active slide, and a panel for the properties and the feedback that belonged to the selection. Review happened before recording. Approved fonts were the ones on offer. Everything else stayed out of the way.',
+        'The layout I kept was a slide list, the active slide, and a panel for the properties and the feedback that belonged to the selection. Review happened before recording. Approved fonts were the only ones on offer; other controls stayed hidden until something was selected.',
         'The product moved more than once: a broad editor, then a narrower beta, then an unfinished tie into the centralized standards review, with a fuller editor still later. A closer connection to VideoKit was a direction, not a shipped feature. Odd editor behavior got simpler as the beta dropped tools that created more maintenance than clarity.',
         'I directed the document model, the interface, and what the beta would leave out. AI assisted the research and the implementation. The release did not match the original idea of a full editor, and that was the right narrowing.',
       ],
@@ -130,12 +130,12 @@ export const plottrProject: ProjectDocument = {
     {
       type: 'reflection',
       id: 'outcome',
-      nav: 'Outcome',
-      eyebrow: 'Where it landed',
-      title: 'The valuable part was not the part I had assumed.',
+      nav: 'Results',
+      eyebrow: 'Staging beta',
+      title: 'Results',
       statement: 'Import, review, and export earned their place. The full editor had not, yet.',
       detail:
         'Plottr reached staging with internal testers and a small number of external testers. It was not as far along as VideoKit, and it was not a public release. I have no business metric I can show. What I would keep is the willingness to follow the value that appeared, even when it was the conversion rather than the editor, and to admit that visual generation alone could not guarantee a lesson.',
-    },
+    }
   ],
 }

@@ -14,20 +14,32 @@ export const playItProProject: ProjectDocument = {
     accent: '#e0a15c',
   },
   hero: {
-    eyebrow: 'Play It Pro',
+    eyebrow: 'Independent product',
     title: 'Play It Pro',
-    lede: 'Knowing an instrument does not automatically mean you can teach it online.',
-    role: 'I founded, designed, and built Play It Pro as a live platform. It connects structured tutorial authoring with teacher studio tools and a student practice path, so lessons do not live as scattered videos, texts, and memory.',
+    lede: 'Structured Music Lessons',
+    role: 'I founded, designed, and built Play It Pro as a live platform. It connects structured tutorial authoring with teacher studio tools and a student practice path, so lessons are not scattered across videos, texts, and memory.',
     meta: 'Live product · React, TypeScript, Supabase',
     tags: ['EdTech', 'Music Education', 'Product Design', 'Independent Development'],
   },
   blocks: [
     {
+      type: 'split',
+      id: 'opportunity',
+      nav: 'Problem',
+      eyebrow: 'Background',
+      title: 'The Problem',
+      paragraphs: [
+        'Online music education is crowded. Strong musicians still get buried inside platforms built around algorithms, entertainment, and thumbnails. At the same time, in-person teachers keep lessons, assignments, practice goals, videos, schedules, and communication in different places.',
+        'Play It Pro sits between those needs: help approved musicians produce structured tutorial content, and give teachers tools to assign that content into real learning paths for their students.',
+        'I was not trying to build another video library. The platform needed objectives, reusable blocks, teacher assignment, and a practice path students could actually follow between lessons.',
+      ],
+    },
+    {
       type: 'plate',
       id: 'builder',
-      nav: 'The builder',
-      eyebrow: 'The decision',
-      title: 'Treat the lesson as blocks with an objective, not a page of uploads.',
+      nav: 'Builder',
+      eyebrow: 'Design decision',
+      title: 'Lesson Builder',
       intro:
         'A musician can play well and still struggle to teach online. Play It Pro needed more than an upload button. The lesson builder is where an author or teacher defines the goal, stacks the blocks in order, and keeps practice tasks attached to the same lesson.',
       image: '/images/playitpro/workspace-layout.png',
@@ -40,7 +52,7 @@ export const playItProProject: ProjectDocument = {
       id: 'layouts',
       nav: 'Layouts',
       eyebrow: 'How a lesson is assembled',
-      title: 'Stack for sequence. Bento when the lesson needs a denser board.',
+      title: 'Lesson Layouts',
       paragraphs: [
         'Music instruction is not one type of content. A lesson might need explanation, video, tempo targets, checklists, audio, or student-specific notes. The block planner supports that without forcing everything into one static page.',
         'Stack keeps the practice path linear. Bento opens a denser layout when the teacher wants related blocks side by side. These frames are captured from the product’s help-capture showcase of the real builder components.',
@@ -67,7 +79,7 @@ export const playItProProject: ProjectDocument = {
       id: 'student',
       nav: 'Student path',
       eyebrow: 'What the student sees',
-      title: 'One lesson. A clear practice path after they leave the room.',
+      title: 'Student Practice Path',
       intro:
         'The student portal turns an assignment into something actionable: the goal, the order of work, what to watch, what tempo to hit, and what to check off before the next lesson. Younger students especially should never wonder what they were supposed to practice after they left.',
       image: '/images/playitpro/student-overview.png',
@@ -80,7 +92,7 @@ export const playItProProject: ProjectDocument = {
       id: 'student-steps',
       nav: 'Lesson steps',
       eyebrow: 'Blocks in order',
-      title: 'Read first. Then watch.',
+      title: 'Lesson Steps',
       paragraphs: [
         'The same blocks the teacher built show up as numbered steps. Text sets what to listen for. Video carries the demo. The student works top to bottom instead of hunting through a folder of links.',
       ],
@@ -106,7 +118,7 @@ export const playItProProject: ProjectDocument = {
       id: 'student-practice',
       nav: 'Practice',
       eyebrow: 'Tempo and tasks',
-      title: 'A target tempo, and a short list that proves the week’s work.',
+      title: 'Tempo and Practice Tasks',
       paragraphs: [
         'Tempo build gives a start and a goal so practice is not guesswork. Practice tasks close the loop: play, watch, record. Progress is visible without turning the page into a dashboard.',
       ],
@@ -128,18 +140,6 @@ export const playItProProject: ProjectDocument = {
       ],
     },
     {
-      type: 'split',
-      id: 'opportunity',
-      nav: 'Opportunity',
-      eyebrow: 'What I noticed',
-      title: 'Online creators and in-person teachers had different gaps, and the same missing system.',
-      paragraphs: [
-        'Online music education is crowded. Strong musicians still get buried inside platforms built around algorithms, entertainment, and thumbnails. At the same time, in-person teachers keep lessons, assignments, practice goals, videos, schedules, and communication in different places.',
-        'Play It Pro sits between those needs: help approved musicians produce structured tutorial content, and give teachers tools to assign that content into real learning paths for their students.',
-        'The product bet was simple. Music education should not just be a library of videos. It should be a structured learning system: objectives, reusable blocks, teacher assignment, and a practice path the student can follow.',
-      ],
-    },
-    {
       type: 'trio',
       id: 'system',
       nav: 'System',
@@ -148,7 +148,7 @@ export const playItProProject: ProjectDocument = {
         {
           label: 'Library',
           title: 'Curated tutorials',
-          body: 'Approved authors create structured tutorials organized around clear learning objectives, not a free-for-all content dump.',
+          body: 'Approved authors create structured tutorials organized around clear learning objectives, rather than a free-for-all content dump.',
         },
         {
           label: 'Studio',
@@ -170,7 +170,7 @@ export const playItProProject: ProjectDocument = {
       items: [
         {
           title: 'Content creation is a teaching problem',
-          body: 'Playing well is not the same as creating a useful tutorial. The system helps instructors think through objectives, structure, training blocks, and production quality.',
+          body: 'Playing well is not the same as creating a useful tutorial. The builder pushes authors to name the objective, choose blocks, and think about how a student will practice—not just what to record.',
         },
         {
           title: 'Lessons are reusable learning blocks',
@@ -191,7 +191,7 @@ export const playItProProject: ProjectDocument = {
       id: 'built',
       nav: 'What I built',
       eyebrow: 'Ownership',
-      title: 'Concept, design, schema, and the working product.',
+      title: 'What I Built',
       paragraphs: [
         'I owned the product concept and platform model, teacher and student roles, authentication and access, and the core app structure on React, TypeScript, and Supabase.',
         'On the teacher side: lesson planning, learning paths, assignment tools, communication, and scheduling visibility. On the content side: tutorial planning, block-based structure, library organization, objective planning, and AI-assisted planning workflows. On the student side: assigned tutorials, practice tasks, lesson materials, and parent scheduling context.',
@@ -200,12 +200,12 @@ export const playItProProject: ProjectDocument = {
     {
       type: 'reflection',
       id: 'outcome',
-      nav: 'Outcome',
-      eyebrow: 'What changed',
-      title: 'Music instruction got a system instead of a pile of links.',
-      statement: 'Plan the tutorial, structure the lesson, assign the content, guide the student.',
+      nav: 'Results',
+      eyebrow: 'Live product',
+      title: 'Results',
+      statement: 'One system for authoring, assigning, and practicing a lesson.',
       detail:
         'Play It Pro became a live platform that can support in-person teaching, student assignments, scheduling context, and structured tutorial content under one brand. The lasting lesson was that musical ability, in-person teaching, and online educational content are different skills. The deeper layer is planning: define the objective, choose the structure, keep the library coherent, and help instructors produce work students can actually practice.',
-    },
+    }
   ],
 }
