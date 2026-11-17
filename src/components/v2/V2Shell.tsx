@@ -21,9 +21,9 @@ export function V2Shell({ title, description, pathname, children }: V2ShellProps
       <DocumentHead title={title} description={description} pathname={pathname} />
       <ScrollToHash />
       <SubtleMotion root=".v2" />
+      <Atmosphere />
       <V2Header />
       <main className="v2__main">{children}</main>
-      <Atmosphere />
       <ScrollToTopButton />
     </div>
   )
