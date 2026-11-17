@@ -80,7 +80,7 @@ export const productStories: WorkItem[] = [
 
     imageAlt: 'WyldTracks landing page with wildlife field journal hero',
 
-    href: '/stories/wyldtracks',
+    href: '/v2/work/wyldtracks',
 
     ctaLabel: 'Read Story',
 
@@ -116,7 +116,7 @@ export const productStories: WorkItem[] = [
 
     imageAlt: 'Sanitized AI-assisted lab production workflow diagram',
 
-    href: '/stories/ai-lab-production',
+    href: '/v2/work/ai-lab-production',
 
     ctaLabel: 'Read Story',
 
@@ -154,7 +154,7 @@ export const productStories: WorkItem[] = [
 
     imageAlt: 'Sanitized presentation-to-programmatic slide workflow diagram',
 
-    href: '/stories/presentation-builder',
+    href: '/v2/work/plottr',
 
     ctaLabel: 'Read Story',
 
@@ -191,7 +191,7 @@ export const productStories: WorkItem[] = [
 
     imageAlt: 'Play It Pro lesson builder with block-based content tools',
 
-    href: '/stories/play-it-pro',
+    href: '/v2/work/play-it-pro',
 
     ctaLabel: 'Read Story',
 
@@ -229,7 +229,7 @@ export const productStories: WorkItem[] = [
 
     imageAlt: 'Skatespot map and clip discovery thumbnail',
 
-    href: '/stories/skatespot',
+    href: '/',
 
     ctaLabel: 'Read Story',
 

@@ -70,7 +70,12 @@ const spaShellHtml = readFileSync(viteShellPath, 'utf8')
 const assetRefs = extractAssetRefs(spaShellHtml)
 assertAssetsExist(assetRefs)
 
-for (const page of publicPages) {
+// Keep the Vite SPA shell for `/` so deploy never flashes the retired v1 homepage.
+const snapshotPages = publicPages.filter(
+  (page) => page.path !== '/' && !spaShellRoutes.includes(page.path),
+)
+
+for (const page of snapshotPages) {
   const source = snapshotPath(page.path)
   const target = distPath(page.path)
 
@@ -94,10 +99,10 @@ for (const routePath of spaShellRoutes) {
   writeFileSync(target, spaShellHtml, 'utf8')
 }
 
-const homepageSnapshot = readFileSync(resolve(snapshotsDir, 'index.html'), 'utf8')
-writeFileSync(resolve(distDir, '404.html'), patchAssetRefs(homepageSnapshot, assetRefs), 'utf8')
+writeFileSync(resolve(distDir, '404.html'), spaShellHtml, 'utf8')
 
 console.log(
-  `Applied ${publicPages.length} crawl snapshots and ${spaShellRoutes.length} SPA shells to dist/`,
+  `Applied ${snapshotPages.length} crawl snapshots and ${spaShellRoutes.length} SPA shells to dist/`,
 )
 console.log(`Patched asset refs to ${assetRefs.js} and ${assetRefs.css}`)
+console.log('Homepage and 404 use the Vite SPA shell (v2).')

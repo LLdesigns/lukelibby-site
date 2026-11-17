@@ -58,6 +58,46 @@ export const ovrmapsProject: ProjectDocument = {
       ],
     },
     {
+      type: 'plate',
+      id: 'working-ia',
+      nav: 'Early boards',
+      eyebrow: 'Working boards',
+      title: 'The product was drawn before it was shipped.',
+      intro:
+        'Early whiteboards mapped the app itself: Map, Explore, Social, and Settings; how a trail ticket should read; swipe to save or dismiss; and an information architecture that connected the map line to safety, tools, markers, profile, forums, meetups, search, and discovery. Those boards are the working model that later became Field and Studio.',
+      image: '/images/v2/ovrmaps/working/app-ia-whiteboard.jpg',
+      imageAlt:
+        'Whiteboard with OVRmaps navigation list, trail ticket details, a phone feed sketch, and a map-to-discover information architecture diagram',
+      caption: 'Working board: navigation, trail tickets, feed sketch, and the map-to-discover path.',
+    },
+    {
+      type: 'pair',
+      id: 'working-model',
+      nav: 'Early model',
+      eyebrow: 'Membership, trails, and story',
+      title: 'Trail facts on one board. How a trail would be told on another.',
+      paragraphs: [
+        'One board held the early membership and trail model—premium and certified drivers, trail events, campsites, difficulty, weather, connected trails, and how a host might earn a place in the community. Not every idea shipped. The useful ones named what a trail listing had to carry and what contribution could mean.',
+        'Separately, “IG page slides” storyboarded how a trail might be shared: road name and place, what to expect, what to see, then the pictures. That sequence is still how trail context wants to read—title and location first, then difficulty and uniqueness, then the proof in photos.',
+      ],
+      frames: [
+        {
+          src: '/images/v2/ovrmaps/working/membership-trails-board.jpg',
+          alt: 'Whiteboard planning Overland America membership perks, certified drivers, trail info fields, events, and host qualifications',
+          label: 'Membership & trails',
+          note: 'Working model: drivers, trail fields, events, and community host paths.',
+          fit: 'contain',
+        },
+        {
+          src: '/images/v2/ovrmaps/working/ig-trail-slides.jpg',
+          alt: 'Whiteboard storyboard titled IG page slides with a six-panel trail story sequence',
+          label: 'Trail story',
+          note: 'Title and place, what to expect, what to see, then vehicle and scene photos.',
+          fit: 'contain',
+        },
+      ],
+    },
+    {
       type: 'system',
       id: 'core',
       nav: 'Experience',

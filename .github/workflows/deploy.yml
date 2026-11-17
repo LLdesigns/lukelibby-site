@@ -39,11 +39,13 @@ jobs:
 
       - name: Verify prerender output
         run: |
-          test "$(wc -c < dist/index.html)" -gt 8000
+          test -f dist/index.html
           test "$(wc -c < dist/work/index.html)" -gt 8000
-          test "$(wc -c < dist/stories/wyldtracks/index.html)" -gt 8000
+          test -f dist/v2/work/wyldtracks/index.html
           test -f dist/discovery/index.html
           test -f dist/404.html
+          # Homepage must stay the Vite SPA shell (v2), not the retired v1 crawl snapshot.
+          ! grep -q 'I build useful (beautiful)' dist/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

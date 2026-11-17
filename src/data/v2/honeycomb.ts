@@ -184,9 +184,9 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     id: 'luma',
     title: 'Luma',
     type: 'Learning',
-    summary: 'See what a course actually teaches.',
+    summary: 'See what a tech course actually teaches.',
     detail:
-      'A review of objectives, concepts, and the topics that were taught without supporting the objective.',
+      'A review of technology lessons—objectives, concepts, procedures, and tools—and the topics that were taught without supporting the skill.',
     imageAlt: 'Luma knowledge graph with a selected objective and connected nodes',
     art: 'luma',
     href: '/v2/work/luma',

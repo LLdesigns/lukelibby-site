@@ -4,7 +4,7 @@ export const labsProject: ProjectDocument = {
   slug: 'ai-lab-production',
   title: 'AI-Assisted Lab Production',
   description:
-    'A proof of concept for putting AI inside hands-on lab production without handing it the code check, the instructional judgment, or the final approval.',
+    'An AI-assisted hands-on lab production workflow that speeds drafting while keeping code checks, instructional judgment, and final approval with a person.',
   published: true,
   theme: {
     background: '#161410',
@@ -17,8 +17,8 @@ export const labsProject: ProjectDocument = {
     eyebrow: 'Labs',
     title: 'AI-Assisted Lab Production',
     lede: 'Faster drafts, with the same gates a lab had to pass before.',
-    role: 'I led the discovery and owned the proof of concept. The question was whether AI could sit inside lab production and still leave instructional design, code accuracy, and publishing standards intact.',
-    meta: 'Proof of concept · Anonymized',
+    role: 'I led the discovery and built the production workflow. The question was whether AI could sit inside lab production and still leave instructional design, code accuracy, and publishing standards intact.',
+    meta: 'Production workflow · Anonymized',
     tags: ['Learning Design', 'Workflow Design', 'AI-Assisted Production'],
   },
   blocks: [
@@ -33,7 +33,7 @@ export const labsProject: ProjectDocument = {
       image: '/images/case-studies/hands-on-ai-flow/aidiaflow.png',
       imageAlt:
         'Sanitized workflow diagram for AI-assisted hands-on lab production from objectives through human review to publication',
-      caption: 'Sanitized overview of the proof-of-concept workflow.',
+      caption: 'Sanitized overview of the production workflow.',
     },
     {
       type: 'pair',
@@ -92,7 +92,7 @@ export const labsProject: ProjectDocument = {
       type: 'steps',
       id: 'process',
       nav: 'Process',
-      eyebrow: 'How the proof ran',
+      eyebrow: 'How the work ran',
       items: [
         {
           title: 'Start with the hard question',
@@ -111,12 +111,12 @@ export const labsProject: ProjectDocument = {
           body: 'Drafting, outlining, and early structuring could be assisted. Code validation, instructional judgment, framework checks, and final sign-off stayed human.',
         },
         {
-          title: 'Run the proof end to end',
+          title: 'Run the workflow end to end',
           body: 'Structured inputs, assisted drafts, human verification, validation, and handoffs, tracked for speed and quality against the existing path.',
         },
         {
           title: 'Prove speed and repeatability',
-          body: 'The proof moved faster without skipping review, and it held up across topics and formats, not only as a single demo.',
+          body: 'The workflow moved faster without skipping review, and it held up across topics and formats, not only on a single pass.',
         },
       ],
     },
@@ -128,7 +128,7 @@ export const labsProject: ProjectDocument = {
       title: 'A lab is a sequence of judgments, not a block of steps.',
       paragraphs: [
         'Hands-on labs need an objective, a progression, accurate steps, and an environment that will not strand the learner. The existing production measured work against backward design, competency, and scaffolded practice. Those checks were the point of the pipeline, not an extra review taped on at the end.',
-        'I mapped the path from brief to draft, technical review, instructional review, validation, and publication, and marked where a repeated task could move and where a mistake would ship. The proof ran across topics and formats, not as a single demo.',
+        'I mapped the path from brief to draft, technical review, instructional review, validation, and publication, and marked where a repeated task could move and where a mistake would ship. The workflow ran across topics and formats, not as a one-off exercise.',
         'I directed the workflow and where the boundary sat. AI assisted the drafting inside that boundary. It did not validate the code, make the instructional call, or sign the lab off. This story stays anonymized: no prompts, internal tooling, or confidential lab content.',
       ],
     },
@@ -136,11 +136,11 @@ export const labsProject: ProjectDocument = {
       type: 'reflection',
       id: 'outcome',
       nav: 'Outcome',
-      eyebrow: 'What the proof showed',
+      eyebrow: 'What changed',
       title: 'Speed only counted where a person still checked the work.',
       statement: 'The draft got faster. The decision to publish did not get delegated.',
       detail:
-        'In the proof of concept, time to publication dropped by about 60 percent on average, and by as much as 90 percent in some cases, with a person still verifying the lab. That is the result of the proof, not a claim about every later lab. I am not publishing a count of labs here. What I kept is the boundary: assist the draft and the structure, and leave code, instructional judgment, and final approval with a person.',
+        'Time to publication dropped by about 60 percent on average, and by as much as 90 percent in some cases, with a person still verifying the lab. That is what this production run showed, not a claim about every later lab. I am not publishing a count of labs here. What I kept is the boundary: assist the draft and the structure, and leave code, instructional judgment, and final approval with a person.',
     },
   ],
 }

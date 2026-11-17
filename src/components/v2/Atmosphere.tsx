@@ -18,7 +18,12 @@ type Cloud = {
   lobes: Lobe[]
 }
 
+/** Survives React remounts / Strict Mode so mist does not regenerate on every load. */
+let sharedSprite: HTMLCanvasElement | null = null
+let sharedClouds: Cloud[] | null = null
+
 function mistSprite() {
+  if (sharedSprite) return sharedSprite
   const size = 256
   const canvas = document.createElement('canvas')
   canvas.width = size
@@ -32,6 +37,7 @@ function mistSprite() {
   glow.addColorStop(1, 'rgba(140, 138, 132, 0)')
   draw.fillStyle = glow
   draw.fillRect(0, 0, size, size)
+  sharedSprite = canvas
   return canvas
 }
 
@@ -62,6 +68,30 @@ function makeCloud(fromEdge: boolean): Cloud {
   }
 }
 
+function desiredCount() {
+  return Math.round(Math.min(12, Math.max(6, (window.innerWidth * window.innerHeight) / 170000)))
+}
+
+function ensureClouds() {
+  if (sharedClouds?.length) return sharedClouds
+  sharedClouds = Array.from({ length: desiredCount() }, () => makeCloud(false))
+  return sharedClouds
+}
+
+function fitCloudsToViewport(clouds: Cloud[]) {
+  const width = window.innerWidth
+  const height = window.innerHeight
+  const target = desiredCount()
+
+  while (clouds.length < target) clouds.push(makeCloud(true))
+  if (clouds.length > target) clouds.length = target
+
+  for (const cloud of clouds) {
+    cloud.x = Math.min(width + 220, Math.max(-220, cloud.x))
+    cloud.y = Math.min(height * 0.92, Math.max(height * 0.08, cloud.y))
+  }
+}
+
 /** Soft mist banks. They drift sideways and never take the pointer. */
 export function Atmosphere() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -77,21 +107,30 @@ export function Atmosphere() {
     const sprite = mistSprite()
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
     let reduced = motion.matches
-    let clouds: Cloud[] = []
+    const warmed = sharedClouds !== null
+    const clouds = ensureClouds()
     let frame = 0
     let running = true
+    let lastWidth = 0
+    let lastHeight = 0
 
-    function fill() {
-      const count = Math.round(Math.min(12, Math.max(6, (window.innerWidth * window.innerHeight) / 170000)))
-      clouds = Array.from({ length: count }, () => makeCloud(false))
-    }
-
-    function resize() {
+    function syncCanvas() {
+      const width = window.innerWidth
+      const height = window.innerHeight
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
-      canvas.width = Math.floor(window.innerWidth * dpr)
-      canvas.height = Math.floor(window.innerHeight * dpr)
-      draw.setTransform(dpr, 0, 0, dpr, 0, 0)
-      fill()
+      const nextW = Math.floor(width * dpr)
+      const nextH = Math.floor(height * dpr)
+      if (canvas.width !== nextW || canvas.height !== nextH) {
+        canvas.width = nextW
+        canvas.height = nextH
+        draw.setTransform(dpr, 0, 0, dpr, 0, 0)
+      }
+      // Keep the existing field; only nudge when the viewport actually changed.
+      if (width !== lastWidth || height !== lastHeight) {
+        fitCloudsToViewport(clouds)
+        lastWidth = width
+        lastHeight = height
+      }
     }
 
     function paint(time: number) {
@@ -143,16 +182,23 @@ export function Atmosphere() {
       if (!reduced) frame = window.requestAnimationFrame(paint)
     }
 
-    resize()
+    function onResize() {
+      syncCanvas()
+    }
+
+    syncCanvas()
+    // Soft fade only on a cold start; remounts keep the same field without a refresh flash.
+    if (warmed) canvas.classList.add('is-ready')
+    else window.requestAnimationFrame(() => canvas.classList.add('is-ready'))
     frame = window.requestAnimationFrame(paint)
-    window.addEventListener('resize', resize)
+    window.addEventListener('resize', onResize)
     document.addEventListener('visibilitychange', onHide)
     motion.addEventListener('change', onMotion)
 
     return () => {
       running = false
       window.cancelAnimationFrame(frame)
-      window.removeEventListener('resize', resize)
+      window.removeEventListener('resize', onResize)
       document.removeEventListener('visibilitychange', onHide)
       motion.removeEventListener('change', onMotion)
     }

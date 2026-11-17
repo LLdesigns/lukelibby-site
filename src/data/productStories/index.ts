@@ -38,8 +38,18 @@ export const productStoriesList: ProductStoryDetail[] = PRODUCT_STORY_ORDER.map(
   (slug) => productStoriesBySlug[slug],
 )
 
+const STORY_TO_V2_HREF: Record<string, string> = {
+  'ai-lab-production': '/v2/work/ai-lab-production',
+  'presentation-builder': '/v2/work/plottr',
+  plottr: '/v2/work/plottr',
+  'play-it-pro': '/v2/work/play-it-pro',
+  skatespot: '/',
+  wyldtracks: '/v2/work/wyldtracks',
+  nutriant: '/v2/work/wyldtracks',
+}
+
 export function getProductStoryHref(slug: string): string {
-  return `/stories/${slug}`
+  return STORY_TO_V2_HREF[slug] ?? '/'
 }
 
 export function getPreviousProductStorySlug(

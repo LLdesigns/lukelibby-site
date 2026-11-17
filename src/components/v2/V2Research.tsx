@@ -22,8 +22,8 @@ export function V2Research() {
         >
           <h3 id="lab-production-title">Assisted lab production</h3>
           <p>
-            A proof of concept for putting AI inside hands-on lab production, while instructional
-            review, code checks, and publishing standards stay in the loop.
+            An AI-assisted hands-on lab production workflow where instructional review, code checks,
+            and publishing standards stay in the loop.
           </p>
           <Link className="v2-research__link" to="/v2/work/ai-lab-production">
             Read the case study

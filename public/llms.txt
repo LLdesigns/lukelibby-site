@@ -2,28 +2,29 @@
 
 > Creative Technologist and Product Builder
 
-Portfolio of product stories, design systems, and shipped work by Luke Libby — AI workflows, internal tools, and digital systems.
+Portfolio of product work by Luke Libby — AI workflows, internal tools, outdoor products, and learning systems.
 
-- Contact: https://lukelibby.com/contact
+- Contact: https://lukelibby.com/#contact
 - Resume PDF: https://lukelibby.com/resume.pdf
 - LinkedIn: https://www.linkedin.com/in/luke-libby1/
 
 ## Site
 - [Home](https://lukelibby.com/): Luke Libby — Creative Technologist and Product Builder. AI workflows, internal tools, and digital systems.
-- [Work](https://lukelibby.com/work): Product stories, brand systems, UI explorations, and shipped work by Luke Libby.
-- [Resume](https://lukelibby.com/resume): Resume and experience for Luke Libby — Creative Technologist, Product Builder, and Technical Content Producer.
-- [Contact](https://lukelibby.com/contact): Contact Luke Libby for consulting, collaborations, and product development work.
+- [Work archive](https://lukelibby.com/work): Archive of product stories, brand systems, and earlier work by Luke Libby.
 
-## Product Stories
-- [WyldTracks](https://lukelibby.com/stories/wyldtracks): Private-alpha AI wildlife field journal with evidence-backed IDs, GBIF validation, and a personal observation journal.
-- [AI-Assisted Hands-On Production Workflow](https://lukelibby.com/stories/ai-lab-production): An anonymized product story on using AI inside the workflow for hands-on technical learning content, creation, review, and production.
-- [Secure Presentation Workflow Add-in](https://lukelibby.com/stories/presentation-builder): An anonymized product story on turning messy PowerPoint workflows into structured, AI-ready slide data through a custom JSON schema.
-- [Play It Pro](https://lukelibby.com/stories/play-it-pro): A music education platform for teachers, students, and tutorial authors with structured lessons, learning paths, and a curated tutorial library.
-- [Skatespot Discovery App](https://lukelibby.com/stories/skatespot): Spot-first skate discovery concept with map, clips, co-signs, and saved lists tied to real locations.
+## Work
+- [OVRmaps](https://lukelibby.com/v2/work/ovrmaps): Outdoor platform for maps, GPS recording, trail observations, and community sharing.
+- [WyldTracks](https://lukelibby.com/v2/work/wyldtracks): Wildlife field journal with evidence-backed IDs, GBIF validation, and a personal observation record.
+- [Play It Pro](https://lukelibby.com/v2/work/play-it-pro): Music education platform for teachers, students, and tutorial authors.
+- [SlideKit](https://lukelibby.com/v2/work/slidekit): PowerPoint add-in for catching presentation standards problems before video production.
+- [VideoKit](https://lukelibby.com/v2/work/videokit): Internal video review workflow for findings, status, and standards checks in one place.
+- [Plottr](https://lukelibby.com/v2/work/plottr): Presentation review that imports a deck, checks it, and exports actionable findings.
+- [Luma](https://lukelibby.com/v2/work/luma): Technology-course review system for objectives, concepts, procedures, and tools.
+- [AI-Assisted Lab Production](https://lukelibby.com/v2/work/ai-lab-production): AI-assisted hands-on lab production workflow with human review gates intact.
 
 ## Brand & Interface Systems
-- [Terrapin Outdoors](https://lukelibby.com/brand-systems/terrapin-outdoors): Map-first outdoor platform design system with foundations, map shells, content modules, and field-ready components.
-- [Replenish Health](https://lukelibby.com/brand-systems/replenish-health): Dark-mode design system for a health platform with brand pillars, color tokens, typography, iconography, and dashboard UI components.
+- [Terrapin Outdoors](https://lukelibby.com/brand-systems/terrapin-outdoors): Map-first outdoor platform design system with foundations, map shells, and field-ready components.
+- [Replenish Health](https://lukelibby.com/brand-systems/replenish-health): Dark-mode design system for a health platform with brand pillars, tokens, and dashboard UI.
 
 ## Files
 - [Resume PDF](https://lukelibby.com/resume.pdf): Downloadable resume for Luke Libby.

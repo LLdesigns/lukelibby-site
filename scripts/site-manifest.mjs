@@ -4,8 +4,8 @@ export const siteManifest = {
   name: 'Luke Libby',
   tagline: 'Creative Technologist and Product Builder',
   summary:
-    'Portfolio of product stories, design systems, and shipped work by Luke Libby — AI workflows, internal tools, and digital systems.',
-  contact: 'https://lukelibby.com/contact',
+    'Portfolio of product work by Luke Libby — AI workflows, internal tools, outdoor products, and learning systems.',
+  contact: 'https://lukelibby.com/#contact',
   resumePdf: 'https://lukelibby.com/resume.pdf',
   linkedIn: 'https://www.linkedin.com/in/luke-libby1/',
 }
@@ -20,72 +20,79 @@ export const publicPages = [
   },
   {
     path: '/work',
-    title: 'Work',
+    title: 'Work archive',
     description:
-      'Product stories, brand systems, UI explorations, and shipped work by Luke Libby.',
+      'Archive of product stories, brand systems, and earlier work by Luke Libby.',
     section: 'Site',
   },
   {
-    path: '/resume',
-    title: 'Resume',
+    path: '/v2/work/ovrmaps',
+    title: 'OVRmaps',
     description:
-      'Resume and experience for Luke Libby — Creative Technologist, Product Builder, and Technical Content Producer.',
-    section: 'Site',
+      'Outdoor platform for maps, GPS recording, trail observations, and community sharing.',
+    section: 'Work',
   },
   {
-    path: '/contact',
-    title: 'Contact',
-    description:
-      'Contact Luke Libby for consulting, collaborations, and product development work.',
-    section: 'Site',
-  },
-  {
-    path: '/stories/wyldtracks',
+    path: '/v2/work/wyldtracks',
     title: 'WyldTracks',
     description:
-      'Private-alpha AI wildlife field journal with evidence-backed IDs, GBIF validation, and a personal observation journal.',
-    section: 'Product Stories',
+      'Wildlife field journal with evidence-backed IDs, GBIF validation, and a personal observation record.',
+    section: 'Work',
   },
   {
-    path: '/stories/ai-lab-production',
-    title: 'AI-Assisted Hands-On Production Workflow',
-    description:
-      'An anonymized product story on using AI inside the workflow for hands-on technical learning content, creation, review, and production.',
-    section: 'Product Stories',
-  },
-  {
-    path: '/stories/presentation-builder',
-    title: 'Secure Presentation Workflow Add-in',
-    description:
-      'An anonymized product story on turning messy PowerPoint workflows into structured, AI-ready slide data through a custom JSON schema.',
-    section: 'Product Stories',
-  },
-  {
-    path: '/stories/play-it-pro',
+    path: '/v2/work/play-it-pro',
     title: 'Play It Pro',
     description:
-      'A music education platform for teachers, students, and tutorial authors with structured lessons, learning paths, and a curated tutorial library.',
-    section: 'Product Stories',
+      'Music education platform for teachers, students, and tutorial authors.',
+    section: 'Work',
   },
   {
-    path: '/stories/skatespot',
-    title: 'Skatespot Discovery App',
+    path: '/v2/work/slidekit',
+    title: 'SlideKit',
     description:
-      'Spot-first skate discovery concept with map, clips, co-signs, and saved lists tied to real locations.',
-    section: 'Product Stories',
+      'PowerPoint add-in for catching presentation standards problems before video production.',
+    section: 'Work',
+  },
+  {
+    path: '/v2/work/videokit',
+    title: 'VideoKit',
+    description:
+      'Internal video review workflow for findings, status, and standards checks in one place.',
+    section: 'Work',
+  },
+  {
+    path: '/v2/work/plottr',
+    title: 'Plottr',
+    description:
+      'Presentation review that imports a deck, checks it, and exports actionable findings.',
+    section: 'Work',
+  },
+  {
+    path: '/v2/work/luma',
+    title: 'Luma',
+    description:
+      'Technology-course review system for objectives, concepts, procedures, and tools.',
+    section: 'Work',
+  },
+  {
+    path: '/v2/work/ai-lab-production',
+    title: 'AI-Assisted Lab Production',
+    description:
+      'AI-assisted hands-on lab production workflow with human review gates intact.',
+    section: 'Work',
   },
   {
     path: '/brand-systems/terrapin-outdoors',
     title: 'Terrapin Outdoors',
     description:
-      'Map-first outdoor platform design system with foundations, map shells, content modules, and field-ready components.',
+      'Map-first outdoor platform design system with foundations, map shells, and field-ready components.',
     section: 'Brand & Interface Systems',
   },
   {
     path: '/brand-systems/replenish-health',
     title: 'Replenish Health',
     description:
-      'Dark-mode design system for a health platform with brand pillars, color tokens, typography, iconography, and dashboard UI components.',
+      'Dark-mode design system for a health platform with brand pillars, tokens, and dashboard UI.',
     section: 'Brand & Interface Systems',
   },
 ]
@@ -99,9 +106,17 @@ export const staticAssets = [
   },
 ]
 
-/** Private interactive routes that need a real index.html shell on GitHub Pages (no empty 404). */
+/** Routes that get the Vite SPA shell (no stale crawl HTML). */
 export const spaShellRoutes = [
   '/discovery',
   '/auth',
   '/auth/reset-password',
+  '/v2/work/ovrmaps',
+  '/v2/work/wyldtracks',
+  '/v2/work/play-it-pro',
+  '/v2/work/slidekit',
+  '/v2/work/videokit',
+  '/v2/work/plottr',
+  '/v2/work/luma',
+  '/v2/work/ai-lab-production',
 ]

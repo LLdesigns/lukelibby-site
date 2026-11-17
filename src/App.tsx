@@ -14,9 +14,6 @@ import { HoneycombLaunchOverlay } from './components/v2/HoneycombLaunchOverlay'
 import { V2LandingPage } from './pages/v2/V2LandingPage'
 import { V2ProjectPage } from './pages/v2/V2ProjectPage'
 import { WorkPage } from './pages/WorkPage'
-import { ProductStoryPage } from './pages/ProductStoryPage'
-import { PresentationBuilderStoryPage } from './pages/PresentationBuilderStoryPage'
-import { PlayItProStoryPage } from './pages/PlayItProStoryPage'
 import { AuthPage } from './pages/AuthPage'
 import { ResetPasswordPage } from './pages/ResetPasswordPage'
 import { DashboardPage } from './pages/DashboardPage'
@@ -30,13 +27,25 @@ import { NotesLayer } from './components/notes/NotesLayer'
 /** Set to true to show the sticky notes overlay */
 const NOTES_FEATURE_ENABLED = false
 
+/** Old /stories and /case-studies URLs → current v2 project pages. */
+const STORY_TO_V2: Record<string, string> = {
+  wyldtracks: '/v2/work/wyldtracks',
+  nutriant: '/v2/work/wyldtracks',
+  'play-it-pro': '/v2/work/play-it-pro',
+  'presentation-builder': '/v2/work/plottr',
+  plottr: '/v2/work/plottr',
+  'ai-lab-production': '/v2/work/ai-lab-production',
+  slidekit: '/v2/work/slidekit',
+  videokit: '/v2/work/videokit',
+  luma: '/v2/work/luma',
+  ovrmaps: '/v2/work/ovrmaps',
+}
+
 function LegacyStoryRedirect() {
   const { slug } = useParams<{ slug: string }>()
-  if (!slug) return <Navigate to="/work#product-stories" replace />
-  if (slug === 'plottr') {
-    return <Navigate to="/stories/presentation-builder" replace />
-  }
-  return <Navigate to={`/stories/${slug}`} replace />
+  if (!slug) return <Navigate to="/" replace />
+  const next = STORY_TO_V2[slug]
+  return <Navigate to={next ?? '/'} replace />
 }
 
 function LegacyBrandSystemRedirect() {
@@ -57,20 +66,7 @@ function SiteApp() {
       <Header />
       <Routes>
         <Route path="/work" element={<WorkPage />} />
-        <Route
-          path="/stories/nutriant"
-          element={<Navigate to="/stories/wyldtracks" replace />}
-        />
-        <Route
-          path="/stories/presentation-builder"
-          element={<PresentationBuilderStoryPage />}
-        />
-        <Route path="/stories/play-it-pro" element={<PlayItProStoryPage />} />
-        <Route path="/stories/:slug" element={<ProductStoryPage />} />
-        <Route
-          path="/case-studies/plottr"
-          element={<Navigate to="/stories/presentation-builder" replace />}
-        />
+        <Route path="/stories/:slug" element={<LegacyStoryRedirect />} />
         <Route path="/case-studies/:slug" element={<LegacyStoryRedirect />} />
         <Route
           path="/brand-systems/dog-friendly-places"

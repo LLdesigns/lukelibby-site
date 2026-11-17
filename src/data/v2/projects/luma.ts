@@ -4,7 +4,7 @@ export const lumaProject: ProjectDocument = {
   slug: 'luma',
   title: 'Luma',
   description:
-    'A review of what a course actually teaches: objectives, concepts, prerequisites, and the places where the delivered lesson drifts from the outline.',
+    'A technology-course review system: map objectives, concepts, procedures, and tools in Python, TypeScript, JavaScript, and related stacks—and see where delivery drifts from what was supposed to be taught.',
   published: true,
   theme: {
     background: '#12161a',
@@ -16,9 +16,9 @@ export const lumaProject: ProjectDocument = {
   hero: {
     eyebrow: 'Luma',
     title: 'Luma',
-    lede: 'A handsome slide is not the same as a course that teaches.',
-    role: 'Plottr could make a deck look finished and still have no account of what a learner was supposed to understand, or whether the lesson actually taught it. I started Luma to answer a harder question: how do you know what belongs in a lesson, when it should appear, and whether the delivered material taught it?',
-    meta: 'Instructional review · Working analyzer',
+    lede: 'A finished deck is not proof a technology lesson taught what it claimed.',
+    role: 'Plottr could make a presentation look complete and still have no account of the skills, APIs, or procedures a learner was supposed to practice. I built Luma to inspect technology education itself: what concepts and processes were taught, how they connect, and whether the delivered material supported the objective.',
+    meta: 'Technology education · Built product',
     tags: ['Product Strategy', 'Learning Design', 'UX/UI Design', 'AI Orchestration'],
   },
   blocks: [
@@ -27,54 +27,91 @@ export const lumaProject: ProjectDocument = {
       id: 'graph',
       nav: 'The graph',
       eyebrow: 'The decision',
-      title: 'Select a concept and the reason for the link comes with it.',
+      title: 'Select a node. See what it is, and why each link exists.',
       intro:
-        'A picture of connected topics is not a review. The useful version tells you why two things belong together, and which topic was taught without supporting the objective. This course is fictional. Selecting a node, and reading why the link exists, is the interaction I demonstrated. The analyzer behind it reviews one course. Relationships across courses, and a later learning path, are a longer vision, not a released or adopted experience.',
-      start: 'habitat',
+        'This reconstructed Python lesson has one objective at the top. Concepts and procedures should support that objective. Variables are a prerequisite underneath. Packaging was taught in the material, but it does not help write the function—so it sits outside the map. Selecting a node shows its role in the technology lesson, then the reason for each connection.',
+      start: 'functions',
       nodes: [
-        { id: 'objective', label: 'Explain a sighting', kind: 'objective', x: 50, y: 18 },
-        { id: 'habitat', label: 'Habitat', kind: 'concept', x: 24, y: 46 },
-        { id: 'behavior', label: 'Behavior', kind: 'concept', x: 50, y: 58 },
-        { id: 'photo', label: 'Photograph', kind: 'tool', x: 76, y: 46 },
-        { id: 'name', label: 'Name what you saw', kind: 'concept', x: 28, y: 80 },
         {
-          id: 'camera',
-          label: 'Camera settings',
+          id: 'objective',
+          label: 'Write a list transform',
+          kind: 'objective',
+          x: 50,
+          y: 16,
+          blurb: 'What the learner should be able to do in code when the lesson is over.',
+        },
+        {
+          id: 'functions',
+          label: 'Functions',
+          kind: 'concept',
+          x: 22,
+          y: 44,
+          blurb: 'Reusable units of behavior—the shape of the solution the objective asks for.',
+        },
+        {
+          id: 'iteration',
+          label: 'Iteration',
+          kind: 'concept',
+          x: 50,
+          y: 52,
+          blurb: 'Walking a collection item by item so each value can be transformed.',
+        },
+        {
+          id: 'repl',
+          label: 'Python REPL',
+          kind: 'tool',
+          x: 78,
+          y: 44,
+          blurb: 'Where the procedure is practiced and checked—run the transform, inspect the result.',
+        },
+        {
+          id: 'variables',
+          label: 'Variables',
+          kind: 'concept',
+          x: 36,
+          y: 78,
+          blurb: 'Names bound to values. Functions and iteration only make sense once this is in place.',
+        },
+        {
+          id: 'packaging',
+          label: 'Packaging',
           kind: 'outlier',
-          x: 74,
-          y: 80,
+          x: 78,
+          y: 78,
+          blurb: 'Taught in the lesson, but not part of writing the list transform.',
           apart:
-            'This was taught, but it does not help a learner explain a sighting. It is in the lesson and outside the objective. That gap is the point of showing it.',
+            'Packaging and environment setup appear in the material, yet they do not help a learner write a list transform. Showing that gap—taught, but outside the objective—is the point of the outlier.',
         },
       ],
       links: [
         {
-          from: 'name',
-          to: 'habitat',
-          why: 'You cannot say where an animal fits until you know what you saw. Naming is a prerequisite, not a detail.',
+          from: 'variables',
+          to: 'functions',
+          why: 'A function needs named values to take in and return. Variables are the prerequisite, not a side topic.',
         },
         {
-          from: 'name',
-          to: 'behavior',
-          why: 'A note about what the animal did is only interpretable once the animal itself is named.',
+          from: 'variables',
+          to: 'iteration',
+          why: 'Iteration only makes sense once the learner can hold and update values while walking a collection.',
         },
         {
-          from: 'habitat',
+          from: 'functions',
           to: 'objective',
-          why: 'The objective asks the learner to connect the animal to the place. Habitat is part of the claim, not a sidebar.',
+          why: 'The objective is to write a transform as a function. That concept is the shape of the skill, not decoration.',
         },
         {
-          from: 'behavior',
+          from: 'iteration',
           to: 'objective',
-          why: 'What the animal was doing is part of the sighting the objective asks the learner to explain.',
+          why: 'Transforming a list is a procedure over items. Iteration is how that procedure runs.',
         },
         {
-          from: 'photo',
+          from: 'repl',
           to: 'objective',
-          why: 'The photograph is the evidence. The explanation is checked against it, not against the outline alone.',
+          why: 'The REPL is where the learner practices the procedure and checks the result against the objective.',
         },
       ],
-      caption: 'Conceptual reconstruction created for portfolio demonstration. The course is fictional.',
+      caption:
+        'Conceptual reconstruction for portfolio demonstration. Patterned on technology-course review (Python here; the same model applied to TypeScript, JavaScript, and related stacks).',
     },
     {
       type: 'pair',
@@ -83,8 +120,8 @@ export const lumaProject: ProjectDocument = {
       eyebrow: 'Author review',
       title: 'Coverage first. Then the objective, or the knowledge behind it.',
       paragraphs: [
-        'The working analyzer opens on a course explorer: modules, clips, objectives, and knowledge counts, with a coverage bar that separates well supported, partial, and missing. Objectives and Knowledge are two projections of the same course, so a reviewer can start from what learners should be able to do, or from the concepts and tools that showed up in the material.',
-        'Selecting an objective shows where it is supported, which instructional moves were observed, and what still needs a human look. Selecting a knowledge item shows where it appears, how it was treated, and which objectives it connects to. The Python Basics course in these screens is a demonstration course for the review, not a published company catalog.',
+        'The working analyzer opens on a technology course: modules, clips, objectives, and knowledge counts, with a coverage bar that separates well supported, partial, and missing. Objectives and Knowledge are two projections of the same lesson—skills and procedures on one side, language concepts and tools on the other.',
+        'Selecting an objective shows where it is supported, which instructional moves were observed, and what still needs a human look. Selecting a knowledge item—functions, types, APIs, tooling—shows where it appears, how it was taught, and which objectives it connects to. The Python Basics course in these screens is the review subject; the same system was built for technology education more broadly.',
       ],
       frames: [
         {
@@ -150,9 +187,9 @@ export const lumaProject: ProjectDocument = {
       eyebrow: 'Where it came from',
       title: 'Generating a slide could not decide what belonged on it.',
       paragraphs: [
-        'The failure showed up inside Plottr. A model could fill an attractive template and still have no judgment about sequence, depth, or whether a concept had earned its place. Bloom’s taxonomy and cognitive load are the plain reason a single generation prompt was not enough. Pedagogy does not fall out of one prompt.',
-        'I started by asking what an author decides: what to teach, when, and how. Then who else has to trust that decision. Content quality, peer review, and the people reading the outcome all needed a view of the course, not another slide.',
-        'The model distinguishes what was taught from how it was taught: explanation, demonstration, example, and other instructional moves. I designed the taxonomy and the relationships, including prerequisites. Luma began aimed at presentation authors. It grew toward anyone who has to compare the approved outline with what was actually delivered.',
+        'The failure showed up inside Plottr. A model could fill an attractive template and still have no judgment about whether a Python function, a TypeScript type, or a JavaScript procedure had earned its place—or whether the lesson taught the process a learner needed. Pedagogy for technology courses does not fall out of one prompt.',
+        'I started by asking what an author decides in a tech lesson: which concepts, which procedures, which tools, and in what order. Content quality, peer review, and the people reading the outcome needed a view of that teaching structure, not another slide.',
+        'The model distinguishes what was taught from how it was taught: explanation, demonstration, worked example, and other instructional moves. I designed the taxonomy and the relationships, including prerequisites across languages and tooling. Luma began with presentation authors and grew toward anyone comparing an approved technology outline with what was actually delivered.',
       ],
     },
     {
@@ -175,7 +212,7 @@ export const lumaProject: ProjectDocument = {
       title: 'The course had to become inspectable before the slide could be trusted.',
       statement: 'Trustworthy generation needed a model of the teaching, not a better template.',
       detail:
-        'What exists is a working analyzer and an author-facing review of one course. Selecting a node, and reading why a relationship exists, is the interaction I demonstrated. Relationships across courses, and a later learning path, remain a longer vision. Luma is not a released company product, and I have not published a usage metric for it. What it changed for me was the order of the work: understand what the course is trying to teach, then decide whether a generated slide deserves to exist.',
+        'What exists is a working analyzer and an author-facing review of real technology course material. Selecting a node, and reading why a relationship exists, is the interaction I demonstrated. Cross-course relationships and a later learning path remain open next steps. I have not published a usage metric for it. What it changed for me was the order of the work: understand what the technology lesson is trying to teach—concepts, procedures, tools—then decide whether a generated slide deserves to exist.',
     },
   ],
 }

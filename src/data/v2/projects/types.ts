@@ -199,6 +199,8 @@ export type ProjectBlock =
         kind: 'objective' | 'concept' | 'tool' | 'outlier'
         x: number
         y: number
+        /** Short plain-language role of this node in the course. */
+        blurb?: string
         apart?: string
       }[]
       links: { from: string; to: string; why: string }[]

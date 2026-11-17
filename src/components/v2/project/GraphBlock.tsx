@@ -80,23 +80,32 @@ export function GraphBlock({ block }: { block: Extract<ProjectBlock, { type: 'gr
           ))}
         </div>
         <div className="vp-graph__why" aria-live="polite">
-          <p className="vp-graph__kind">{current.kind === 'outlier' ? 'Outside the objective' : current.kind}</p>
+          <p className="vp-graph__kind">
+            {current.kind === 'outlier' ? 'Outside the objective' : current.kind}
+          </p>
           <h3>{current.label}</h3>
+          {current.blurb ? <p className="vp-graph__blurb">{current.blurb}</p> : null}
+          {current.kind === 'outlier' && current.apart ? (
+            <p className="vp-graph__apart">{current.apart}</p>
+          ) : null}
           {reasons.length ? (
-            <ul>
-              {reasons.map((reason) => {
-                const other = block.nodes.find((node) => node.id === reason.id)
-                return (
-                  <li key={reason.id}>
-                    <strong>{other?.label}</strong>
-                    <span>{reason.why}</span>
-                  </li>
-                )
-              })}
-            </ul>
-          ) : (
-            <p>{current.apart}</p>
-          )}
+            <>
+              <p className="vp-graph__links-label">Why it connects</p>
+              <ul>
+                {reasons.map((reason) => {
+                  const other = block.nodes.find((node) => node.id === reason.id)
+                  return (
+                    <li key={reason.id}>
+                      <strong>↔ {other?.label}</strong>
+                      <span>{reason.why}</span>
+                    </li>
+                  )
+                })}
+              </ul>
+            </>
+          ) : current.kind !== 'outlier' ? (
+            <p className="vp-graph__apart">No supporting links for this node.</p>
+          ) : null}
         </div>
       </div>
       <p className="vp-conceptual">{block.caption}</p>

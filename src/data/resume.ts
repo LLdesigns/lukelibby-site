@@ -19,7 +19,7 @@ export const resumePdf = {
 
 export const resumeSummary = `Creative technologist and product builder with ten-plus years at Pluralsight and freelance work across AI systems, learning products, video production, and practical software.
 
-I design products, systems, and the relationships inside learning content—then use AI-assisted development to implement them. That includes video and presentation tools, knowledge-graph prototypes for course review, and 60+ hands-on labs in Python, R, and SQL.
+I design products, systems, and the relationships inside learning content—then use AI-assisted development to implement them. That includes video and presentation tools, knowledge-graph systems for course review, and 60+ hands-on labs in Python, R, and SQL.
 
 I care about strong UX, outdoor culture, and education, and I like building tools that help people tackle hard problems with more confidence.`
 
@@ -123,7 +123,7 @@ export const experience = [
       {
         label: 'Luma',
         detail:
-          'Designed and prototyped a knowledge graph connecting learning content, objectives, concepts, and skills to support content analysis and human review.',
+          'Designed and built a knowledge graph for technology courses—mapping objectives, concepts, procedures, and tools (Python, TypeScript, JavaScript, and related stacks) for content analysis and human review.',
       },
       {
         label: 'Ontology & taxonomies',
