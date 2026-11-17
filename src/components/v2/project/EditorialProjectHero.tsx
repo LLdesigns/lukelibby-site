@@ -18,6 +18,7 @@ export function EditorialProjectHero({ project }: { project: ProjectDocument }) 
         </p>
         <h1 id="project-title">{hero.title}</h1>
         <p className="vp-hero__lede">{hero.lede}</p>
+        {hero.highlight ? <p className="vp-hero__highlight">{hero.highlight}</p> : null}
         {hero.role ? <p className="vp-hero__role">{hero.role}</p> : null}
         {hero.meta ? <p className="vp-hero__meta">{hero.meta}</p> : null}
         {hero.tags.length ? (

@@ -1,6 +1,6 @@
 export const resumeMeta = {
   name: 'Luke Libby',
-  location: 'Farmington, Utah, United States',
+  location: 'Oklahoma, United States',
   portfolioNote: 'Portfolio / Case Studies Available Upon Request',
   linkedInUrl: 'https://www.linkedin.com/in/luke-libby1/',
   linkedInHandle: 'luke-libby1',
@@ -17,7 +17,7 @@ export const resumePdf = {
   filename: 'Luke Libby-Resume-2026.pdf',
 } as const
 
-export const resumeSummary = `Creative technologist and product builder with ten-plus years at Pluralsight and freelance work across AI systems, learning products, video production, and practical software.
+export const resumeSummary = `Creative technologist and product builder with 12 years of professional experience, including ten-plus years at Pluralsight and freelance work across AI systems, learning products, video production, and practical software.
 
 I design products, systems, and the relationships inside learning content—then use AI-assisted development to implement them. That includes video and presentation tools, knowledge-graph systems for course review, and 60+ hands-on labs in Python, R, and SQL.
 
@@ -106,19 +106,19 @@ export const experience = [
     id: 'ps-creative-technologist',
     title: 'Creative Technologist',
     company: 'Pluralsight',
-    period: 'Jan 2026 – Present · Remote',
+    period: 'Jan 2026 – Nov 2026 · Remote',
     intro:
-      'Building internal products and AI-assisted systems for learning and video production—designing the product, the relationships in the content, and the workflows teams use to ship.',
+      'Built internal products and AI-assisted systems for learning and video production—designing the product, the relationships in the content, and the workflows teams use to ship.',
     contributions: [
       {
         label: 'VideoKit & SlideKit',
         detail:
-          'Design and develop internal products for video review, presentation standards, and production workflows.',
+          'Designed and developed internal products for video review, presentation standards, and production workflows.',
       },
       {
         label: 'AI workflows & MCPs',
         detail:
-          'Build AI-assisted workflows for review, QC, and delivery, including automated preflight validation.',
+          'Built AI-assisted workflows for review, QC, and delivery, including automated preflight validation.',
       },
       {
         label: 'Luma',
@@ -132,11 +132,11 @@ export const experience = [
       },
       {
         label: 'Product documentation',
-        detail: 'Write and maintain product documentation, including internal guides and external help docs.',
+        detail: 'Wrote and maintained product documentation, including internal guides and external help docs.',
       },
       {
         label: 'Video pipelines',
-        detail: 'Optimize end-to-end video pipelines with automation and tighter QC.',
+        detail: 'Optimized end-to-end video pipelines with automation and tighter QC.',
       },
     ] satisfies ResumeContribution[],
     technologies: [

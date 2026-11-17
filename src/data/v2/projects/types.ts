@@ -24,6 +24,8 @@ export type ProjectHero = {
   title: string
   lede: string
   role?: string
+  /** Short outcome or decision a hiring manager should see in a 30-second scan. */
+  highlight?: string
   meta?: string
   intro?: string[]
   tags: string[]

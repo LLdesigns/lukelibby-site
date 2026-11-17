@@ -145,6 +145,31 @@ export const v2PhotoTiles: HoneycombPhoto[] = [
 export const v2WorkHoneycomb: HoneycombItem[] = [
   {
     kind: 'project',
+    id: 'videokit',
+    title: 'VideoKit',
+    type: 'Video',
+    summary: 'AI-Assisted Video Review',
+    detail:
+      'One review for the clip, the picture, and the finding, with a person still accepting or setting aside what a check reports.',
+    imageAlt: 'VideoKit review layout inside a video monitor',
+    art: 'video',
+    href: '/work/videokit',
+  },
+  {
+    kind: 'project',
+    id: 'ovrmaps',
+    title: 'OVRmaps',
+    type: 'Mapping',
+    summary: 'Outdoor Maps You Can Add To',
+    detail:
+      'An active outdoor platform for recording a trip and identifying the trail under you. Navigation and unpublished studio tools are not part of that claim.',
+    image: '/images/v2/ovrmaps-honeycomb.png',
+    imageAlt: 'OVRmaps logo over mountain ridges with trail and campsite map pins',
+    imagePosition: 'center 32%',
+    href: '/work/ovrmaps',
+  },
+  {
+    kind: 'project',
     id: 'slidekit',
     title: 'SlideKit',
     type: 'EdTech',
@@ -169,18 +194,6 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
   },
   {
     kind: 'project',
-    id: 'videokit',
-    title: 'VideoKit',
-    type: 'Video',
-    summary: 'AI-Assisted Video Review',
-    detail:
-      'One review for the clip, the picture, and the finding, with a person still accepting or setting aside what a check reports.',
-    imageAlt: 'VideoKit review layout inside a video monitor',
-    art: 'video',
-    href: '/work/videokit',
-  },
-  {
-    kind: 'project',
     id: 'luma',
     title: 'Luma',
     type: 'Learning',
@@ -190,19 +203,6 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     imageAlt: 'Luma knowledge graph with a selected objective and connected nodes',
     art: 'luma',
     href: '/work/luma',
-  },
-  {
-    kind: 'project',
-    id: 'ovrmaps',
-    title: 'OVRmaps',
-    type: 'Mapping',
-    summary: 'Outdoor Maps You Can Add To',
-    detail:
-      'An active outdoor platform for recording a trip and identifying the trail under you. Navigation and unpublished studio tools are not part of that claim.',
-    image: '/images/v2/ovrmaps-honeycomb.png',
-    imageAlt: 'OVRmaps logo over mountain ridges with trail and campsite map pins',
-    imagePosition: 'center 32%',
-    href: '/work/ovrmaps',
   },
   {
     kind: 'project',

@@ -17,6 +17,8 @@ export const plottrProject: ProjectDocument = {
     eyebrow: 'Internal product',
     title: 'Plottr',
     lede: 'Import, Review, and Export',
+    highlight:
+      'Beta testing showed import, review, and export mattered more than the full editor I had prototyped—so I narrowed the scope accordingly.',
     role: 'SlideKit could help inside PowerPoint. Plottr was my attempt to make the presentation itself a document that could be imported, reviewed, and exported, including from Keynote. I owned the concept, the design, and the build. DevOps was outside my scope.',
     meta: 'Presentation review · Staging beta',
     tags: ['Product Strategy', 'UX/UI Design', 'Systems Design', 'AI-Assisted Implementation'],

@@ -134,6 +134,17 @@
   object-position: 70% 42%;
 }
 
+.vp-hero__highlight {
+  max-width: 34rem;
+  margin: 0.85rem 0 0;
+  padding: 0.65rem 0.85rem;
+  border-left: 2px solid color-mix(in srgb, var(--p-accent) 70%, transparent);
+  color: var(--p-ink);
+  font-size: 0.98rem;
+  font-weight: 550;
+  line-height: 1.45;
+}
+
 .vp-hero__role {
   max-width: 32rem;
   margin: 0.85rem 0 0;

@@ -17,6 +17,8 @@ export const videokitProject: ProjectDocument = {
     eyebrow: 'Internal product',
     title: 'VideoKit',
     lede: 'AI-Assisted Video Review',
+    highlight:
+      'Reviewers reported about 30% less time in review. Key decisions: three scan presets instead of dense toggles, and human accept/reject kept on every finding.',
     role: 'Video reviews had been spread across multiple tools for years. I initiated VideoKit and led the product direction, UX/UI design, and implementation approach. Enterprise security and architecture set the boundaries.',
     meta: 'Internal review · Staging beta',
     tags: ['Product Strategy', 'UX/UI Design', 'Workflow Design', 'AI-Assisted Implementation'],

@@ -50,7 +50,7 @@ export function ResumePrintPage() {
             Creative Technologist · Product Builder
           </p>
           <p className="resume-print__contact">
-            Farmington, UT · lukelibby.com · linkedin.com/in/{resumeMeta.linkedInHandle}
+            {resumeMeta.location} · lukelibby.com · linkedin.com/in/{resumeMeta.linkedInHandle}
           </p>
         </header>
 

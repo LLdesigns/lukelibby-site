@@ -20,8 +20,7 @@ export function personJsonLd(): JsonLd {
     sameAs: [resumeMeta.linkedInUrl],
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Farmington',
-      addressRegion: 'UT',
+      addressRegion: 'OK',
       addressCountry: 'US',
     },
   })

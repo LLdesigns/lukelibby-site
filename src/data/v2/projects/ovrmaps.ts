@@ -21,6 +21,8 @@ export const ovrmapsProject: ProjectDocument = {
     eyebrow: 'Independent product',
     title: 'OVRmaps',
     lede: 'Outdoor Maps You Can Add To',
+    highlight:
+      'Founded and built end to end: product direction, field UX, and an active beta refined through outdoor use—not just mockups.',
     role: 'I founded OVRmaps to connect outdoor exploration with the knowledge people gather along the way. The product brings together maps, GPS recording, location-based observations, and community sharing. I own product strategy, UX/UI, and systems design, use AI-assisted development to move from workflow ideas to working software, and refine the experience by taking it outdoors and acting on feedback.',
     meta: 'Active beta · Mobile + web',
     image: '/images/v2/ovrmaps-honeycomb.png',
