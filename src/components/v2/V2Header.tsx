@@ -224,8 +224,8 @@ export function V2Header() {
           <span className="v2-header__identity">
             <span className="v2-header__name">Luke Libby</span>
             <span className="v2-header__tag">
-              I take ideas from discovery to working products through research, UX design, systems
-              thinking, and AI-assisted prototyping.
+              I turn complex workflows into usable products through research, UX design, systems
+              thinking, and rapid prototyping.
             </span>
           </span>
         </Link>
