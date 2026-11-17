@@ -32,7 +32,7 @@ export function DocumentHead({
       title: formattedTitle,
       description,
       canonicalUrl: absoluteUrl(resolvedPath),
-      imageUrl: absoluteUrl(imagePath),
+      imageUrl: absoluteUrl(imagePath || siteMeta.defaultImagePath),
       type,
       noindex,
       jsonLd,

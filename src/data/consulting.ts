@@ -3,7 +3,7 @@ export const consultingMeta = {
   headline: 'Products that',
   headlineAccent: 'ship and stick',
   subheadline:
-    'I help founders and teams build real software — from first concept through launch, iteration, and the lifecycle after. Not slide decks. Not throwaway demos. Products people adopt and keep using.',
+    'I help founders and teams build software that ships and stays useful. Real products, not pitch decks or throwaway demos.',
   ctaPrimaryLabel: 'Start a Conversation',
   ctaSecondaryLabel: 'See My Work',
 } as const
@@ -13,18 +13,18 @@ export const consultingServices = [
     id: 'product-development',
     title: 'Product Development',
     description:
-      'Turn a fuzzy idea into a shipped product — scoped clearly, designed well, built properly, and ready for real users.',
+      'Take an early idea and turn it into something you can put in front of users. Scoped, designed, built, and ready for real use.',
     bullets: [
       '0→1 strategy: what to build first, and what to cut',
       'UX, architecture, and build in tight loops',
-      'Launch-ready products — not demo-ware',
+      'Shipped product, not a demo',
     ],
   },
   {
     id: 'product-lifecycle',
     title: 'Product Lifecycle',
     description:
-      'The work doesn’t stop at v1. I help you evolve the product as you learn — new features, better workflows, less friction.',
+      'Most products need more than v1. I help you add features, clean up workflows, and fix friction as you learn what works.',
     bullets: [
       'Roadmaps grounded in usage and business goals',
       'Iteration without breaking what already works',
@@ -35,7 +35,7 @@ export const consultingServices = [
     id: 'ai-products',
     title: 'AI-Augmented Products',
     description:
-      'Embed AI where it actually improves the product — smarter workflows, better outputs, less manual work — without the hype.',
+      'Add AI where it helps: faster workflows, better output, less manual work. Skip the hype.',
     bullets: [
       'AI features scoped to real user jobs',
       'Quality gates and human review where it matters',
@@ -46,7 +46,7 @@ export const consultingServices = [
     id: 'internal-products',
     title: 'Internal Products & Platforms',
     description:
-      'Custom software for teams outgrowing spreadsheets and duct-taped tools — dashboards, ops systems, and platforms people rely on daily.',
+      'Custom tools for teams that have outgrown spreadsheets and glued-together apps. Dashboards, ops systems, and platforms people use every day.',
     bullets: [
       'Workflow products that replace manual busywork',
       'Role-based tools with clear permissions',
@@ -68,7 +68,7 @@ export const consultingProcess = [
     step: '01',
     title: 'Discover',
     description:
-      'Understand the problem, the users, and what success looks like — before committing to a build.',
+      'Understand the problem, the users, and what success looks like before anyone commits to a build.',
   },
   {
     step: '02',
@@ -80,18 +80,18 @@ export const consultingProcess = [
     step: '03',
     title: 'Develop',
     description:
-      'Build in focused cycles — ship early, learn fast, refine based on real feedback.',
+      'Build in focused cycles. Ship early, learn fast, refine from real feedback.',
   },
   {
     step: '04',
     title: 'Deliver & evolve',
     description:
-      'Launch, hand off cleanly, and keep improving as the product moves through its lifecycle.',
+      'Launch, hand off cleanly, and keep improving as the product grows.',
   },
 ] as const
 
 export const consultingFit = [
-  'You need a product built — not another strategy deck',
+  'You need a product built, not another strategy deck',
   'You want one person who can think in product and ship in code',
   'Your team has outgrown spreadsheets and manual workflows',
   'You are adding AI to a product and need it done responsibly',
@@ -100,11 +100,11 @@ export const consultingFit = [
 
 export const consultingProof = {
   intro:
-    'Ten-plus years building at Pluralsight and shipping products end to end — from AI field tools to education platforms and production automation.',
+    'Ten-plus years at Pluralsight building and shipping products end to end: AI field tools, education platforms, and production automation.',
   highlights: [
     {
       label: 'WyldTracks',
-      detail: 'AI-powered field journal — full product from vision pipeline to user journal',
+      detail: 'AI field journal from vision pipeline through to the user-facing journal',
       href: '/stories/wyldtracks',
     },
     {

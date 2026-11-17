@@ -51,8 +51,8 @@ export function PlayItProStoryPage() {
       />
       <div className="container pip-page__inner">
         <ScrollReveal variant="drift-left" immediate>
-          <Link className="cs-back" to="/work#product-stories">
-            ← Back to Product Stories
+          <Link className="cs-back" to="/">
+            ← All work
           </Link>
         </ScrollReveal>
 

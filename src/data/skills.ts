@@ -17,8 +17,8 @@ export const builderNoteTags = [
 ] as const
 
 export const builderNotesParagraphs = [
-  'I’m a creative technologist with a background in design, technical content, photography, video, adventure enthusiast, and hands-on product building. My work sits at the intersection of interface design, systems thinking, and prototyping, with a focus on making complex ideas easier to understand.',
-  'Outside of work, I’m usually exploring somewhere outdoors - backpacking, overlanding, biking, camping, or looking for the next place that requires a map.',
+  'I am a creative technologist with a background in design, technical content, photo, video, and hands-on product building. I work at the overlap of interface design, systems thinking, and prototyping, usually trying to make complex ideas easier to grasp.',
+  'Outside of work, I am usually exploring somewhere outdoors: backpacking, overlanding, biking, camping, or looking for the next place that needs a map.',
 ] as const
 
 export const valueBlocks = [
@@ -35,7 +35,7 @@ export const valueBlocks = [
   {
     title: 'Cross-Functional Builder',
     description:
-      'I work across teams and disciplines to get something real into use.',
+      'I work across design, engineering, and stakeholders to get something real into use.',
   },
   {
     title: 'Practical AI Thinking',
@@ -51,11 +51,10 @@ export type NavLink = {
 }
 
 export const navLinks: NavLink[] = [
-  { label: 'Work', href: '/work' },
+  { label: 'Work', href: '/#work' },
+  { label: 'Resume', href: '/#resume' },
   { label: 'About', href: '/#about' },
-  { label: 'Resume', href: '/resume' },
-  { label: 'Contact', href: '/contact' },
-  { label: 'Consulting', href: '/#consulting' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 export const visibleNavLinks = navLinks.filter((link) => !link.hidden)

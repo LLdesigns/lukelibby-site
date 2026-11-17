@@ -16,9 +16,16 @@ export function SiteFooter() {
           {visibleNavLinks.map((link) => {
             if (link.href.startsWith('#')) {
               return (
-                <a key={link.label} href={`/${link.href}`}>
+                <Link key={link.label} to={{ pathname: '/', hash: link.href }}>
                   {link.label}
-                </a>
+                </Link>
+              )
+            }
+            if (link.href.startsWith('/#')) {
+              return (
+                <Link key={link.label} to={{ pathname: '/', hash: link.href.slice(1) }}>
+                  {link.label}
+                </Link>
               )
             }
             if (link.href.startsWith('/')) {

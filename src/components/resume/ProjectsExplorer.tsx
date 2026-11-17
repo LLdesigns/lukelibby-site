@@ -17,7 +17,7 @@ function ProjectDetail({ project }: { project: Project }) {
         <div className="projects-explorer__links">
           {'href' in project && project.href && (
             <Link to={project.href} className="projects-explorer__case-link">
-              Read Story →
+              Read case study →
             </Link>
           )}
           {'liveUrl' in project && project.liveUrl && (

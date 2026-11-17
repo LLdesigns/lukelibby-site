@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 /* theme.css and components.css are imported from main.tsx (PostCSS resolves
    nested @import from project root and breaks the stylesheet chain). */
 
@@ -185,6 +187,181 @@ p {
 
 .section--hero .grid-hero.container {
   row-gap: var(--space-3xl);
+}
+
+/* Homepage hero. The mountain plate is the background; copy sits on the sky. */
+.home-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background-color: #181816;
+  color: #f6f2ea;
+}
+
+.home-hero__scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+.home-hero__content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem) 0;
+}
+
+.home-hero__portrait {
+  width: min(42%, 34rem);
+  margin-top: 0.5rem;
+  pointer-events: none;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(#000 0%, #000 68%, transparent 96%);
+  mask-image: linear-gradient(#000 0%, #000 68%, transparent 96%);
+}
+
+.home-hero__copy {
+  width: min(46%, 36rem);
+  margin-top: 3.5rem;
+}
+
+.home-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #e4ddd2;
+}
+
+.home-hero__rule {
+  width: 4.5rem;
+  height: 1px;
+  background: rgba(243, 239, 230, 0.55);
+}
+
+.home-hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 3.35vw, 3.65rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #f7f4ee;
+}
+
+.home-hero__title em {
+  font-style: normal;
+  color: #e0a15c;
+}
+
+.home-hero__lede {
+  max-width: 34rem;
+  margin: 1rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #ddd6cb;
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.home-hero .btn--primary,
+.home-hero .btn--primary:hover,
+.home-hero .btn--primary:visited {
+  background-color: #e0a15c;
+  border-color: #e0a15c;
+  color: #1c140c;
+}
+
+.home-hero .btn--primary:hover {
+  background-color: #e8b074;
+  border-color: #e8b074;
+}
+
+.home-hero .btn--secondary,
+.home-hero .btn--secondary:visited {
+  background-color: transparent;
+  border-color: rgba(243, 239, 230, 0.62);
+  color: #f6f2ea;
+}
+
+.home-hero .btn--secondary:hover {
+  background-color: transparent;
+  border-color: #f6f2ea;
+  color: #fff;
+}
+
+.home-hero__chevron {
+  position: absolute;
+  left: 50%;
+  top: 64%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  color: rgba(247, 244, 238, 0.92);
+  transform: translateX(-50%);
+}
+
+.home-hero__chevron svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.home-hero__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 800px) {
+  .home-hero__content {
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .home-hero__portrait {
+    width: min(68%, 20rem);
+  }
+
+  .home-hero__copy {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .home-hero__title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
 }
 
 .section--paper {
@@ -439,4 +616,58 @@ p {
   font-size: var(--text-sm);
   text-transform: uppercase;
   letter-spacing: var(--tracking-label);
+}
+
+/* Floating back-to-top control */
+.scroll-top {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1.15rem, env(safe-area-inset-bottom));
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid rgba(224, 161, 92, 0.55);
+  border-radius: 999px;
+  background: rgba(18, 17, 15, 0.88);
+  color: #f3efe6;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.65rem);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-top:hover {
+  background: rgba(28, 26, 22, 0.95);
+  border-color: rgba(224, 161, 92, 0.85);
+}
+
+.scroll-top:focus-visible {
+  outline: 2px solid #e0a15c;
+  outline-offset: 3px;
+}
+
+.scroll-top span {
+  font-size: 1rem;
+  line-height: 1;
 }

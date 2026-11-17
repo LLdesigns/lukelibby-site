@@ -1,7 +1,6 @@
 import { ThemeBlock } from '../components/ThemeBlock'
 import { DocumentHead } from '../components/DocumentHead'
 import { FeaturedProjectCard } from '../components/work/FeaturedProjectCard'
-import { FocusPanel } from '../components/FocusPanel'
 import { ScrollReveal } from '../components/ScrollReveal'
 import { SectionHeading } from '../components/SectionHeading'
 import { Tag } from '../components/Tag'
@@ -10,7 +9,6 @@ import { Button } from '../components/Button'
 import {
   homepageFeaturedStories,
   workPageIntro,
-  workPositioningLine,
 } from '../data/work'
 import { ConsultingSection } from '../components/consulting/ConsultingSection'
 import { builderNoteTags, builderNotesParagraphs, valueBlocks } from '../data/skills'
@@ -19,6 +17,8 @@ import { siteMeta } from '../data/site'
 import { personJsonLd, websiteJsonLd } from '../utils/structuredData'
 
 const profilePhotoSrc = withBasePath('/images/luke-libby.png')
+const heroSceneSrc = withBasePath('/images/hero-mountains.jpg')
+const heroPortraitSrc = withBasePath('/images/v2/luke-portrait.png')
 
 export function HomePage() {
   return (
@@ -29,52 +29,50 @@ export function HomePage() {
         pathname="/"
         jsonLd={[personJsonLd(), websiteJsonLd()]}
       />
-      <section
-        className="section section--hero"
-        aria-labelledby="hero-heading"
-      >
-        <ThemeBlock className="container grid-hero">
-          <div className="hero-copy">
-            <ScrollReveal variant="drift-left" immediate delay={0}>
-              <p className="hero-label">Field Notes / Digital Builder</p>
-            </ScrollReveal>
-
-            <ScrollReveal variant="hero-sweep" immediate delay={100}>
-              <h1 id="hero-heading" className="hero-headline">
-                <span className="hero-sweep-target">
-                  I build useful (beautiful){' '}
-                  <span className="hero-headline__accent">tools</span> for messy work.
-                </span>
-              </h1>
-            </ScrollReveal>
-
-            <ScrollReveal variant="blur-rise" immediate delay={280}>
-              <p className="hero-sub">{workPositioningLine}</p>
-            </ScrollReveal>
-
-            <div className="hero-actions">
-              <ScrollReveal variant="stamp" immediate delay={450}>
-                <Button variant="primary" href="/work">
-                  View Work
-                </Button>
-              </ScrollReveal>
-              <ScrollReveal variant="stamp" immediate delay={540}>
-                <Button variant="secondary" href="#about">
-                  About Me
-                </Button>
-              </ScrollReveal>
+      <section className="home-hero" aria-labelledby="hero-heading">
+        <img
+          className="home-hero__scene"
+          src={heroSceneSrc}
+          alt=""
+          width={819}
+          height={1024}
+        />
+        <div className="home-hero__content">
+          <img
+            className="home-hero__portrait"
+            src={heroPortraitSrc}
+            alt="Pencil portrait of Luke Libby"
+          />
+          <div className="home-hero__copy">
+            <p className="home-hero__eyebrow">
+              <span>Creative Technologist / Product Builder</span>
+              <span className="home-hero__rule" aria-hidden="true" />
+            </p>
+            <h1 id="hero-heading" className="home-hero__title">
+              I design, prototype,
+              <br />
+              and build <em>useful tools.</em>
+            </h1>
+            <p className="home-hero__lede">
+              Turning complex ideas into simple, human-centered products through
+              design, research, and rapid prototyping.
+            </p>
+            <div className="home-hero__actions">
+              <Button variant="primary" href="/work">
+                Explore Work
+              </Button>
+              <Button variant="secondary" href="#about">
+                About Me
+              </Button>
             </div>
           </div>
-
-          <ScrollReveal
-            variant="drift-right"
-            immediate
-            delay={200}
-            className="hero-aside"
-          >
-            <FocusPanel />
-          </ScrollReveal>
-        </ThemeBlock>
+        </div>
+        <a className="home-hero__chevron" href="#work">
+          <span className="home-hero__sr">Explore work</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 9.5 12 16.5 19 9.5" />
+          </svg>
+        </a>
       </section>
 
       <section

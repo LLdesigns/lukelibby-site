@@ -14,7 +14,7 @@
   min-height: 100vh;
   background: #fff;
   color: var(--print-ink);
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: Poppins, system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-size: 8pt;
   line-height: 1.32;
   -webkit-print-color-adjust: exact;

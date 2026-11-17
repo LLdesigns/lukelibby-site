@@ -1,0 +1,83 @@
+/* Quiet fade/rise for portfolio sections. Keep motion small and slow. */
+
+.v2[data-motion] .v2-header,
+.v2[data-motion] .v2-resume,
+.v2[data-motion] .v2-about,
+.v2[data-motion] .v2-research__block,
+.v2[data-motion] .v2-contact,
+.v2[data-motion] .v2-footer__bar,
+.vp[data-motion] .vp-bar,
+.vp[data-motion] .vp-hero,
+.vp[data-motion] .vp-block,
+.vp[data-motion] .vp-end {
+  opacity: 0;
+  transform: translate3d(0, 0.85rem, 0);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+/* Honeycomb tiles: quick one-by-one fades. Leave transform free for hover scale. */
+.v2[data-motion] .v2-honeycomb__item:not(.v2-honeycomb__item--shape) {
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity;
+}
+
+.v2[data-motion] .v2-header,
+.vp[data-motion] .vp-bar {
+  transform: translate3d(0, -0.4rem, 0);
+  transition-duration: 0.65s;
+}
+
+.v2[data-motion] .v2-header.is-in,
+.v2[data-motion] .v2-resume.is-in,
+.v2[data-motion] .v2-about.is-in,
+.v2[data-motion] .v2-research__block.is-in,
+.v2[data-motion] .v2-contact.is-in,
+.v2[data-motion] .v2-footer__bar.is-in,
+.vp[data-motion] .vp-bar.is-in,
+.vp[data-motion] .vp-hero.is-in,
+.vp[data-motion] .vp-block.is-in,
+.vp[data-motion] .vp-end.is-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+.v2[data-motion] .v2-honeycomb__item:not(.v2-honeycomb__item--shape).is-in {
+  opacity: 1;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2[data-motion] .v2-header,
+  .v2[data-motion] .v2-honeycomb__item:not(.v2-honeycomb__item--shape),
+  .v2[data-motion] .v2-resume,
+  .v2[data-motion] .v2-about,
+  .v2[data-motion] .v2-research__block,
+  .v2[data-motion] .v2-contact,
+  .v2[data-motion] .v2-footer__bar,
+  .vp[data-motion] .vp-bar,
+  .vp[data-motion] .vp-hero,
+  .vp[data-motion] .vp-block,
+  .vp[data-motion] .vp-end,
+  .v2[data-motion] .v2-header.is-in,
+  .v2[data-motion] .v2-honeycomb__item:not(.v2-honeycomb__item--shape).is-in,
+  .v2[data-motion] .v2-resume.is-in,
+  .v2[data-motion] .v2-about.is-in,
+  .v2[data-motion] .v2-research__block.is-in,
+  .v2[data-motion] .v2-contact.is-in,
+  .v2[data-motion] .v2-footer__bar.is-in,
+  .vp[data-motion] .vp-bar.is-in,
+  .vp[data-motion] .vp-hero.is-in,
+  .vp[data-motion] .vp-block.is-in,
+  .vp[data-motion] .vp-end.is-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

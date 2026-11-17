@@ -31,7 +31,7 @@ export type DiscoveryQuestion =
 export const discoveryIntro = {
   title: 'Project brief',
   subtitle:
-    'A short set of questions so I can understand what you are building and whether I am a good fit. Takes about three minutes.',
+    'A few questions so I can understand what you are building and whether I am a good fit. About three minutes.',
 } as const
 
 export const discoveryQuestions: DiscoveryQuestion[] = [
@@ -39,13 +39,13 @@ export const discoveryQuestions: DiscoveryQuestion[] = [
     id: 'project_type',
     type: 'choice',
     prompt: 'What are you trying to build?',
-    helper: 'Pick the closest match — you can add detail below.',
+    helper: 'Pick the closest match. Add detail below if you want.',
     choices: [
       { id: 'ai_app', label: 'AI product or feature' },
       { id: 'automation', label: 'Workflow automation' },
       { id: 'internal_tool', label: 'Internal product or platform' },
       { id: 'mvp', label: 'New product build' },
-      { id: 'unsure', label: 'Not sure yet — need help scoping' },
+      { id: 'unsure', label: 'Not sure yet. Need help scoping' },
     ],
     allowDetail: true,
     detailPrompt: 'Anything else about the project?',
@@ -55,7 +55,7 @@ export const discoveryQuestions: DiscoveryQuestion[] = [
     type: 'choice',
     prompt: 'What timeline are you working with?',
     choices: [
-      { id: 'asap', label: 'ASAP — need momentum now' },
+      { id: 'asap', label: 'ASAP. Need momentum now' },
       { id: 'one_three', label: '1–3 months' },
       { id: 'three_six', label: '3–6 months' },
       { id: 'exploring', label: 'Just exploring options' },
@@ -81,7 +81,7 @@ export const discoveryQuestions: DiscoveryQuestion[] = [
     choices: [
       { id: 'core', label: 'Core to the product' },
       { id: 'helpful', label: 'Helpful but not the whole thing' },
-      { id: 'later', label: 'Maybe later — focus on workflow first' },
+      { id: 'later', label: 'Maybe later. Workflow first' },
       { id: 'none', label: 'Not looking for AI' },
     ],
   },
@@ -103,7 +103,7 @@ export const discoveryQuestions: DiscoveryQuestion[] = [
     id: 'budget',
     type: 'choice',
     prompt: 'Budget mindset',
-    helper: 'Rough sense is fine — helps me recommend the right engagement shape.',
+    helper: 'A rough sense is enough. It helps me suggest the right kind of engagement.',
     choices: [
       { id: 'exploring', label: 'Still figuring out budget' },
       { id: 'focused', label: 'Focused sprint / scoped build' },
@@ -117,7 +117,7 @@ export const discoveryQuestions: DiscoveryQuestion[] = [
     id: 'email',
     type: 'email',
     prompt: 'Your email',
-    helper: 'Required so I can follow up. No spam — just a reply to your brief.',
+    helper: 'So I can follow up. No spam. Just a reply to your brief.',
   },
   {
     id: 'name',

@@ -62,7 +62,7 @@ export function ContactForm({ source, id, onSuccess }: ContactFormProps) {
         </div>
         <p className="form-panel__success-title">Message sent</p>
         <p className="form-panel__success-copy">
-          Thanks — I will get back to you soon.
+          Thanks. I will get back to you soon.
         </p>
         <Button type="button" variant="secondary" onClick={() => setStatus('idle')}>
           Send another message

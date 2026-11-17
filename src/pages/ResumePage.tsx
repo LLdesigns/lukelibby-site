@@ -67,10 +67,6 @@ export function ResumePage() {
             </div>
           </ResumeSection>
 
-          <ResumeSection id="skills" title="Core Skills" label="Explore">
-            <SkillExplorer />
-          </ResumeSection>
-
           <ResumeSection
             id="experience"
             title="Professional Experience"
@@ -87,6 +83,10 @@ export function ResumePage() {
             <ProjectsExplorer />
           </ResumeSection>
 
+          <ResumeSection id="skills" title="Core Skills" label="Explore">
+            <SkillExplorer />
+          </ResumeSection>
+
           <ResumeSection id="education" title="Education" label="Timeline">
             <EducationTimeline />
           </ResumeSection>
@@ -98,11 +98,13 @@ export function ResumePage() {
           >
             <ScrollReveal variant="cascade" className="resume-strengths">
               {additionalStrengths.map((strength) => (
-                <div key={strength} className="resume-strength cascade-item">
+                <div key={strength.label} className="resume-strength cascade-item">
                   <span className="resume-strength__mark" aria-hidden="true">
                     ▸
                   </span>
-                  <p>{strength}</p>
+                  <p>
+                    <strong>{strength.label}:</strong> {strength.detail}
+                  </p>
                 </div>
               ))}
             </ScrollReveal>

@@ -660,6 +660,11 @@
   line-height: var(--leading-normal);
 }
 
+.resume-strength strong {
+  color: var(--color-text);
+  font-weight: 650;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .resume-accordion__body,
   .projects-explorer__detail,

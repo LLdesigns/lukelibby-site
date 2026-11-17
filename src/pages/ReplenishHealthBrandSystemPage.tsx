@@ -47,8 +47,8 @@ export function ReplenishHealthBrandSystemPage() {
       />
       <div className="container bs-page__intro">
         <ScrollReveal variant="drift-left" immediate>
-          <Link className="cs-back" to="/work#brand-systems">
-            ← Back to Brand & Interface Systems
+          <Link className="cs-back" to="/">
+            ← All work
           </Link>
         </ScrollReveal>
 

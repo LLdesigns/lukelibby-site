@@ -1,34 +1,33 @@
 import { Link, useLocation } from 'react-router-dom'
+import { resumePdf } from '../data/resume'
 import { visibleNavLinks } from '../data/skills'
 import { withBasePath } from '../utils/basePath'
 import { ThemeBlock } from './ThemeBlock'
 import { ThemeToggle } from './ThemeToggle'
 
 function isNavLinkActive(href: string, pathname: string, hash: string): boolean {
-  if (href === '/work') {
+  if (href === '/#work') {
     return (
+      (pathname === '/' && (hash === '#work' || hash === '')) ||
       pathname === '/work' ||
       pathname.startsWith('/stories/') ||
       pathname.startsWith('/brand-systems/') ||
       pathname.startsWith('/case-studies/') ||
-      pathname.startsWith('/product-systems/')
+      pathname.startsWith('/product-systems/') ||
+      pathname.startsWith('/v2/work/')
     )
   }
 
-  if (href === '/resume') {
-    return pathname === '/resume'
+  if (href === '/#resume') {
+    return pathname === '/' && hash === '#resume'
   }
 
   if (href === '/#about') {
     return pathname === '/' && hash === '#about'
   }
 
-  if (href === '/#consulting') {
-    return pathname === '/' && hash === '#consulting'
-  }
-
-  if (href === '/contact') {
-    return pathname === '/contact'
+  if (href === '/#contact') {
+    return pathname === '/' && hash === '#contact'
   }
 
   return false
@@ -109,8 +108,8 @@ export function Header() {
           <div className="header__actions">
             <ThemeToggle />
             <a
-              href={withBasePath('/resume.pdf')}
-              download="Luke-Libby-Resume.pdf"
+              href={withBasePath(resumePdf.href)}
+              download={resumePdf.filename}
               className="btn btn--brass"
             >
               Download Resume

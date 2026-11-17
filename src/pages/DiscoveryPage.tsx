@@ -154,7 +154,7 @@ export function DiscoveryPage() {
             </svg>
           </div>
           <p className="discovery-page__eyebrow">Project brief</p>
-          <h1 className="discovery-page__title">Thanks — brief received.</h1>
+          <h1 className="discovery-page__title">Thanks. Your brief is in.</h1>
           <p className="discovery-page__copy">
             I will review what you shared and follow up at {email}.
           </p>

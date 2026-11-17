@@ -10,7 +10,7 @@ import '../styles/forms.css'
 
 export function ContactPage() {
   const description =
-    'Consulting, collaborations, or a quick question — contact Luke Libby.'
+    'Consulting, collabs, or a quick question. Contact Luke Libby.'
 
   return (
     <main className="contact-page">
@@ -32,7 +32,7 @@ export function ContactPage() {
           </ScrollReveal>
           <ScrollReveal variant="blur-rise" immediate delay={180}>
             <p className="contact-page__sub">
-              Consulting, collaborations, or a quick question — send a note and I will get back to you.
+              Send a note about what you are working on. I will get back to you.
             </p>
           </ScrollReveal>
         </ThemeBlock>

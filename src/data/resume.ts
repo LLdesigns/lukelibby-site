@@ -11,9 +11,15 @@ export const resumeMeta = {
   ],
 } as const
 
-export const resumeSummary = `Creative technologist and product builder with ten-plus years at Pluralsight and freelance work across AI systems, video production, hands-on labs, and practical software.
+/** Served from /public/resume.pdf — keep the download name in sync with the source file. */
+export const resumePdf = {
+  href: '/resume.pdf',
+  filename: 'Luke Libby-Resume-2026.pdf',
+} as const
 
-I build internal tools and AI workflows for video teams, automating busywork, enforcing quality standards, and making production faster without cutting corners. Before that I designed AI-assisted lab pipelines, wrote 60+ hands-on technical labs, and ran cross-functional production from concept to publish.
+export const resumeSummary = `Creative technologist and product builder with ten-plus years at Pluralsight and freelance work across AI systems, learning products, video production, and practical software.
+
+I design products, systems, and the relationships inside learning content—then use AI-assisted development to implement them. That includes video and presentation tools, knowledge-graph prototypes for course review, and 60+ hands-on labs in Python, R, and SQL.
 
 I care about strong UX, outdoor culture, and education, and I like building tools that help people tackle hard problems with more confidence.`
 
@@ -27,9 +33,9 @@ export type ResumeSectionId =
 
 export const resumeSections: { id: ResumeSectionId; label: string }[] = [
   { id: 'summary', label: 'Summary' },
-  { id: 'skills', label: 'Core Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Core Skills' },
   { id: 'education', label: 'Education' },
   { id: 'strengths', label: 'Strengths' },
 ]
@@ -37,64 +43,49 @@ export const resumeSections: { id: ResumeSectionId; label: string }[] = [
 export const skillCategories = [
   {
     id: 'product',
-    title: 'Product & Creative Technology',
+    title: 'Product',
     skills: [
-      'Product Strategy',
-      'Product Development',
-      'AI Workflow Design',
-      'UX/UI Design',
-      'Rapid Prototyping',
-      'Design Systems',
-      'Information Architecture',
-      'Systems Thinking',
-      'Project Management',
-      'Technical Documentation',
+      'Product strategy',
+      'UX/UI design',
+      'Instructional design',
+      'Skill taxonomies',
+      'Product documentation',
     ],
   },
   {
     id: 'software',
-    title: 'Software & Development',
+    title: 'Software',
     skills: [
+      'AI-assisted application development',
+      'Rapid prototyping',
+      'Cursor',
+      'Claude Code',
+      'React / TypeScript',
       'Flutter / FlutterFlow',
-      'React / Vite',
-      'Webflow',
-      'FastAPI',
       'Supabase',
-      'Firebase',
-      'PostgreSQL',
       'Python',
-      'Dart',
-      'Figma',
-      'Git / GitHub',
     ],
   },
   {
     id: 'ai',
-    title: 'AI & Automation',
+    title: 'AI',
     skills: [
-      'Machine Learning',
-      'Automation',
-      'AI-Driven Content',
-      'LLM Workflow Design',
-      'MCP Integrations',
-      'Prompt Engineering',
-      'Agentic AI Concepts',
-      'Preflight & QC Automation',
-      'Structured Knowledge Systems',
+      'Knowledge graph design',
+      'Ontology modeling',
+      'AI workflow design',
+      'LLM tooling & MCPs',
+      'AI-assisted implementation',
     ],
   },
   {
     id: 'media',
-    title: 'Media & Production',
+    title: 'Media',
     skills: [
-      'Video Production Pipelines',
-      'Adobe Premiere Pro / Audition',
-      'Audio & Video Standards',
-      'Hands-On Labs',
-      'Technical Training Content',
-      'Motion Graphics',
-      'Author Coaching',
-      'Instructional Systems',
+      'Video pipelines',
+      'Hands-on labs',
+      'Technical training',
+      'Author coaching',
+      'Adobe Premiere / Audition',
     ],
   },
 ] as const
@@ -108,21 +99,26 @@ export const experience = [
     company: 'Pluralsight',
     period: 'Jan 2026 – Present · Remote',
     intro:
-      'Building internal systems and AI tooling for video teams, automating workflows, enforcing quality standards, and speeding up production.',
+      'Building internal products and AI-assisted systems for learning and video production—designing the product, the relationships in the content, and the workflows teams use to ship.',
     contributions: [
-      'Design and develop internal video production tools for cross-functional teams.',
-      'Build AI-assisted workflows and MCPs for review, QC, and delivery.',
-      'Implement automated preflight validation for audio, video, and export standards.',
+      'Design and develop internal products such as VideoKit and SlideKit for video review, presentation standards, and production workflows.',
+      'Build AI-assisted workflows and MCPs for review, QC, and delivery, including automated preflight validation.',
+      'Designed and prototyped Luma, connecting learning content, objectives, concepts, and skills through a knowledge graph to support content analysis and human review.',
+      'Applied ontology modeling and skill taxonomies to define relationships between learning concepts, using AI-assisted development to implement and refine those connections.',
+      'Write and maintain product documentation, including internal guides and external help docs.',
       'Optimize end-to-end video pipelines with automation and tighter QC.',
-      'Apply ML and product practices to internal production tooling.',
     ],
     technologies: [
-      'Machine Learning',
-      'Automation',
+      'Product development',
+      'Knowledge graph design',
+      'Ontology modeling',
+      'Skill taxonomies',
+      'Instructional design',
+      'AI-assisted development',
       'AI workflows',
       'MCPs',
       'Video pipelines',
-      'Product development',
+      'Product documentation',
     ],
   },
   {
@@ -131,20 +127,23 @@ export const experience = [
     company: 'Pluralsight',
     period: 'Sep 2021 – Jan 2026 · Remote',
     intro:
-      'Guided hands-on lab development and built AI-assisted processes for technical learning content from concept through publication.',
+      'Designed and published 60+ hands-on learning products in Python, R, and SQL, each centered on a distinct application or technical workflow. Owned the experience from initial concept through implementation, validation, and publication.',
     contributions: [
-      'Led design and implementation of AI-assisted lab generation for hands-on content.',
-      'Authored and published 60+ hands-on labs using AI while maintaining technical accuracy.',
-      'Managed end-to-end production workflow with SMEs and authors across time zones.',
-      'Reviewed code, configurations, and unit tests; mentored authors on tooling and best practices.',
-      'Improved AI-assisted workflows for speed and quality over time.',
+      'Applied instructional design principles to structure learning objectives, guided tasks, and completion criteria into practical coding experiences.',
+      'Used skill taxonomies to align hands-on workflows with relevant concepts and competencies.',
+      'Built functional applications and supporting exercises with AI-assisted development, validating technical accuracy and expected behavior.',
+      'Designed AI-assisted production processes to support lab creation, technical review, and publication.',
+      'Collaborated with SMEs and authors across time zones to deliver complete, usable learning experiences.',
+      'Reviewed code, configurations, and unit tests; mentored authors on tooling and development practices.',
     ],
     technologies: [
-      'AI-driven content',
-      'Hands-on labs',
-      'Author tooling',
+      'Product development',
+      'Instructional design',
+      'Skill taxonomies',
+      'Learning experience design',
+      'AI-assisted development',
       'Workflow design',
-      'Technical review',
+      'Technical validation',
     ],
   },
   {
@@ -240,22 +239,41 @@ export const experience = [
 
 export const independentProjects = [
   {
+    id: 'ovrmaps',
+    title: 'OVRmaps',
+    subtitle: 'Active beta',
+    role: 'Founder / Product Designer / Full-Stack Builder',
+    href: '/v2/work/ovrmaps',
+    description:
+      'I founded, designed, and built an outdoor exploration platform with offline maps, GPS route recording, trail observations, and social features for sharing routes and forming crews. Field use and conversations with riders shaped what I prioritized over a frozen map someone else had published.',
+    highlights: [
+      'Field riding and rider conversations set the priority: trustworthy, current status over denser map layers',
+      'GPS route recording paired with place-specific trail observations people can leave for others',
+      'Social sharing of routes and crews so a community can keep a place current',
+      'OVRmaps Studio stays architecture exploration for trail networks; it is not released product functionality',
+    ],
+    technologies: [
+      'Product strategy',
+      'Field research',
+      'UX/UI design',
+      'Independent development',
+      'Outdoor mapping',
+    ],
+  },
+  {
     id: 'wyldtracks',
     title: 'WyldTracks',
-    subtitle: 'AI Wildlife Field Journal',
+    subtitle: 'Published',
     role: 'Founder / Product Designer / Full-Stack Builder',
-    href: '/stories/wyldtracks',
+    href: '/v2/work/wyldtracks',
     liveUrl: 'https://www.wyldtracks.com',
     description:
-      'Built a private-alpha AI wildlife field journal where users photograph animals and signs, review evidence-backed identifications checked against GBIF, and save observations to a personal journal.',
+      'I designed, built, and launched a wildlife journal that helps people identify animals and signs, review the evidence behind AI-suggested identifications, and save their observations. The key product choice is that people can review and edit the identification before it becomes part of the saved record.',
     highlights: [
-      'Structured AI analysis contract with candidates and field marks',
-      'GBIF taxonomy and occurrence validation in Edge Functions',
-      'Wildlife Dossier detail UX for reviewable observations',
-      'Private journal with search, filters, and signed image URLs',
-      'Alpha feedback board and feature voting',
-      'AI cost tracking for admin visibility',
-      'Live deployment at wyldtracks.com',
+      'Photograph-first capture so a sighting is recorded before any form gets in the way',
+      'AI suggests an identification; the person reviews and edits it before saving',
+      'Evidence stays attached to the photograph so judgment stays with the observer',
+      'Progressive depth: simple for a first encounter, more scientific detail when needed',
     ],
     technologies: [
       'React',
@@ -268,38 +286,26 @@ export const independentProjects = [
     ],
   },
   {
-    id: 'geartraxx',
-    title: 'GearTraxx',
-    subtitle: 'Outdoor Gear Tracking Platform',
-    role: 'Founder / Product Designer',
+    id: 'play-it-pro',
+    title: 'Play It Pro',
+    subtitle: 'Live platform',
+    role: 'Founder / Product Designer / Full-Stack Builder',
+    href: '/v2/work/play-it-pro',
     description:
-      'Designed a consumer-focused platform for tracking outdoor gear, maintenance schedules, warranties, and usage analytics, aligned with an outdoor enthusiast mindset.',
+      'I founded, designed, and built a music education platform that connects structured tutorial authoring, teacher studio tools, and student practice. Teachers can turn lessons into a clear practice plan students can follow between sessions, instead of scattered videos, texts, and memory.',
     highlights: [
-      'Gear organization systems',
-      'Maintenance tracking',
-      'Warranty management',
-      'Usage analytics',
-      'Outdoor activity integrations',
-      'Community-oriented gear sharing concepts',
+      'Lesson builder treats instruction as blocks with an objective, not a page of uploads',
+      'Teacher studio tools assign structured content into real learning paths',
+      'Student portal turns an assignment into an ordered practice plan after they leave the room',
+      'Stack and denser layouts support different ways a music lesson needs to be taught',
     ],
-    technologies: ['Product design', 'UX systems', 'Mobile concepts'],
-  },
-  {
-    id: 'rnd',
-    title: 'Additional Product Concepts & R&D',
-    subtitle: 'Exploratory builds & prototypes',
-    role: 'Product Builder',
-    description:
-      'Ongoing exploration across education, civic tools, outdoor systems, and AI-assisted workflows.',
-    highlights: [
-      'AI-powered historical learning platforms',
-      'Civic engagement applications',
-      'Adventure mapping systems',
-      'Presentation generation tooling',
-      'AI-assisted educational workflows',
-      'Outdoor and wildlife-focused applications',
+    technologies: [
+      'React',
+      'TypeScript',
+      'Supabase',
+      'EdTech product design',
+      'Independent development',
     ],
-    technologies: ['Prototyping', 'AI workflows', 'R&D'],
   },
 ] as const
 
@@ -332,10 +338,34 @@ export const education = [
 ] as const
 
 export const additionalStrengths = [
-  'Entrepreneur mindset, builds products that help people tackle hard problems',
-  'Outdoor enthusiast; designs tools that build confidence on new ground',
-  'Bridges technical, creative, and production teams across remote collaboration',
-  'Experienced public presenter, workshop facilitator, and author coach',
-  'Native English proficiency; comfortable in startup-style and R&D environments',
-  'Interested in AI-assisted systems, automation, and product design that ships',
+  {
+    label: 'Entrepreneurial initiative',
+    detail:
+      'Turns real-world problems into product concepts, working prototypes, and usable tools.',
+  },
+  {
+    label: 'Human-centered design',
+    detail:
+      'Simplifies complex workflows so people can act with greater clarity and confidence.',
+  },
+  {
+    label: 'Cross-functional collaboration',
+    detail:
+      'Connects creative, technical, and production teams through clear communication and shared goals.',
+  },
+  {
+    label: 'Stakeholder storytelling',
+    detail:
+      'Presents product vision, demonstrations, and tradeoffs to boards and stakeholders to support decisions.',
+  },
+  {
+    label: 'Comfort with ambiguity',
+    detail:
+      'Brings structure to early-stage ideas and adapts through experimentation, feedback, and iteration.',
+  },
+  {
+    label: 'Field-informed thinking',
+    detail:
+      'Draws on outdoor experience to design for practical constraints and real-world use.',
+  },
 ] as const

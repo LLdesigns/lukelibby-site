@@ -35,7 +35,7 @@ export function WorkPage() {
         <ThemeBlock className="container">
           <ScrollReveal variant="drift-left" immediate>
             <Link className="work-page__back" to="/">
-              ← Home
+              ← All work
             </Link>
           </ScrollReveal>
           <ScrollReveal variant="hero-sweep" immediate delay={80}>

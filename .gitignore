@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local agent / scratch
+.agents/
+.codex/
+tmp-check-page.png
+scripts/_size-1440.png
+scripts/_size.mjs
+skills-lock.json

@@ -35,8 +35,8 @@ export function ProductStoryPage() {
         />
         <div className="container">
           <p className="cs-not-found">Product story not found.</p>
-          <Link className="cs-back" to="/work#product-stories">
-            ← Back to Product Stories
+          <Link className="cs-back" to="/">
+            ← All work
           </Link>
         </div>
       </main>
@@ -63,8 +63,8 @@ export function ProductStoryPage() {
       />
       <div className="container cs-page__inner">
         <ScrollReveal variant="drift-left" immediate>
-          <Link className="cs-back" to="/work#product-stories">
-            ← Back to Product Stories
+          <Link className="cs-back" to="/">
+            ← All work
           </Link>
         </ScrollReveal>
 
