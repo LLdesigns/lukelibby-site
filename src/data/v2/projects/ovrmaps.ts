@@ -7,7 +7,7 @@ export const ovrmapsProject: ProjectDocument = {
     'An outdoor platform for maps, GPS recording, location-based observations, and community sharing. Navigation and unpublished studio tools are still in progress.',
   published: true,
   liveUrl: 'https://ovrmaps.com',
-  liveLabel: 'Active beta',
+  liveLabel: 'Published product',
   closing:
     'Placing a pin on the map is straightforward. The harder part is giving the next person useful context—what you found, what changed, and what to expect when they arrive.',
   theme: {
@@ -22,9 +22,9 @@ export const ovrmapsProject: ProjectDocument = {
     title: 'OVRmaps',
     lede: 'Outdoor Maps You Can Add To',
     highlight:
-      'Founded and built end to end: product direction, field UX, and an active beta refined through outdoor use—not just mockups.',
+      'Founded and built end to end: product direction, field UX, and a published product refined through outdoor use and ongoing feedback—not just mockups.',
     role: 'I founded OVRmaps to connect outdoor exploration with the knowledge people gather along the way. The product brings together maps, GPS recording, location-based observations, and community sharing. I own product strategy, UX/UI, and systems design, use AI-assisted development to move from workflow ideas to working software, and refine the experience by taking it outdoors and acting on feedback.',
-    meta: 'Active beta · Mobile + web',
+    meta: 'Published · Mobile + web',
     image: '/images/v2/ovrmaps-honeycomb.png',
     imageAlt: 'OVRmaps logo over mountain ridges with trail and campsite map pins',
     imagePosition: 'center 32%',
@@ -294,12 +294,12 @@ export const ovrmapsProject: ProjectDocument = {
       type: 'reflection',
       id: 'direction',
       nav: 'Results',
-      eyebrow: '10  ·  Active beta',
+      eyebrow: '10  ·  Published',
       title: 'Results',
       statement:
         'Placing a pin on the map is straightforward. The harder part is giving the next person useful context—what you found, what changed, and what to expect when they arrive.',
       detail:
-        'OVRmaps is in active beta, with recording, trail inspection, observations, offline preparation, and early community features at different stages of development and validation. Current work focuses on strengthening the core field experience and developing the ways people contribute and share. Studio is an evolving authoring environment for exploring connected trail networks and segment editing. The shift that has stayed with me is less about adding more map layers and more about whether a contribution helps the next person—typed observations, clear actions, and context that matches what they need before they arrive.',
+        'OVRmaps is published and gathering feedback, with recording, trail inspection, observations, offline preparation, and early community features at different stages of maturity. Current work focuses on strengthening the core field experience and developing the ways people contribute and share. Studio is an evolving authoring environment for exploring connected trail networks and segment editing. The shift that has stayed with me is less about adding more map layers and more about whether a contribution helps the next person—typed observations, clear actions, and context that matches what they need before they arrive.',
     },
   ],
 }

@@ -70,7 +70,8 @@ const spaShellHtml = readFileSync(viteShellPath, 'utf8')
 const assetRefs = extractAssetRefs(spaShellHtml)
 assertAssetsExist(assetRefs)
 
-// Keep the Vite SPA shell for `/` so deploy never flashes the retired v1 homepage.
+// Keep the Vite SPA shell for `/` and spaShellRoutes (including `/work`) so deploy
+// never ships retired v1 crawl HTML with /stories links or the old homepage.
 const snapshotPages = publicPages.filter(
   (page) => page.path !== '/' && !spaShellRoutes.includes(page.path),
 )

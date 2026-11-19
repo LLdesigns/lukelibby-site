@@ -18,7 +18,7 @@ export const playItProProject: ProjectDocument = {
     title: 'Play It Pro',
     lede: 'Structured Music Lessons',
     role: 'I founded, designed, and built Play It Pro as a live platform. It connects structured tutorial authoring with teacher studio tools and a student practice path, so lessons are not scattered across videos, texts, and memory.',
-    meta: 'Live product · React, TypeScript, Supabase',
+    meta: 'Published · React, TypeScript, Supabase',
     tags: ['EdTech', 'Music Education', 'Product Design', 'Independent Development'],
   },
   blocks: [
@@ -201,11 +201,11 @@ export const playItProProject: ProjectDocument = {
       type: 'reflection',
       id: 'outcome',
       nav: 'Results',
-      eyebrow: 'Live product',
+      eyebrow: 'Published',
       title: 'Results',
       statement: 'One system for authoring, assigning, and practicing a lesson.',
       detail:
-        'Play It Pro became a live platform that can support in-person teaching, student assignments, scheduling context, and structured tutorial content under one brand. The lasting lesson was that musical ability, in-person teaching, and online educational content are different skills. The deeper layer is planning: define the objective, choose the structure, keep the library coherent, and help instructors produce work students can actually practice.',
+        'Play It Pro is published and gathering feedback as a live platform for in-person teaching, student assignments, scheduling context, and structured tutorial content under one brand. The lasting lesson was that musical ability, in-person teaching, and online educational content are different skills. The deeper layer is planning: define the objective, choose the structure, keep the library coherent, and help instructors produce work students can actually practice.',
     }
   ],
 }

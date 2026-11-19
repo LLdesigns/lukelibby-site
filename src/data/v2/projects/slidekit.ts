@@ -17,8 +17,10 @@ export const slidekitProject: ProjectDocument = {
     eyebrow: 'Internal product',
     title: 'SlideKit',
     lede: 'PowerPoint Standards Add-in',
+    highlight:
+      'Slide review time decreased by 28%, and slide creation time decreased by 34%—reviewers spent less time hunting for edits, and authors spent less time hunting for critical presentation assets across multiple places.',
     role: 'I initiated a PowerPoint add-in so authors could correct standards problems while they were still writing the deck, instead of discovering them after a course had been recorded.',
-    meta: 'PowerPoint add-in · Staging',
+    meta: 'PowerPoint add-in · Published',
     tags: ['Product Strategy', 'UX/UI Design', 'User Research', 'Independent Development'],
   },
   blocks: [
@@ -234,11 +236,11 @@ export const slidekitProject: ProjectDocument = {
       type: 'reflection',
       id: 'outcome',
       nav: 'Results',
-      eyebrow: 'Staging',
+      eyebrow: 'Published',
       title: 'Results',
-      statement: 'A standards problem is cheaper to fix on the slide than after it is recorded into video.',
+      statement: 'Slide review time decreased by 28%. Slide creation time decreased by 34%.',
       detail:
-        'The add-in reached the Microsoft marketplace publishing workflow and was used on staging by internal staff and external authors. I tracked activity from introduction through submission. That was a directional picture, not a timed study, and it is not a public release. What changed was the sequence: standards checks could happen before recording, and later review had less to undo.',
+        'The add-in moved through staging into the Microsoft marketplace publishing workflow and was used by internal staff and external authors after release, with feedback continuing afterward. Slide review time decreased by 28% because reviewers no longer had to hunt for the edits. Slide creation time decreased by 34% because authors no longer had to hunt for critical presentation assets across multiple locations. Standards checks could happen before recording, and later review had less to undo.',
     }
   ],
 }

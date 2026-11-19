@@ -9,3 +9,5 @@ Disallow: /resume/print
 Disallow: /client
 
 Sitemap: https://lukelibby.com/sitemap.xml
+# LLM / agent site map (canonical /work routes; supersedes retired /stories pages)
+LLMs-txt: https://lukelibby.com/llms.txt

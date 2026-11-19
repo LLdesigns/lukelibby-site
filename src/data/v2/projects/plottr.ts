@@ -20,7 +20,7 @@ export const plottrProject: ProjectDocument = {
     highlight:
       'Beta testing showed import, review, and export mattered more than the full editor I had prototyped—so I narrowed the scope accordingly.',
     role: 'SlideKit could help inside PowerPoint. Plottr was my attempt to make the presentation itself a document that could be imported, reviewed, and exported, including from Keynote. I owned the concept, the design, and the build. DevOps was outside my scope.',
-    meta: 'Presentation review · Staging beta',
+    meta: 'Presentation review · Published',
     tags: ['Product Strategy', 'UX/UI Design', 'Systems Design', 'AI-Assisted Implementation'],
   },
   blocks: [
@@ -133,11 +133,11 @@ export const plottrProject: ProjectDocument = {
       type: 'reflection',
       id: 'outcome',
       nav: 'Results',
-      eyebrow: 'Staging beta',
+      eyebrow: 'Published',
       title: 'Results',
       statement: 'Import, review, and export earned their place. The full editor had not, yet.',
       detail:
-        'Plottr reached staging with internal testers and a small number of external testers. It was not as far along as VideoKit, and it was not a public release. I have no business metric I can show. What I would keep is the willingness to follow the value that appeared, even when it was the conversion rather than the editor, and to admit that visual generation alone could not guarantee a lesson.',
+        'Plottr moved through staging into a published release with internal testers and a small number of external users, then continued gathering feedback. It was not as far along as VideoKit. I have no business metric I can show. What I would keep is the willingness to follow the value that appeared, even when it was the conversion rather than the editor, and to admit that visual generation alone could not guarantee a lesson.',
     }
   ],
 }

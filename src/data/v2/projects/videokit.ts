@@ -20,7 +20,7 @@ export const videokitProject: ProjectDocument = {
     highlight:
       'Reviewers reported about 30% less time in review. Key decisions: three scan presets instead of dense toggles, and human accept/reject kept on every finding.',
     role: 'Video reviews had been spread across multiple tools for years. I initiated VideoKit and led the product direction, UX/UI design, and implementation approach. Enterprise security and architecture set the boundaries.',
-    meta: 'Internal review · Staging beta',
+    meta: 'Internal product · Published',
     tags: ['Product Strategy', 'UX/UI Design', 'Workflow Design', 'AI-Assisted Implementation'],
   },
   blocks: [
@@ -33,7 +33,7 @@ export const videokitProject: ProjectDocument = {
       paragraphs: [
         'Authors still uploaded and published the same way they already did. The gap was in the middle of the workflow. A file moved through separate tools for storage, comments, and tracking, and a spreadsheet could mark a video as in review without saying what was still wrong.',
         'The teams already understood the problem. I started VideoKit myself; it was not an assigned project. Standups, interviews, reviews, and reported bugs helped me identify additional requirements. Timestamped comments were my first idea, but they were not enough. Reviewers needed to track review status, change a finding when it was wrong, and keep earlier scan results available. That was separate from authors still needing to revise the video once feedback came back.',
-        'The audience was the internal teams who review training video, and the external authors those teams work with. The beta was a smaller group than that full audience. I do not have a count of who was active in it.',
+        'The audience was the internal teams who review training video, and the external authors those teams work with. The first release group was smaller than that full audience. I do not have a count of who was active in it.',
       ],
     },
     {
@@ -149,11 +149,11 @@ export const videokitProject: ProjectDocument = {
       type: 'reflection',
       id: 'outcome',
       nav: 'Results',
-      eyebrow: 'Staging beta',
+      eyebrow: 'Published',
       title: 'Results',
       statement: 'Reviewers reported approximately 30% less time spent reviewing videos.',
       detail:
-        'VideoKit reached internal use and an external-author beta on staging, and the path toward a production deployment was prepared. I am not calling it generally available. Reviewers reported about 30 percent less time in review. Separately, they described a self-serve scan returning in seconds where the old loop had taken days. Those are different reports, not one study, and reviewers still had to look—the check did not replace that. If I started again, I would connect the work to the wider production outcome sooner. The success criteria continued to evolve throughout development.',
+        'VideoKit moved through staging into a published release for internal reviewers and external authors, then continued gathering feedback. Reviewers reported about 30 percent less time in review. Separately, they described a self-serve scan returning in seconds where the old loop had taken days. Those are different reports, not one study, and reviewers still had to look—the check did not replace that. If I started again, I would connect the work to the wider production outcome sooner. The success criteria continued to evolve throughout development.',
     }
   ],
 }

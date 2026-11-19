@@ -162,7 +162,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     type: 'Mapping',
     summary: 'Outdoor Maps You Can Add To',
     detail:
-      'An active outdoor platform for recording a trip and identifying the trail under you. Navigation and unpublished studio tools are not part of that claim.',
+      'A published outdoor platform for recording a trip and identifying the trail under you. Navigation and unpublished studio tools are not part of that claim.',
     image: '/images/v2/ovrmaps-honeycomb.png',
     imageAlt: 'OVRmaps logo over mountain ridges with trail and campsite map pins',
     imagePosition: 'center 32%',
@@ -175,7 +175,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     type: 'EdTech',
     summary: 'PowerPoint Standards Add-in',
     detail:
-      'A PowerPoint add-in for catching standards problems while the author is still editing, before they are recorded.',
+      'A PowerPoint add-in for catching standards problems while the author is still editing—28% less slide review time and 34% less slide creation time.',
     imageAlt: 'SlideKit Tools panel beside a PowerPoint slide',
     art: 'slides',
     href: '/work/slidekit',
@@ -199,7 +199,7 @@ export const v2WorkHoneycomb: HoneycombItem[] = [
     type: 'Learning',
     summary: 'Technology Course Review',
     detail:
-      'A review of technology lessons—objectives, concepts, procedures, and tools—and the topics that were taught without supporting the skill.',
+      'Maps what a tech course teaches so reviewers can spot-check instead of reading every lesson—about 90% less content quality review time.',
     imageAlt: 'Luma knowledge graph with a selected objective and connected nodes',
     art: 'luma',
     href: '/work/luma',

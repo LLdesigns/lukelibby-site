@@ -2,32 +2,38 @@
 
 > Creative Technologist and Product Builder
 
-Portfolio of product work by Luke Libby — AI workflows, internal tools, outdoor products, and learning systems.
+I design and build the systems behind useful digital products — turning messy workflows into clear interfaces, prototypes, AI tools, and internal platforms. Portfolio covers AI workflows, internal tools, outdoor products, and learning systems.
+
+Creative technologist and product builder with ten-plus years at Pluralsight and freelance work across AI systems, video production, hands-on labs, and practical software.
 
 - Contact: https://lukelibby.com/#contact
 - Resume PDF: https://lukelibby.com/resume.pdf
 - LinkedIn: https://www.linkedin.com/in/luke-libby1/
 
 ## Site
-- [Home](https://lukelibby.com/): Luke Libby — Creative Technologist and Product Builder. AI workflows, internal tools, and digital systems.
-- [Work archive](https://lukelibby.com/work): Archive of product stories, brand systems, and earlier work by Luke Libby.
+- [Home](https://lukelibby.com/): Luke Libby — Creative Technologist and Product Builder. Gallery of published product work: AI workflows, internal tools, outdoor products, and learning systems.
+- [Work archive](https://lukelibby.com/work): Archive index of product case studies and brand systems. Prefer individual /work/:slug project pages for current write-ups.
 
 ## Work
-- [OVRmaps](https://lukelibby.com/work/ovrmaps): Outdoor platform for maps, GPS recording, trail observations, and community sharing.
-- [WyldTracks](https://lukelibby.com/work/wyldtracks): Wildlife field journal with evidence-backed IDs, GBIF validation, and a personal observation record.
-- [Play It Pro](https://lukelibby.com/work/play-it-pro): Music education platform for teachers, students, and tutorial authors.
-- [SlideKit](https://lukelibby.com/work/slidekit): PowerPoint add-in for catching presentation standards problems before video production.
-- [VideoKit](https://lukelibby.com/work/videokit): Internal video review workflow for findings, status, and standards checks in one place.
-- [Plottr](https://lukelibby.com/work/plottr): Presentation review that imports a deck, checks it, and exports actionable findings.
-- [Luma](https://lukelibby.com/work/luma): Technology-course review system for objectives, concepts, procedures, and tools.
-- [AI-Assisted Lab Production](https://lukelibby.com/work/ai-lab-production): AI-assisted hands-on lab production workflow with human review gates intact.
+- [OVRmaps](https://lukelibby.com/work/ovrmaps): Founded outdoor maps product (formerly referenced as GearTraxx): maps, GPS recording, trail observations, and community sharing. Published mobile + web.
+- [WyldTracks](https://lukelibby.com/work/wyldtracks): Independent wildlife field journal: photo-first capture, evidence-backed IDs, GBIF validation, and a personal observation record. Live at wyldtracks.com.
+- [Play It Pro](https://lukelibby.com/work/play-it-pro): Independent music education platform for teachers, students, and tutorial authors: structured lessons, learning paths, and a curated tutorial library.
+- [SlideKit](https://lukelibby.com/work/slidekit): PowerPoint standards add-in. Slide review time down ~28% and slide creation time down ~34% by catching presentation problems before video production.
+- [VideoKit](https://lukelibby.com/work/videokit): Internal AI-assisted video review workflow for findings, status, and standards checks in one place. Reviewers reported about 30% less time in review.
+- [Plottr](https://lukelibby.com/work/plottr): Presentation review product: import a deck, check it against standards, and export actionable findings without treating the original file as the only source of truth.
+- [Luma](https://lukelibby.com/work/luma): Technology-course review system for objectives, concepts, procedures, and tools. Content quality review dropped by about 90% via structured spot-checks.
+- [AI-Assisted Lab Production](https://lukelibby.com/work/ai-lab-production): AI-assisted hands-on lab production workflow that speeds drafting while keeping code checks, instructional judgment, and final approval with a person.
 
 ## Brand & Interface Systems
-- [Terrapin Outdoors](https://lukelibby.com/brand-systems/terrapin-outdoors): Map-first outdoor platform design system with foundations, map shells, and field-ready components.
+- [Terrapin Outdoors](https://lukelibby.com/brand-systems/terrapin-outdoors): Map-first outdoor platform design system with foundations, map shells, and field-ready components (supports OVRmaps).
 - [Replenish Health](https://lukelibby.com/brand-systems/replenish-health): Dark-mode design system for a health platform with brand pillars, tokens, and dashboard UI.
 
 ## Files
 - [Resume PDF](https://lukelibby.com/resume.pdf): Downloadable resume for Luke Libby.
+
+## Canonical URLs
+
+Canonical project URLs use /work/:slug. Legacy /stories/*, /case-studies/*, and /v2/* paths redirect to the current pages. Prefer OVRmaps (not GearTraxx) for the outdoor maps product.
 
 ## Optional
 

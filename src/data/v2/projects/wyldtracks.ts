@@ -7,7 +7,7 @@ export const wyldtracksProject: ProjectDocument = {
   description:
     'A wildlife observation platform I designed, built, and launched independently: photo-first capture, scientific context, and optional identification in one journal.',
   liveUrl: 'https://www.wyldtracks.com',
-  liveLabel: 'Live alpha',
+  liveLabel: 'Published product',
   theme: {
     background: '#101714',
     surface: '#1a2420',
@@ -121,10 +121,10 @@ export const wyldtracksProject: ProjectDocument = {
       type: 'experience',
       id: 'result',
       nav: 'Results',
-      eyebrow: '06  —  Live alpha',
+      eyebrow: '06  —  Published',
       title: 'Results',
       intro:
-        'WyldTracks is live on the web: a personal wildlife journal, a way to capture an observation, and screens for exploring and sharing what was found. The longer view includes community-supported observations and a deeper reading of wildlife patterns. The first product stays narrower than that on purpose.',
+        'WyldTracks is published on the web and gathering feedback: a personal wildlife journal, a way to capture an observation, and screens for exploring and sharing what was found. The longer view includes community-supported observations and a deeper reading of wildlife patterns. The first product stays narrower than that on purpose.',
       scenes: [
         {
           layout: 'split',
@@ -176,7 +176,7 @@ export const wyldtracksProject: ProjectDocument = {
       statement:
         'Photo first, details when they matter—that was the product bet for WyldTracks.',
       detail:
-        'Building WyldTracks made that concrete. Casual explorers and working biologists share one journal, but they do not need the same depth on first open. The alpha stays focused on recording the sighting before a form or identification step gets in the way. The goal is not to give people every possible capability—it is to understand what they are trying to accomplish and remove the unnecessary steps. Community-supported observations and deeper pattern reading are on the longer view; they are not the first job.',
+        'Building WyldTracks made that concrete. Casual explorers and working biologists share one journal, but they do not need the same depth on first open. The published product stays focused on recording the sighting before a form or identification step gets in the way, and feedback continues to shape what comes next. The goal is not to give people every possible capability—it is to understand what they are trying to accomplish and remove the unnecessary steps. Community-supported observations and deeper pattern reading are on the longer view; they are not the first job.',
     },
   ],
 }

@@ -40,12 +40,18 @@ jobs:
       - name: Verify prerender output
         run: |
           test -f dist/index.html
-          test "$(wc -c < dist/work/index.html)" -gt 8000
+          test -f dist/work/index.html
           test -f dist/work/wyldtracks/index.html
           test -f dist/discovery/index.html
           test -f dist/404.html
-          # Homepage must stay the Vite SPA shell (v2), not the retired v1 crawl snapshot.
+          test -f dist/llms.txt
+          test -f dist/sitemap.xml
+          # Homepage and /work must stay Vite SPA shells (not retired v1 crawl HTML).
           ! grep -q 'I build useful (beautiful)' dist/index.html
+          ! grep -q '/stories/' dist/work/index.html
+          grep -q 'https://lukelibby.com/work/ovrmaps' dist/llms.txt
+          grep -q 'Prefer OVRmaps' dist/llms.txt
+          grep -q 'https://lukelibby.com/work/ovrmaps' dist/sitemap.xml
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

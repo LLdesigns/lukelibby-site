@@ -61,11 +61,17 @@ function buildLlmsTxt() {
 
 ${siteManifest.summary}
 
+${siteManifest.positioning}
+
 - Contact: ${siteManifest.contact}
 - Resume PDF: ${siteManifest.resumePdf}
 - LinkedIn: ${siteManifest.linkedIn}
 
 ${sectionBlocks}
+
+## Canonical URLs
+
+${siteManifest.canonicalNote}
 
 ## Optional
 

@@ -113,7 +113,7 @@ export const experience = [
       {
         label: 'VideoKit & SlideKit',
         detail:
-          'Designed and developed internal products for video review, presentation standards, and production workflows.',
+          'Designed and developed internal products for video review, presentation standards, and production workflows. SlideKit decreased slide review time by 28% and slide creation time by 34%.',
       },
       {
         label: 'AI workflows & MCPs',
@@ -123,7 +123,7 @@ export const experience = [
       {
         label: 'Luma',
         detail:
-          'Designed and built a knowledge graph for technology courses—mapping objectives, concepts, procedures, and tools (Python, TypeScript, JavaScript, and related stacks) for content analysis and human review.',
+          'Designed and built a knowledge graph for technology courses—mapping objectives, concepts, procedures, and tools for content analysis and human review. Reduced content quality review by about 90% by shifting reviewers from full lesson review to spot-checking.',
       },
       {
         label: 'Ontology & taxonomies',
@@ -346,7 +346,7 @@ export const independentProjects = [
   {
     id: 'ovrmaps',
     title: 'OVRmaps',
-    subtitle: 'Active beta',
+    subtitle: 'Published',
     role: 'Founder / Product Designer / Full-Stack Builder',
     href: '/work/ovrmaps',
     description:

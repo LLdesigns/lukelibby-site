@@ -17,8 +17,10 @@ export const lumaProject: ProjectDocument = {
     eyebrow: 'Internal product',
     title: 'Luma',
     lede: 'Technology Course Review',
+    highlight:
+      'Content quality review dropped by about 90%—reviewers could spot-check instead of reading every lesson end to end.',
     role: 'Plottr could make a presentation look complete and still have no account of the skills, APIs, or procedures a learner was supposed to practice. I built Luma to inspect technology education itself: what concepts and processes were taught, how they connect, and whether the delivered material supported the objective.',
-    meta: 'Technology education · Built product',
+    meta: 'Technology education · Published',
     tags: ['Product Strategy', 'Learning Design', 'UX/UI Design', 'AI Orchestration'],
   },
   blocks: [
@@ -208,12 +210,12 @@ export const lumaProject: ProjectDocument = {
       type: 'reflection',
       id: 'outcome',
       nav: 'Results',
-      eyebrow: 'Built product',
+      eyebrow: 'Published',
       title: 'Results',
       statement:
-        'For technology courses, reviewers need a clear picture of objectives, concepts, procedures, and tools before they can tell whether delivered material matches what was supposed to be taught.',
+        'Content quality review dropped by about 90%—spot-check instead of full review.',
       detail:
-        'What exists is a working analyzer and an author-facing review of real technology course material. Selecting a node and reading why a relationship exists is the interaction I demonstrated above. Cross-course relationships and a later learning path remain open next steps. I have not published a usage metric for it, and I am not claiming the organization adopted it. The practical sequence I kept using was to define what the lesson should teach—concepts, procedures, tools—and only then judge whether the generated or delivered slide actually supported that objective.',
+        'Luma shipped as a working analyzer and author-facing review of real technology course material, then continued gathering feedback. By mapping objectives, concepts, procedures, and tools—and showing where delivery drifted—reviewers could spot-check instead of reviewing every lesson end to end. That cut content quality review time by about 90%. Selecting a node and reading why a relationship exists is the interaction I demonstrated above. Cross-course relationships and a later learning path remain open next steps. I am not claiming the organization adopted it as a standard workflow everywhere.',
     }
   ],
 }

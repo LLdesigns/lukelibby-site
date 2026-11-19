@@ -18,7 +18,7 @@ export const labsProject: ProjectDocument = {
     title: 'AI-Assisted Lab Production',
     lede: 'Faster drafts, with the same gates a lab had to pass before.',
     role: 'I led the discovery and built the production workflow. The question was whether AI could sit inside lab production and still leave instructional design, code accuracy, and publishing standards intact.',
-    meta: 'Production workflow · Anonymized',
+    meta: 'Production workflow · Published · Anonymized',
     tags: ['Learning Design', 'Workflow Design', 'AI-Assisted Production'],
   },
   blocks: [
@@ -136,11 +136,11 @@ export const labsProject: ProjectDocument = {
       type: 'reflection',
       id: 'outcome',
       nav: 'Results',
-      eyebrow: 'Production run',
+      eyebrow: 'Published',
       title: 'Results',
       statement: 'The draft got faster. The decision to publish did not get delegated.',
       detail:
-        'Time to publication dropped by about 60 percent on average, and by as much as 90 percent in some cases, with a person still verifying the lab. That is what this production run showed, not a claim about every later lab. I am not publishing a count of labs here. What I kept is the boundary: assist the draft and the structure, and leave code, instructional judgment, and final approval with a person.',
+        'The workflow moved through staging into published production use and continued gathering feedback. Time to publication dropped by about 60 percent on average, and by as much as 90 percent in some cases, with a person still verifying the lab. That is what this production run showed, not a claim about every later lab. I am not publishing a count of labs here. What I kept is the boundary: assist the draft and the structure, and leave code, instructional judgment, and final approval with a person.',
     }
   ],
 }
