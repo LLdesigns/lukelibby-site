@@ -19,7 +19,13 @@ export const playItProProject: ProjectDocument = {
     lede: 'Structured Music Lessons',
     role: 'I founded, designed, and built Play It Pro as a live platform. It connects structured tutorial authoring with teacher studio tools and a student practice path, so lessons are not scattered across videos, texts, and memory.',
     meta: 'Published · React, TypeScript, Supabase',
-    tags: ['EdTech', 'Music Education', 'Product Design', 'Independent Development'],
+    tags: [
+      'EdTech',
+      'Music Education',
+      'Product Design',
+      'Independent Development',
+      'Project Lead',
+    ],
   },
   blocks: [
     {

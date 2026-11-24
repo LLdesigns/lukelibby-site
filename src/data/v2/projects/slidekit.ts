@@ -21,7 +21,13 @@ export const slidekitProject: ProjectDocument = {
       'Slide review time decreased by 28%, and slide creation time decreased by 34%—reviewers spent less time hunting for edits, and authors spent less time hunting for critical presentation assets across multiple places.',
     role: 'I initiated a PowerPoint add-in so authors could correct standards problems while they were still writing the deck, instead of discovering them after a course had been recorded.',
     meta: 'PowerPoint add-in · Published',
-    tags: ['Product Strategy', 'UX/UI Design', 'User Research', 'Independent Development'],
+    tags: [
+      'Product Strategy',
+      'UX/UI Design',
+      'User Research',
+      'Independent Development',
+      'Project Lead',
+    ],
   },
   blocks: [
     {

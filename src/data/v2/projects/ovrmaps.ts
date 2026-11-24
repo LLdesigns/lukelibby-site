@@ -34,6 +34,7 @@ export const ovrmapsProject: ProjectDocument = {
       'Field Research',
       'Systems Design',
       'AI-Assisted Development',
+      'Project Lead',
     ],
   },
   blocks: [

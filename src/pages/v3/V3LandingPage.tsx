@@ -195,6 +195,15 @@ export function V3LandingPage() {
           </div>
         </section>
 
+        <div className="v3-stats" aria-label="Experience highlights">
+          {v3About.stats.map((stat) => (
+            <div key={stat.label} data-reveal>
+              <strong>{stat.value}</strong>
+              <p>{stat.label}</p>
+            </div>
+          ))}
+        </div>
+
         <section className="v3-section" id="expertise" aria-labelledby="capabilities-heading">
           <h2 className="v3-section-label" id="capabilities-heading">
             {v3Capabilities.label}
@@ -284,20 +293,29 @@ export function V3LandingPage() {
           </div>
         </section>
 
-        <section className="v3-section" id="about" aria-labelledby="about-heading">
+        <section className="v3-section v3-about" id="about" aria-labelledby="about-heading">
           <h2 className="v3-section-label" id="about-heading">
             {v3About.label}
           </h2>
-          <p className="v3-lead" data-reveal>
-            {v3About.lead}
-          </p>
-          <div className="v3-stats">
-            {v3About.stats.map((stat) => (
-              <div key={stat.label} data-reveal>
-                <strong>{stat.value}</strong>
-                <p>{stat.label}</p>
-              </div>
-            ))}
+          <div className="v3-about__layout">
+            <figure className="v3-about__photo" data-reveal>
+              <img
+                src={withBasePath(v3About.photoSrc)}
+                alt={v3About.photoAlt}
+                width={720}
+                height={900}
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <div className="v3-about__copy">
+              <p className="v3-lead" data-reveal>
+                {v3About.lead}
+              </p>
+              <p className="v3-about__body" data-reveal>
+                {v3About.body}
+              </p>
+            </div>
           </div>
         </section>
 
@@ -336,6 +354,7 @@ export function V3LandingPage() {
         <span>{v3Brand.location}</span>
         <span>
           <a href="#work">Work</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </span>
       </footer>

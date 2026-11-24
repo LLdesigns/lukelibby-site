@@ -19,7 +19,12 @@ export const labsProject: ProjectDocument = {
     lede: 'Faster drafts, with the same gates a lab had to pass before.',
     role: 'I led the discovery and built the production workflow. The question was whether AI could sit inside lab production and still leave instructional design, code accuracy, and publishing standards intact.',
     meta: 'Production workflow · Published · Anonymized',
-    tags: ['Learning Design', 'Workflow Design', 'AI-Assisted Production'],
+    tags: [
+      'Learning Design',
+      'Workflow Design',
+      'AI-Assisted Production',
+      'Project Lead',
+    ],
   },
   blocks: [
     {

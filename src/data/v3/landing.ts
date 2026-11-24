@@ -164,11 +164,14 @@ export const v3Approach = {
 }
 
 export const v3About = {
-  label: 'Experience beyond the products',
-  lead: 'A background in technical education, production and technology.',
+  label: 'About me',
+  lead: 'Creative technologist and product designer based in Tulsa, Oklahoma.',
+  body: 'I spent ten-plus years at Pluralsight building learning products and production systems, then took that craft into independent work across AI workflows, internal tools, and outdoor products. Outside of work you will usually find me on a mountain bike, out Jeeping, or chasing trails somewhere with a map and a little too much curiosity. I care about clear UX, education, and making complex systems feel simple for the people who use them.',
+  photoSrc: '/images/v3/luke-about.png',
+  photoAlt: 'Luke Libby in a plaid shirt and orange Simms hat',
   stats: [
     { value: '12', label: 'Years of experience' },
-    { value: '60+', label: 'Hands-on labs authored in Python, R and SQL' },
+    { value: '60+', label: 'Hands-on labs teaching in Python, R and SQL' },
     { value: '200+', label: 'Video courses supported through production' },
     { value: '100+', label: 'SMEs assisted through production' },
   ],

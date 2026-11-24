@@ -28,6 +28,7 @@ export const wyldtracksProject: ProjectDocument = {
       'Systems Architecture',
       'AI Orchestration',
       'Independent Development',
+      'Project Lead',
     ],
     image: '/images/v2/wyldtracks-field.jpg',
     imageAlt: 'A tree frog in the woods beside WyldTracks on a phone and a wider journal on a tablet',

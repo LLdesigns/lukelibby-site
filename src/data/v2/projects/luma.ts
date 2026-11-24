@@ -21,7 +21,13 @@ export const lumaProject: ProjectDocument = {
       'Content quality review dropped by about 90%—reviewers could spot-check instead of reading every lesson end to end.',
     role: 'Plottr could make a presentation look complete and still have no account of the skills, APIs, or procedures a learner was supposed to practice. I built Luma to inspect technology education itself: what concepts and processes were taught, how they connect, and whether the delivered material supported the objective.',
     meta: 'Technology education · Published',
-    tags: ['Product Strategy', 'Learning Design', 'UX/UI Design', 'AI Orchestration'],
+    tags: [
+      'Product Strategy',
+      'Learning Design',
+      'UX/UI Design',
+      'AI Orchestration',
+      'Project Lead',
+    ],
   },
   blocks: [
     {
