@@ -24,10 +24,22 @@ type V3ShellProps = {
   children: ReactNode
 }
 
+function revealDelayFor(node: HTMLElement, batchIndex: number) {
+  const named = node.getAttribute('data-reveal')
+  if (named === 'hero') return 60
+  if (named === 'hero-copy') return 220
+  // Stagger only within the current intersection batch so lower sections
+  // don't inherit multi-second delays from document order.
+  return Math.min(batchIndex * 90, 360)
+}
+
 function useV3Reveals(enabled: boolean) {
   useEffect(() => {
     if (!enabled) return
-    const nodes = Array.from(document.querySelectorAll<HTMLElement>('.v3 [data-reveal]'))
+    const root = document.querySelector<HTMLElement>('.v3')
+    if (!root) return
+
+    const nodes = Array.from(root.querySelectorAll<HTMLElement>('[data-reveal]'))
     if (!nodes.length) return
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -35,30 +47,61 @@ function useV3Reveals(enabled: boolean) {
       return
     }
 
-    // Top → bottom sequence: later nodes wait longer.
-    nodes.forEach((node, index) => {
-      const named =
-        node.getAttribute('data-reveal') === 'hero'
-          ? 60
-          : node.getAttribute('data-reveal') === 'hero-copy'
-            ? 220
-            : 320 + index * 110
-      node.style.setProperty('--reveal-delay', `${named}ms`)
-    })
+    const reveal = (node: HTMLElement, delayMs: number) => {
+      if (node.classList.contains('is-in')) return
+      node.style.setProperty('--reveal-delay', `${delayMs}ms`)
+      // Apply delay before opacity flips so the transition actually waits.
+      void node.getBoundingClientRect()
+      node.classList.add('is-in')
+    }
+
+    const revealBatch = (batch: HTMLElement[]) => {
+      const pending = batch
+        .filter((node) => !node.classList.contains('is-in'))
+        .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)
+
+      pending.forEach((node, index) => {
+        reveal(node, revealDelayFor(node, index))
+        observer.unobserve(node)
+      })
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue
-          entry.target.classList.add('is-in')
-          observer.unobserve(entry.target)
-        }
+        revealBatch(
+          entries.filter((entry) => entry.isIntersecting).map((entry) => entry.target as HTMLElement),
+        )
       },
-      { rootMargin: '0px 0px -6% 0px', threshold: 0.08 },
+      {
+        // Trigger once a slice of the block is on screen — not after a long wait.
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.05,
+      },
     )
 
     nodes.forEach((node) => observer.observe(node))
-    return () => observer.disconnect()
+
+    // Catch nodes already in view after layout/fonts (IO can miss the first paint).
+    const catchUp = () => {
+      const vh = window.innerHeight || 1
+      const visible = nodes.filter((node) => {
+        if (node.classList.contains('is-in')) return false
+        const rect = node.getBoundingClientRect()
+        return rect.top < vh * 0.92 && rect.bottom > vh * 0.04
+      })
+      if (visible.length) revealBatch(visible)
+    }
+
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(catchUp)
+    })
+    const timer = window.setTimeout(catchUp, 350)
+
+    return () => {
+      cancelAnimationFrame(raf)
+      window.clearTimeout(timer)
+      observer.disconnect()
+    }
   }, [enabled])
 }
 

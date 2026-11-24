@@ -470,7 +470,7 @@
   font-weight: 600;
 }
 
-/* Reveal motion — delays are assigned top→bottom in V3Shell */
+/* Reveal motion — per-batch stagger assigned on scroll in V3Shell */
 .v3 [data-reveal] {
   opacity: 0;
   transform: translateY(22px);

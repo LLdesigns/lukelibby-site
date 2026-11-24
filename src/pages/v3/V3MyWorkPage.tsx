@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { V3Shell } from '../../components/v3/V3Shell'
 import { v3AllWork } from '../../data/v3/landing'
@@ -22,14 +21,13 @@ export function V3MyWorkPage() {
 
         <section aria-label="All work">
           <div className="v3-work-grid">
-            {v3AllWork.map((item, index) => (
+            {v3AllWork.map((item) => (
               <Link
                 key={item.id}
                 className="v3-work-tile"
                 to={item.href}
                 aria-label={`${item.title} — ${item.type}`}
                 data-reveal
-                style={{ '--reveal-delay': `${index * 40}ms` } as CSSProperties}
               >
                 <img
                   src={withBasePath(item.image)}

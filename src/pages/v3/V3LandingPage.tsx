@@ -302,11 +302,11 @@ export function V3LandingPage() {
         </section>
 
         <section className="v3-contact" id="contact" aria-labelledby="contact-heading">
-          <h2 id="contact-heading">
+          <h2 id="contact-heading" data-reveal>
             {v3Contact.title}
             <span className="v3-dot" aria-hidden="true" />
           </h2>
-          <div>
+          <div data-reveal>
             <p>{v3Contact.body}</p>
             <p className="v3-contact__email">
               <a href={`mailto:${v3Contact.email}`}>{v3Contact.email}</a>
