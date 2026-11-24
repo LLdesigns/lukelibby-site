@@ -11,9 +11,9 @@ import { ScrollProgress } from './components/ScrollProgress'
 import { ScrollToHash } from './components/ScrollToHash'
 import { SiteFooter } from './components/SiteFooter'
 import { HoneycombLaunchOverlay } from './components/v2/HoneycombLaunchOverlay'
-import { V2LandingPage } from './pages/v2/V2LandingPage'
 import { V2ProjectPage } from './pages/v2/V2ProjectPage'
-import { WorkPage } from './pages/WorkPage'
+import { V3LandingPage } from './pages/v3/V3LandingPage'
+import { V3MyWorkPage } from './pages/v3/V3MyWorkPage'
 import { AuthPage } from './pages/AuthPage'
 import { ResetPasswordPage } from './pages/ResetPasswordPage'
 import { DashboardPage } from './pages/DashboardPage'
@@ -57,7 +57,7 @@ function LegacyV2WorkRedirect() {
 
 function LegacyBrandSystemRedirect() {
   const { slug } = useParams<{ slug: string }>()
-  if (!slug) return <Navigate to="/work#brand-systems" replace />
+  if (!slug) return <Navigate to="/work" replace />
   return <Navigate to={`/brand-systems/${slug}`} replace />
 }
 
@@ -72,7 +72,6 @@ function SiteApp() {
       <ScrollToHash />
       <Header />
       <Routes>
-        <Route path="/work" element={<WorkPage />} />
         <Route path="/stories/:slug" element={<LegacyStoryRedirect />} />
         <Route path="/case-studies/:slug" element={<LegacyStoryRedirect />} />
         <Route
@@ -97,7 +96,7 @@ function SiteApp() {
         />
         <Route path="/brand-systems/:slug" element={<BrandSystemPage />} />
         <Route path="/product-systems/:slug" element={<LegacyBrandSystemRedirect />} />
-        <Route path="/resume" element={<Navigate to={{ pathname: '/', hash: '#resume' }} replace />} />
+        <Route path="/resume" element={<Navigate to={{ pathname: '/', hash: '#about' }} replace />} />
         <Route path="/contact" element={<Navigate to={{ pathname: '/', hash: '#contact' }} replace />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/auth/reset-password" element={<ResetPasswordPage />} />
@@ -129,9 +128,11 @@ function App() {
         <BrowserRouter basename={import.meta.env.BASE_URL}>
           <HoneycombLaunchOverlay />
           <Routes>
-            <Route path="/" element={<V2LandingPage />} />
+            <Route path="/" element={<V3LandingPage />} />
+            <Route path="/work" element={<V3MyWorkPage />} />
             <Route path="/work/:slug" element={<V2ProjectPage />} />
             <Route path="/v2" element={<Navigate to="/" replace />} />
+            <Route path="/v3" element={<Navigate to="/" replace />} />
             <Route path="/v2/work/:slug" element={<LegacyV2WorkRedirect />} />
             <Route path="/resume/print" element={<ResumePrintPage />} />
             <Route path="/discovery" element={<DiscoveryPage />} />

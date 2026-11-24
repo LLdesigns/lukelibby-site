@@ -24,9 +24,9 @@ export const publicPages = [
   },
   {
     path: '/work',
-    title: 'Work archive',
+    title: 'My Work',
     description:
-      'Archive index of product case studies and brand systems. Prefer individual /work/:slug project pages for current write-ups.',
+      'Full index of product work by Luke Libby. Selected case studies also appear on the homepage; each tile opens /work/:slug.',
     section: 'Site',
   },
   {

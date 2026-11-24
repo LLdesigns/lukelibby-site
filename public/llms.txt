@@ -12,7 +12,7 @@ Creative technologist and product builder with ten-plus years at Pluralsight and
 
 ## Site
 - [Home](https://lukelibby.com/): Luke Libby — Creative Technologist and Product Builder. Gallery of published product work: AI workflows, internal tools, outdoor products, and learning systems.
-- [Work archive](https://lukelibby.com/work): Archive index of product case studies and brand systems. Prefer individual /work/:slug project pages for current write-ups.
+- [My Work](https://lukelibby.com/work): Full index of product work by Luke Libby. Selected case studies also appear on the homepage; each tile opens /work/:slug.
 
 ## Work
 - [OVRmaps](https://lukelibby.com/work/ovrmaps): Founded outdoor maps product (formerly referenced as GearTraxx): maps, GPS recording, trail observations, and community sharing. Published mobile + web.
