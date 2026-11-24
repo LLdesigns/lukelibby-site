@@ -11,6 +11,7 @@ import {
   v3Nav,
   v3SelectedWork,
 } from '../../data/v3/landing'
+import { resumePdf } from '../../data/resume'
 import { siteMeta } from '../../data/site'
 import { withBasePath } from '../../utils/basePath'
 
@@ -310,14 +311,23 @@ export function V3LandingPage() {
             <p className="v3-contact__email">
               <a href={`mailto:${v3Contact.email}`}>{v3Contact.email}</a>
             </p>
-            <a
-              className="v3-btn v3-btn--primary"
-              href={v3Contact.ctaHref}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {v3Contact.ctaLabel}
-            </a>
+            <div className="v3-actions">
+              <a
+                className="v3-btn v3-btn--primary"
+                href={v3Contact.ctaHref}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {v3Contact.ctaLabel}
+              </a>
+              <a
+                className="v3-btn"
+                href={withBasePath(resumePdf.href)}
+                download={resumePdf.filename}
+              >
+                {v3Contact.resumeLabel}
+              </a>
+            </div>
           </div>
         </section>
       </main>

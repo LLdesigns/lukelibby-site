@@ -446,6 +446,10 @@
   color: var(--v3-orange);
 }
 
+.v3-contact .v3-actions {
+  margin-top: 0;
+}
+
 .v3-contact h2 {
   font-size: 32px;
   margin: 0;

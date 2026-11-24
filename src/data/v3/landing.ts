@@ -180,6 +180,7 @@ export const v3Contact = {
   email: 'lukelibbydesigns@gmail.com',
   ctaLabel: 'Connect on LinkedIn →',
   ctaHref: siteMeta.linkedInUrl,
+  resumeLabel: 'Download Resume',
 }
 
 export type V3WorkTile = {
